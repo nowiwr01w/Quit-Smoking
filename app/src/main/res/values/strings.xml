@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Stop smoking</string>
+    <string name="title_home">Home</string>
+    <string name="title_desire">Desire</string>
+    <string name="title_notes">Notes</string>
+    <string name="title_chat">Chat</string>
+</resources>
