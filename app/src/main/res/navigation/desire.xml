@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/desireFragment"
-        android:name="com.nowiwr01.stop_smoking.DesireFragment"
+        android:name="com.nowiwr01.stop_smoking.ui.desire.DesireFragment"
         android:label="DesireFragment" />
 </navigation>

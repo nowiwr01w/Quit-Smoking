@@ -1,4 +1,4 @@
-package com.nowiwr01.stop_smoking
+package com.nowiwr01.stop_smoking.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.navigation.fragment.NavHostFragment
+import com.nowiwr01.stop_smoking.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.main, R.id.desire,  R.id.notes, R.id.chat)
+            setOf(R.id.main, R.id.desire, R.id.notes, R.id.chat)
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
     }

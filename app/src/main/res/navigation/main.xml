@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.nowiwr01.stop_smoking.MainFragment"
+        android:name="com.nowiwr01.stop_smoking.ui.main.MainFragment"
         android:label="MainFragment" />
 </navigation>
