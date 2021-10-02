@@ -39,6 +39,7 @@
         app:layout_constraintStart_toEndOf="@id/info_desire_value" />
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/info_desire_info_icon"
         style="@style/InfoIcon"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="12dp"

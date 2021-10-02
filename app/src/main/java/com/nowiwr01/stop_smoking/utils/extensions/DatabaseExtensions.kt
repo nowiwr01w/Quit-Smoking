@@ -1,4 +1,4 @@
-package com.nowiwr01.stop_smoking.extensions
+package com.nowiwr01.stop_smoking.utils.extensions
 
 import android.content.Context
 import androidx.room.Room

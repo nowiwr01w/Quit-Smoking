@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.nowiwr01.stop_smoking.ui.main.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment">
+        <action
+            android:id="@+id/action_home_to_info"
+            app:destination="@id/infoBottomSheet" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/infoBottomSheet"
+        android:name="com.nowiwr01.stop_smoking.ui.main.info.InfoBottomSheet"
+        android:label="InfoBottomSheet"
+        tools:layout="@layout/bottom_sheet_info" />
+
 </navigation>
