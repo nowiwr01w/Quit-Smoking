@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Text">
+        <item name="android:alpha">0.95</item>
         <item name="fontFamily">@font/roboto</item>
         <item name="android:textColor">@color/text_color</item>
     </style>

@@ -41,8 +41,9 @@
     <de.hdodenhof.circleimageview.CircleImageView
         style="@style/InfoIcon"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="12dp"
         android:src="@drawable/ic_info"
-        app:layout_constraintBottom_toBottomOf="@id/info_free_time_value_description"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
