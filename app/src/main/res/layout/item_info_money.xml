@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:background="@drawable/bg_timer_rounded"
-    android:elevation="4dp">
+    android:background="@drawable/bg_timer_rounded">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/info_money_icon"
@@ -24,7 +23,7 @@
 
     <TextView
         android:id="@+id/info_money_value"
-        style="@style/Text.Big"
+        style="@style/Text.Big.Bold"
         android:text="2850"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/info_money_icon"
