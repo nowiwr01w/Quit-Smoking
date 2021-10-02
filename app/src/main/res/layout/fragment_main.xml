@@ -22,8 +22,7 @@
 
             <ImageView
                 android:id="@+id/settings"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
+                style="@style/ToolbarIcon"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/ic_settings"
@@ -32,10 +31,10 @@
 
             <include
                 android:id="@+id/bell"
+                layout="@layout/kayout_notification_bell"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                layout="@layout/kayout_notification_bell"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/settings" />
 

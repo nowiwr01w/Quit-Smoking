@@ -58,8 +58,7 @@
         app:layout_constraintStart_toEndOf="@id/info_free_time_value" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="16dp"
-        android:layout_height="16dp"
+        style="@style/InfoIcon"
         android:layout_marginEnd="24dp"
         android:src="@drawable/ic_info"
         app:layout_constraintBottom_toBottomOf="@id/info_free_time_value_description"
