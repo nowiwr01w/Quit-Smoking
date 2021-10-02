@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/purple_700">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_70"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <TextView
+        android:id="@+id/month_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="05"
+        android:textColor="@color/text_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/guideline_70"
+        app:layout_constraintEnd_toEndOf="@id/month_title"
+        app:layout_constraintStart_toStartOf="@id/month_title" />
+
+    <TextView
+        android:id="@+id/month_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:fontFamily="@font/roboto"
+        android:text="месяцев"
+        android:textColor="@color/text_color"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/days_title"
+        app:layout_constraintTop_toBottomOf="@id/guideline_70" />
+
+    <TextView
+        android:id="@+id/days_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="14"
+        android:textColor="@color/text_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/guideline_70"
+        app:layout_constraintEnd_toEndOf="@id/days_title"
+        app:layout_constraintStart_toStartOf="@id/days_title" />
+
+    <TextView
+        android:id="@+id/days_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:fontFamily="@font/roboto"
+        android:text="дней"
+        android:textColor="@color/text_color"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_50"
+        app:layout_constraintTop_toBottomOf="@id/guideline_70" />
+
+    <TextView
+        android:id="@+id/hours_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="13"
+        android:textColor="@color/text_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/guideline_70"
+        app:layout_constraintEnd_toEndOf="@id/hours_title"
+        app:layout_constraintStart_toStartOf="@id/hours_title" />
+
+    <TextView
+        android:id="@+id/hours_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/roboto"
+        android:text="часов"
+        android:textColor="@color/text_color"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/guideline_50"
+        app:layout_constraintTop_toBottomOf="@id/guideline_70" />
+
+    <TextView
+        android:id="@+id/minutes_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="05"
+        android:textColor="@color/text_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/guideline_70"
+        app:layout_constraintEnd_toEndOf="@id/minutes_title"
+        app:layout_constraintStart_toStartOf="@id/minutes_title" />
+
+    <TextView
+        android:id="@+id/minutes_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/roboto"
+        android:text="минут"
+        android:textColor="@color/text_color"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/hours_title"
+        app:layout_constraintTop_toBottomOf="@id/guideline_70" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

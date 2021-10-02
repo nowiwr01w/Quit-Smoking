@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@drawable/bg_timer_rounded"
+    android:elevation="4dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/info_desire_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_strong_desire"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/info_desire_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:fontFamily="@font/roboto"
+        android:text="Не поддались зависимости"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/info_desire_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/info_desire_icon"
+        app:layout_constraintTop_toTopOf="@id/info_desire_icon" />
+
+    <TextView
+        android:id="@+id/info_desire_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="5"
+        android:textColor="@color/text_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/info_desire_icon"
+        app:layout_constraintTop_toBottomOf="@id/info_desire_icon" />
+
+    <TextView
+        android:id="@+id/info_desire_value_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/roboto"
+        android:text="раз"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/info_desire_value"
+        app:layout_constraintBottom_toBottomOf="@id/info_desire_value"
+        app:layout_constraintStart_toEndOf="@id/info_desire_value" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/ic_info"
+        app:layout_constraintBottom_toBottomOf="@id/info_desire_value_description"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
