@@ -8,24 +8,15 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/info_not_smoked_icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
+        style="@style/InfoAvatar"
         android:src="@drawable/ic_warning"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/info_not_smoked_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:fontFamily="@font/roboto"
+        style="@style/Text.MainInfo.Medium"
         android:text="Невыкуренных пачек"
-        android:textColor="@color/text_color"
-        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/info_not_smoked_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/info_not_smoked_icon"
@@ -33,26 +24,17 @@
 
     <TextView
         android:id="@+id/info_not_smoked_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto"
+        style="@style/Text.Big"
         android:text="37"
-        android:textColor="@color/text_color"
-        android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/info_not_smoked_icon"
         app:layout_constraintTop_toBottomOf="@id/info_not_smoked_icon" />
 
     <TextView
         android:id="@+id/info_not_smoked_value_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Text.Medium"
         android:layout_marginStart="8dp"
-        android:fontFamily="@font/roboto"
         android:text="пачек"
-        android:textColor="@color/text_color"
-        android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@id/info_not_smoked_value"
         app:layout_constraintBottom_toBottomOf="@id/info_not_smoked_value"
         app:layout_constraintStart_toEndOf="@id/info_not_smoked_value" />

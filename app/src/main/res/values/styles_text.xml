@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Text">
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="Text.Usual" parent="Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Text.Small" parent="Text.Usual">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Text.Small.Constrained" parent="Text.Small">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="Text.Medium" parent="Text.Usual">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Text.Big" parent="Text.Usual">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="Text.Small.Bold" parent="Text.Small">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Medium.Bold" parent="Text.Medium">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Big.Bold" parent="Text.Big">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Width_Constrained" parent="Text">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Text.Constrained" parent="Text">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="Text.MainInfo.Medium" parent="Text.Width_Constrained">
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginStart">12dp</item>
+        <item name="android:layout_marginEnd">12dp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+</resources>
