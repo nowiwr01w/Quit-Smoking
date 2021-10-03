@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.fragment.app.Fragment
 import com.nowiwr01.stop_smoking.ui.MainActivity
+import org.koin.androidx.scope.ScopeFragment
 
-abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
+abstract class BaseFragment<T : ViewDataBinding> : ScopeFragment() {
 
     val baseActivity: MainActivity
         get() = activity as MainActivity

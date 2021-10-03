@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_bell.xml" value="0.287109375" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_bottom_sheet_corners.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_main_rounded_corners.xml" value="0.3828125" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_ripple_clickable.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_shadow.xml" value="0.287109375" />
@@ -35,6 +36,7 @@
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_star_medium.xml" value="0.24521857923497267" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_star_small.xml" value="0.2421448087431694" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/kayout_notification_bell.xml" value="1.5" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/layout_bottom_sheet_free_time.xml" value="0.23975409836065573" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/layout_subscribe_banner.xml" value="0.25" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/layout_timer_big.xml" value="0.33" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/layout_timer_long.xml" value="0.25" />

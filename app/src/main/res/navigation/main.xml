@@ -18,6 +18,10 @@
         android:id="@+id/infoBottomSheet"
         android:name="com.nowiwr01.stop_smoking.ui.main.info.InfoBottomSheet"
         android:label="InfoBottomSheet"
-        tools:layout="@layout/bottom_sheet_info" />
+        tools:layout="@layout/bottom_sheet_info">
+        <argument
+            android:name="type"
+            app:argType="string" />
+    </dialog>
 
 </navigation>

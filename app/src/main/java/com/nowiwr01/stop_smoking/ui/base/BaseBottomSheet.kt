@@ -8,13 +8,19 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.nowiwr01.stop_smoking.R
 import com.nowiwr01.stop_smoking.utils.extensions.dpToPx
 
-abstract class BaseBottomSheet(private val layoutResId: Int): BottomSheetDialogFragment() {
+abstract class BaseBottomSheet<T : ViewDataBinding>: BottomSheetDialogFragment() {
+
+    protected abstract val layoutResId: Int
+
+    protected lateinit var binding: T
 
     protected open fun setBottomSheetViews() {}
     protected open fun setListeners() {}
@@ -39,8 +45,8 @@ abstract class BaseBottomSheet(private val layoutResId: Int): BottomSheetDialogF
             addView(headerImg)
         }
         dialogContainer.addView(header)
-        val view = inflater.inflate(layoutResId, dialogContainer, false)
-        dialogContainer.addView(view)
+        binding = DataBindingUtil.inflate(inflater, layoutResId, dialogContainer, false)
+        dialogContainer.addView(binding.root)
         return dialogContainer
     }
 
