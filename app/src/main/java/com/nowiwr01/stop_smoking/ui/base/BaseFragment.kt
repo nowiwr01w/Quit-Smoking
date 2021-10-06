@@ -78,6 +78,12 @@ abstract class BaseFragment<T : ViewDataBinding> : ScopeFragment() {
     protected open fun setActions() {}
 
     /**
+     * We can show or hide bottom bar for specific Fragment.
+     */
+    protected fun showBottomBar() = baseActivity.showBottomBar()
+    protected fun hideBottomBar() = baseActivity.hideBottomBar()
+
+    /**
      * When we want to show something after clicking on the system back button,
      * we must override this method
      */

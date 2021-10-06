@@ -5,19 +5,26 @@
       <map>
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_bell.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_bottom_sheet_corners.xml" value="0.287109375" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_edit_text_cursor.xml" value="0.287109375" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_edit_text_default.xml" value="0.287109375" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_login_button.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_main_rounded_corners.xml" value="0.3828125" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_ripple_clickable.xml" value="0.287109375" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_rounded_login.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_shadow.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_subscribe_banner.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_timer_rounded.xml" value="0.3828125" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_user_info_rounded.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/ic_bell.xml" value="0.3828125" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/ic_desire.xml" value="0.22135416666666666" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/ic_google.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/ic_info.xml" value="0.166015625" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/ic_login.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/ic_money.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/ic_settings.xml" value="0.3828125" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/ic_star.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/ic_touch_dialog.xml" value="0.287109375" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/ic_vk.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/font/roboo_bold.xml" value="0.396875" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/font/roboto_bold.xml" value="0.20703125" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/font/roboto_medium.xml" value="0.396875" />
@@ -25,8 +32,11 @@
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/bottom_sheet_info.xml" value="0.24282786885245902" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_chat.xml" value="0.32518115942028986" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_desire.xml" value="0.32518115942028986" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_login.xml" value="0.22780054644808742" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_main.xml" value="0.21" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_notes.xml" value="0.32518115942028986" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_sign_in.xml" value="0.22780054644808742" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_sign_up.xml" value="0.22780054644808742" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_info.xml" value="0.22" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_info_free_time.xml" value="0.2" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_info_money.xml" value="0.25" />

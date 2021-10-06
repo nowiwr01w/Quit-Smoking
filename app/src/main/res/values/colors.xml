@@ -15,4 +15,5 @@
     <color name="star_small_color">#ffc107</color>
     <color name="star_medium_color">#ff5e3a</color>
     <color name="star_big_color">#d50000</color>
+    <color name="color_accent">#FC4C4C</color>
 </resources>
