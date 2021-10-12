@@ -27,13 +27,13 @@ class SignUpFragment(
     override fun setListeners() {
         super.setListeners()
         binding.signUp.setOnClickListener {
+            setDefaultMotionMode(binding)
             val userData = controller.getUserData()
             signUpIfValid(userData)
         }
     }
 
     private fun signUpIfValid(userData: UserDataSignUp) {
-        controller.setDefaultAll()
         val error = viewModel.isUserInputValid(userData)
         if (error == null) {
             viewModel.signUp(userData.email, userData.password)

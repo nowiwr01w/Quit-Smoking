@@ -18,7 +18,7 @@ fun Context.showSnackbar(view: View, message: String) {
         text = message
         setTextColor(this@showSnackbar.getColor(R.color.stackBar_color))
     }
-    val snackBar = Snackbar.make(view, "", 2500).apply {
+    val snackBar = Snackbar.make(view, "", 4000).apply {
         getView().setPadding(0, 0, 0, 0)
         (getView() as Snackbar.SnackbarLayout).removeAllViews()
         (getView() as Snackbar.SnackbarLayout).addView(custom)

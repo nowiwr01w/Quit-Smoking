@@ -19,13 +19,6 @@ class SignUpController(
         binding.password1.text.toString()
     )
 
-    fun setDefaultAll() {
-        binding.email.setDefault()
-        binding.username.setDefault()
-        binding.password0.setDefault()
-        binding.password1.setDefault()
-    }
-
     fun setErrorByNumbers(numbers: List<UserHighlightType>) {
         numbers.forEach {
             when (it) {

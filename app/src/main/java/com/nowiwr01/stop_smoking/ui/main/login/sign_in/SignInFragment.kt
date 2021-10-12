@@ -27,6 +27,7 @@ class SignInFragment(
     override fun setListeners() {
         super.setListeners()
         binding.login.setOnClickListener {
+            setDefaultMotionMode(binding)
             val userData = controller.getUserData()
             signInIfValid(userData)
         }
