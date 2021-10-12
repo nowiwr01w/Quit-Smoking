@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "428753335820",
+    "project_id": "stop-smoking-afe70",
+    "storage_bucket": "stop-smoking-afe70.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428753335820:android:1824b64ec2fed1aad86029",
+        "android_client_info": {
+          "package_name": "com.nowiwr01.stop_smoking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "428753335820-4roo73e608kncqg45a2qd1np7jkb5u68.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nowiwr01.stop_smoking",
+            "certificate_hash": "05a5222c1edfff3f2c73d77e71202517cd93b379"
+          }
+        },
+        {
+          "client_id": "428753335820-4584dt1o3d7dragn072nst71ok8n0hug.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiW1j_8GMmHmiQKc0M_D3SQ3dcAkApe5A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "428753335820-4584dt1o3d7dragn072nst71ok8n0hug.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,6 +2,7 @@ package com.nowiwr01.stop_smoking.ui.base
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,9 +49,10 @@ abstract class BaseFragment<T : ViewDataBinding> : ScopeFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         if (currentView == null) {
             binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
-            currentView = binding
+            currentView = DataBindingUtil.inflate(inflater, layoutResId, container, false)
             binding.lifecycleOwner = this
             currentView!!.lifecycleOwner = this
+            return binding.root
         }
         return binding.root
     }
@@ -61,6 +63,7 @@ abstract class BaseFragment<T : ViewDataBinding> : ScopeFragment() {
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d("Auth", "${this::class.java.simpleName} onViewCreated()")
         initializeBinding()
         setViews()
         setObservers()

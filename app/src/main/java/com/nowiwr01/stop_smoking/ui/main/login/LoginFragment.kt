@@ -4,7 +4,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.nowiwr01.stop_smoking.R
 import com.nowiwr01.stop_smoking.databinding.FragmentLoginBinding
 import com.nowiwr01.stop_smoking.ui.base.BaseFragment
-import com.nowiwr01.stop_smoking.ui.main.login.data.ViewPagerAdapter
+import com.nowiwr01.stop_smoking.ui.main.login.data.VPAdapter
 
 class LoginFragment(
     override val layoutResId: Int = R.layout.fragment_login
@@ -16,12 +16,10 @@ class LoginFragment(
     }
 
     private fun setupViewPager() {
-        with(binding) {
-            viewPager.adapter = ViewPagerAdapter()
-            TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-                tab.text = if (position == 0) SIGN_IN_TITLE else SIGN_UP_TITLE
-            }.attach()
-        }
+        binding.viewPager.adapter = VPAdapter(parentFragmentManager, lifecycle)
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+            tab.text = if (position == 0) SIGN_IN_TITLE else SIGN_UP_TITLE
+        }.attach()
     }
 
     private companion object {

@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="purple_700">#3f4257</color>
+    <color name="color_accent">#FC4C4C</color>
 
     <color name="text_color">#ffffff</color>
     <color name="background_color">@color/purple_700</color>
@@ -15,5 +16,6 @@
     <color name="star_small_color">#ffc107</color>
     <color name="star_medium_color">#ff5e3a</color>
     <color name="star_big_color">#d50000</color>
-    <color name="color_accent">#FC4C4C</color>
+
+    <color name="stackBar_color">#EEEEEE</color>
 </resources>
