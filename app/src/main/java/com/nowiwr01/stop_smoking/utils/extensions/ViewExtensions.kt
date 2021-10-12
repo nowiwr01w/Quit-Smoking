@@ -1,17 +1,15 @@
 package com.nowiwr01.stop_smoking.utils.extensions
 
-import android.content.Context
-import android.view.LayoutInflater
+import android.graphics.Rect
 import android.view.View
 import android.widget.EditText
-import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
-import androidx.fragment.app.Fragment
-import com.google.android.material.snackbar.Snackbar
 import com.nowiwr01.stop_smoking.R
 import com.nowiwr01.stop_smoking.utils.OnSingleClickListener
 
+/**
+ * View
+ */
 fun View?.setVisible() {
     this?.visibility = View.VISIBLE
 }
@@ -24,6 +22,21 @@ fun View.setOnSingleClickListener(l: (View) -> Unit) {
     setOnClickListener(OnSingleClickListener(l))
 }
 
+fun View.setKeyboardListener(editTexts: List<EditText>, callback: () -> Unit) {
+    viewTreeObserver.addOnGlobalLayoutListener {
+        val rect = Rect()
+        getWindowVisibleDisplayFrame(rect)
+        val heightDiff = rootView.height - (rect.bottom - rect.top)
+        if (heightDiff < 500 && editTexts.isAnyoneHasFocus()) {
+            editTexts.clearAllFocus()
+            callback.invoke()
+        }
+    }
+}
+
+/**
+ * EditText
+ */
 fun EditText.setError() {
     setBackgroundResource(R.drawable.bg_edit_text_error)
 }
@@ -38,24 +51,23 @@ fun EditText.doOnTextChanged(callback: () -> Unit) {
     }
 }
 
-fun Fragment.showSnackbar(message: String) {
-    this.requireContext().showSnackbar(requireView(), message)
+fun List<EditText>.isAnyoneHasFocus(): Boolean {
+    forEach {
+        if (it.hasFocus()) return true
+    }
+    return false
 }
 
-fun Context.showSnackbar(view: View, message: String) {
-    val custom = LayoutInflater.from(this).inflate(R.layout.layout_custom_snackbar, null)
-    custom.apply {
-        elevation = 0f
-        background = ContextCompat.getDrawable(this@showSnackbar, R.drawable.bg_snackbar)
+fun List<EditText>.setAllFocusListener(callback: () -> Unit) {
+    forEach {
+        it.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) callback.invoke()
+        }
     }
-    custom.findViewById<TextView>(R.id.customText).apply {
-        text = message
-        setTextColor(this@showSnackbar.getColor(R.color.stackBar_color))
+}
+
+fun List<EditText>.clearAllFocus() {
+    forEach {
+        it.clearFocus()
     }
-    val snackBar = Snackbar.make(view, "", 2500).apply {
-        getView().setPadding(0, 0, 0, 0)
-        (getView() as Snackbar.SnackbarLayout).removeAllViews()
-        (getView() as Snackbar.SnackbarLayout).addView(custom)
-    }
-    snackBar.show()
 }

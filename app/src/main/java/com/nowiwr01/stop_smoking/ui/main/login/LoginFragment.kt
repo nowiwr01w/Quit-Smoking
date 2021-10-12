@@ -22,6 +22,14 @@ class LoginFragment(
         }.attach()
     }
 
+    fun expandOrCollapse(expand: Boolean) {
+        if (expand) {
+            binding.motionLayout.transitionToEnd()
+        } else {
+            binding.motionLayout.transitionToStart()
+        }
+    }
+
     private companion object {
         const val SIGN_UP_TITLE = "Sign Up"
         const val SIGN_IN_TITLE = "Sign In"

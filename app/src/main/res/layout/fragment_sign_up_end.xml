@@ -4,11 +4,10 @@
 
     <data />
 
-    <androidx.constraintlayout.motion.widget.MotionLayout
-        android:id="@+id/motion_sign_in"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/motion_sign_up"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutDescription="@xml/fragment_sign_in_fab_floating">
+        android:layout_height="match_parent">
 
         <EditText
             android:id="@+id/email"
@@ -23,6 +22,18 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
+            android:id="@+id/username"
+            style="@style/EditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/username"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/email" />
+
+        <EditText
             android:id="@+id/password0"
             style="@style/EditText"
             android:layout_width="0dp"
@@ -32,34 +43,39 @@
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/email" />
+            app:layout_constraintTop_toBottomOf="@id/username" />
 
-        <TextView
-            android:id="@+id/forgot_password_text"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/password1"
+            style="@style/EditText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/forgot_password"
-            app:layout_constraintEnd_toEndOf="@id/password0"
+            android:layout_marginTop="16dp"
+            android:hint="@string/password_again"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/password0" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/login"
+            android:id="@+id/signUp"
             android:layout_width="0dp"
-            android:layout_height="52dp"
+            android:layout_height="54dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:background="@drawable/bg_login_button"
+            android:clickable="true"
+            android:focusable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/forgot_password_text">
+            app:layout_constraintTop_toBottomOf="@id/password1">
 
             <TextView
-                android:id="@+id/text_sign_in"
+                android:id="@+id/text_sign_up"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/sign_in"
+                android:text="@string/sign_up"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -68,7 +84,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ProgressBar
-                android:id="@+id/progress_sign_in"
+                android:id="@+id/progress_sign_up"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:indeterminateTint="@color/color_accent"
@@ -88,31 +104,33 @@
             app:layout_constraintGuide_percent="0.5" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/vk_login"
+            android:id="@+id/vk_sign_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="12dp"
+            android:layout_marginBottom="-80dp"
             android:scaleType="center"
             app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/guideline50"
-            app:layout_constraintTop_toBottomOf="@+id/login"
             app:srcCompat="@drawable/ic_vk"
             app:tint="@null" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/google_login"
+            android:id="@+id/google_sign_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="-80dp"
             android:scaleType="center"
             app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/guideline50"
-            app:layout_constraintTop_toBottomOf="@+id/login"
             app:srcCompat="@drawable/ic_google"
             app:tint="@null" />
 
-    </androidx.constraintlayout.motion.widget.MotionLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

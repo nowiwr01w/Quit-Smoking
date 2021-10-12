@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        android:id="@+id/swipe_bidirectional"
+        motion:constraintSetEnd="@layout/fragment_login_end"
+        motion:constraintSetStart="@layout/fragment_login"
+        motion:duration="250">
+    </Transition>
+
+</MotionScene>

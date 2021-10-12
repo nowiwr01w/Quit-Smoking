@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        android:id="@+id/swipe_bidirectional"
+        motion:constraintSetEnd="@layout/fragment_sign_in_end"
+        motion:constraintSetStart="@layout/fragment_sign_in"
+        motion:duration="250">
+        <KeyFrameSet>
+            <KeyAttribute
+                motion:motionTarget="@id/vk_login"
+                motion:framePosition="0"
+                android:elevation="8dp"/>
+            <KeyAttribute
+                motion:motionTarget="@id/google_login"
+                motion:framePosition="0"
+                android:elevation="8dp"/>
+            <KeyAttribute
+                motion:motionTarget="@id/vk_login"
+                motion:framePosition="100"
+                android:elevation="8dp"/>
+            <KeyAttribute
+                motion:motionTarget="@id/google_login"
+                motion:framePosition="100"
+                android:elevation="8dp"/>
+        </KeyFrameSet>
+    </Transition>
+
+</MotionScene>

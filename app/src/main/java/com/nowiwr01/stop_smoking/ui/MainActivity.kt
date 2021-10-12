@@ -1,14 +1,13 @@
 package com.nowiwr01.stop_smoking.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.navigation.fragment.NavHostFragment
 import com.nowiwr01.stop_smoking.R
 import com.nowiwr01.stop_smoking.databinding.ActivityMainBinding
 import com.nowiwr01.stop_smoking.utils.extensions.setGone
