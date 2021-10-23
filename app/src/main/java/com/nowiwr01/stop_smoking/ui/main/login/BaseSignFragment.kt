@@ -1,7 +1,7 @@
 package com.nowiwr01.stop_smoking.ui.main.login
 
 import android.widget.EditText
-import androidx.databinding.ViewDataBinding
+import androidx.viewbinding.ViewBinding
 import com.nowiwr01.stop_smoking.databinding.FragmentSignInBinding
 import com.nowiwr01.stop_smoking.databinding.FragmentSignUpBinding
 import com.nowiwr01.stop_smoking.ui.base.BaseFragment
@@ -9,9 +9,9 @@ import com.nowiwr01.stop_smoking.utils.extensions.hideKeyboard
 import com.nowiwr01.stop_smoking.utils.extensions.setAllFocusListener
 import com.nowiwr01.stop_smoking.utils.extensions.setKeyboardListener
 
-abstract class BaseSignFragment<T : ViewDataBinding>(
-    override val layoutResId: Int
-) : BaseFragment<T>() {
+abstract class BaseSignFragment(layoutResId: Int): BaseFragment(layoutResId) {
+
+    abstract val vb: ViewBinding
 
     abstract val inputFields: List<EditText>
 
@@ -29,23 +29,23 @@ abstract class BaseSignFragment<T : ViewDataBinding>(
         if (parent != null && parent is LoginFragment) {
             parent.expandOrCollapse(expand)
         }
-        toggleAuthMotionLayout(binding, expand)
+        toggleAuthMotionLayout(expand)
     }
 
-    private fun toggleAuthMotionLayout(binding: T, expand: Boolean) {
-        val layout = getSpecificMotionLayout(binding)
+    private fun toggleAuthMotionLayout(expand: Boolean) {
+        val layout = getSpecificMotionLayout()
         if (expand) layout.transitionToEnd() else layout.transitionToStart()
     }
 
-    protected fun setDefaultMotionMode(binding: T) {
+    protected fun setDefaultMotionMode() {
         requireView().hideKeyboard()
-        getSpecificMotionLayout(binding).transitionToStart()
+        getSpecificMotionLayout().transitionToStart()
         toggleMotionLayout(false)
     }
 
-    private fun getSpecificMotionLayout(binding: T) = when (binding) {
-        is FragmentSignInBinding -> binding.motionSignIn
-        is FragmentSignUpBinding -> binding.motionSignUp
+    private fun getSpecificMotionLayout() = when (vb) {
+        is FragmentSignInBinding -> (vb as FragmentSignInBinding).motionSignIn
+        is FragmentSignUpBinding -> (vb as FragmentSignUpBinding).motionSignUp
         else -> throw IllegalStateException("Not an auth layout")
     }
 }

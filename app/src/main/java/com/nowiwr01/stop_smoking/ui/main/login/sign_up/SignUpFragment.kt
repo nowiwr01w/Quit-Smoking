@@ -1,24 +1,24 @@
 package com.nowiwr01.stop_smoking.ui.main.login.sign_up
 
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.nowiwr01.stop_smoking.R
 import com.nowiwr01.stop_smoking.databinding.FragmentSignUpBinding
-import com.nowiwr01.stop_smoking.domain.UserDataSignUp
 import com.nowiwr01.stop_smoking.logic.errors.SignUpTextError
 import com.nowiwr01.stop_smoking.ui.main.login.BaseSignFragment
 import com.nowiwr01.stop_smoking.utils.extensions.showSnackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-class SignUpFragment(
-    override val layoutResId: Int = R.layout.fragment_sign_up
-) : BaseSignFragment<FragmentSignUpBinding>(layoutResId) {
+class SignUpFragment : BaseSignFragment(R.layout.fragment_sign_up) {
 
-    override val inputFields by lazy {
-        listOf(binding.email, binding.username, binding.password0, binding.password1)
-    }
+    override val vb by viewBinding<FragmentSignUpBinding>()
 
     private val viewModel by viewModel<SignUpViewModel>()
-    private val controller by inject<SignUpController> { parametersOf(binding) }
+    private val controller by inject<SignUpViewsController> { parametersOf(vb) }
+
+    override val inputFields by lazy {
+        listOf(vb.email, vb.username, vb.password0, vb.password1)
+    }
 
     override fun setViews() {
         controller.setTextChangedCallback()
@@ -26,19 +26,15 @@ class SignUpFragment(
 
     override fun setListeners() {
         super.setListeners()
-        binding.signUp.setOnClickListener {
-            setDefaultMotionMode(binding)
-            val userData = controller.getUserData()
-            signUpIfValid(userData)
+        vb.signUp.setOnClickListener {
+            setDefaultMotionMode()
+            viewModel.signUp(controller.getUserData())
         }
     }
 
-    private fun signUpIfValid(userData: UserDataSignUp) {
-        val error = viewModel.isUserInputValid(userData)
-        if (error == null) {
-            viewModel.signUp(userData.email, userData.password)
-        } else {
-            proceedError(error)
+    override fun setObservers() {
+        viewModel.signUpError.observe(viewLifecycleOwner) {
+            proceedError(it)
         }
     }
 

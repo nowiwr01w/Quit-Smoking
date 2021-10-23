@@ -8,19 +8,16 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
+import androidx.viewbinding.ViewBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.nowiwr01.stop_smoking.R
 import com.nowiwr01.stop_smoking.utils.extensions.dpToPx
 
-abstract class BaseBottomSheet<T : ViewDataBinding>: BottomSheetDialogFragment() {
+abstract class BaseBottomSheet: BottomSheetDialogFragment() {
 
-    protected abstract val layoutResId: Int
-
-    protected lateinit var binding: T
+    protected abstract val binding: ViewBinding
 
     protected open fun setBottomSheetViews() {}
     protected open fun setListeners() {}
@@ -44,10 +41,10 @@ abstract class BaseBottomSheet<T : ViewDataBinding>: BottomSheetDialogFragment()
         val header = FrameLayout(requireContext()).apply {
             addView(headerImg)
         }
-        dialogContainer.addView(header)
-        binding = DataBindingUtil.inflate(inflater, layoutResId, dialogContainer, false)
-        dialogContainer.addView(binding.root)
-        return dialogContainer
+        return dialogContainer.apply {
+            addView(header)
+            addView(binding.root)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

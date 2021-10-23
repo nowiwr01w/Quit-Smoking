@@ -1,8 +1,10 @@
 package com.nowiwr01.stop_smoking.ui.main
 
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.nowiwr01.stop_smoking.R
 import com.nowiwr01.stop_smoking.data.Star
 import com.nowiwr01.stop_smoking.data.StarAdapter
+import com.nowiwr01.stop_smoking.databinding.FragmentDesireBinding
 import com.nowiwr01.stop_smoking.databinding.FragmentMainBinding
 import com.nowiwr01.stop_smoking.ui.base.BaseFragment
 import com.nowiwr01.stop_smoking.ui.main.info.InfoBottomSheet.Companion.TYPE_FREE_TIME
@@ -11,9 +13,9 @@ import com.nowiwr01.stop_smoking.utils.extensions.setOnSingleClickListener
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class MainFragment(
-    override val layoutResId: Int = R.layout.fragment_main
-) : BaseFragment<FragmentMainBinding>() {
+class MainFragment : BaseFragment(R.layout.fragment_main) {
+
+    private val vb by viewBinding<FragmentMainBinding>()
 
     private val navigator by inject<MainNavigator> { parametersOf(this) }
 
@@ -22,10 +24,10 @@ class MainFragment(
     }
 
     override fun setListeners() {
-        binding.infoFreeTime.infoFreeTimeInfoIcon.setOnSingleClickListener {
+        vb.infoFreeTime.infoFreeTimeInfoIcon.setOnSingleClickListener {
             showInfo(TYPE_FREE_TIME)
         }
-        binding.infoDesire.infoDesireInfoIcon.setOnSingleClickListener {
+        vb.infoDesire.infoDesireInfoIcon.setOnSingleClickListener {
             showInfo(TYPE_STRONG_DESIRE)
         }
     }
@@ -35,7 +37,7 @@ class MainFragment(
     }
 
     private fun setRecyclerView() {
-        binding.starsRecycler.apply {
+        vb.starsRecycler.apply {
             adapter = StarAdapter(getStars())
         }
     }

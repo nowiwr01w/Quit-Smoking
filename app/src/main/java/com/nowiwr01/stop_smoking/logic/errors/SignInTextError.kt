@@ -8,6 +8,10 @@ data class SignInTextError(
     val message: String
 ) {
     companion object {
+        fun createServerError() = SignInTextError(
+            listOf(),
+            "Произошла ошибка, попробуйте снова"
+        )
         fun createInvalidEmailMessage() = SignInTextError(
             listOf(EMAIL_FIELD_ERROR),
             "Неверный формат электронной почты"

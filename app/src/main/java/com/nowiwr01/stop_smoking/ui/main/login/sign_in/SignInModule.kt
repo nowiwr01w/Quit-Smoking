@@ -7,7 +7,7 @@ val fragmentSignIn = module {
     scope<SignInFragment> {
         scoped { params ->
             val binding: FragmentSignInBinding = params[0]
-            SignInController(binding)
+            SignInViewsController(binding)
         }
     }
 }

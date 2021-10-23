@@ -7,7 +7,7 @@ val fragmentSignUp = module {
     scope<SignUpFragment> {
         scoped { params ->
             val binding: FragmentSignUpBinding = params[0]
-            SignUpController(binding)
+            SignUpViewsController(binding)
         }
     }
 }

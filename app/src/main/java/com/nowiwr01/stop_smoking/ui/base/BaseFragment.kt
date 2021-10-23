@@ -2,26 +2,14 @@ package com.nowiwr01.stop_smoking.ui.base
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import com.nowiwr01.stop_smoking.ui.MainActivity
 import org.koin.androidx.scope.ScopeFragment
 
-abstract class BaseFragment<T : ViewDataBinding> : ScopeFragment() {
+abstract class BaseFragment(layoutResId: Int): ScopeFragment(layoutResId) {
 
-    val baseActivity: MainActivity
+    protected val baseActivity: MainActivity
         get() = activity as MainActivity
-
-    protected abstract val layoutResId: Int
-
-    /**
-     * We will use DataBinding to avoid writing boilerplate code.
-     */
-    protected lateinit var binding: T
 
     /**
      * We don't want to write context?. or requireContext() all the time.
@@ -37,34 +25,11 @@ abstract class BaseFragment<T : ViewDataBinding> : ScopeFragment() {
     }
 
     /**
-     * Current view for specific Fragment.
-     */
-    private var currentView: ViewDataBinding? = null
-
-    /**
-     * The official Google support says, that we should check the state of our currentView
-     * to avoid Fragment re-creation.
-     * Also we don't want to always write binding?.
-     */
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        if (currentView == null) {
-            binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
-            currentView = DataBindingUtil.inflate(inflater, layoutResId, container, false)
-            binding.lifecycleOwner = this
-            currentView!!.lifecycleOwner = this
-            return binding.root
-        }
-        return binding.root
-    }
-
-    /**
      * The code should be structured and understandable, therefore, all actions will be
      * performed in specific functions.
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("Auth", "${this::class.java.simpleName} onViewCreated()")
-        initializeBinding()
         setViews()
         setObservers()
         setListeners()

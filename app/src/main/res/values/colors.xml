@@ -17,5 +17,5 @@
     <color name="star_medium_color">#ff5e3a</color>
     <color name="star_big_color">#d50000</color>
 
-    <color name="stackBar_color">#EEEEEE</color>
+    <color name="snackBar_color">#EEEEEE</color>
 </resources>

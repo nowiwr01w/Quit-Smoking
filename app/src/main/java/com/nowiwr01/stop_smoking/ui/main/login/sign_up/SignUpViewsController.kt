@@ -8,7 +8,7 @@ import com.nowiwr01.stop_smoking.utils.extensions.doOnTextChanged
 import com.nowiwr01.stop_smoking.utils.extensions.setDefault
 import com.nowiwr01.stop_smoking.utils.extensions.setError
 
-class SignUpController(
+class SignUpViewsController(
     private val binding: FragmentSignUpBinding
 ) {
 
