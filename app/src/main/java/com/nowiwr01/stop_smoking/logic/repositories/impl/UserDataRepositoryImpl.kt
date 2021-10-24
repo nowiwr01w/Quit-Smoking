@@ -10,26 +10,28 @@ import com.nowiwr01.stop_smoking.ui.main.login.data.UserHighlightType.*
 import com.nowiwr01.stop_smoking.utils.extensions.hasUpperChar
 import com.nowiwr01.stop_smoking.utils.extensions.isLongPassword
 import com.nowiwr01.stop_smoking.utils.extensions.isValidEmail
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class UserDataRepositoryImpl: UserDataRepository {
 
-    override fun isSignInDataValid(userData: UserDataSignIn): SignInTextError? {
+    override suspend fun isSignInDataValid(userData: UserDataSignIn): SignInTextError? = withContext(Dispatchers.IO) {
         val emptyFieldsList = mutableListOf<UserHighlightType>()
 
         if (userData.email.isEmpty()) emptyFieldsList.add(EMAIL_FIELD_ERROR)
         if (userData.password.isEmpty()) emptyFieldsList.add(PASSWORD_FIELD_ERROR)
 
         if (emptyFieldsList.isNotEmpty()) {
-            return SignInTextError.createEmptyFieldMessage(emptyFieldsList)
+            return@withContext SignInTextError.createEmptyFieldMessage(emptyFieldsList)
         }
         if (!userData.email.isValidEmail()) {
-            return SignInTextError.createInvalidEmailMessage()
+            return@withContext SignInTextError.createInvalidEmailMessage()
         }
 
-        return null
+        null
     }
 
-    override fun isSignUpDataValid(userData: UserDataSignUp): SignUpTextError? {
+    override suspend fun isSignUpDataValid(userData: UserDataSignUp): SignUpTextError? = withContext(Dispatchers.IO) {
         val emptyFieldsList = mutableListOf<UserHighlightType>()
 
         if (userData.email.isEmpty()) emptyFieldsList.add(EMAIL_FIELD_ERROR)
@@ -38,21 +40,21 @@ class UserDataRepositoryImpl: UserDataRepository {
         if (userData.passwordRepeated.isEmpty()) emptyFieldsList.add(PASSWORD_AGAIN_FIELD_ERROR)
 
         if (emptyFieldsList.isNotEmpty()) {
-            return SignUpTextError.createEmptyFieldMessage(emptyFieldsList)
+            return@withContext SignUpTextError.createEmptyFieldMessage(emptyFieldsList)
         }
         if (!userData.email.isValidEmail()) {
-            return SignUpTextError.createInvalidEmailMessage()
+            return@withContext SignUpTextError.createInvalidEmailMessage()
         }
         if (userData.password != userData.passwordRepeated) {
-            return SignUpTextError.createNotEqualPasswordMessage()
+            return@withContext SignUpTextError.createNotEqualPasswordMessage()
         }
         if (!userData.password.isLongPassword()) {
-            return SignUpTextError.createShortPasswordMessage()
+            return@withContext SignUpTextError.createShortPasswordMessage()
         }
         if (!userData.password.hasUpperChar()) {
-            return SignUpTextError.createWeakPasswordMessage()
+            return@withContext SignUpTextError.createWeakPasswordMessage()
         }
 
-        return null
+        null
     }
 }

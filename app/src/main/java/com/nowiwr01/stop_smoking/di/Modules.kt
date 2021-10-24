@@ -7,18 +7,17 @@ import com.nowiwr01.stop_smoking.logic.repositories.FirebaseRepository
 import com.nowiwr01.stop_smoking.logic.repositories.UserDataRepository
 import com.nowiwr01.stop_smoking.logic.repositories.impl.FirebaseRepositoryImpl
 import com.nowiwr01.stop_smoking.logic.repositories.impl.UserDataRepositoryImpl
-import com.nowiwr01.stop_smoking.ui.main.login.fragmentLogin
+import com.nowiwr01.stop_smoking.ui.main.login.fragmentAuth
 import com.nowiwr01.stop_smoking.ui.main.login.sign_in.fragmentSignIn
 import com.nowiwr01.stop_smoking.ui.main.login.sign_up.fragmentSignUp
 import com.nowiwr01.stop_smoking.ui.main.fragmentMain
-import com.nowiwr01.stop_smoking.ui.main.login.sign_in.SignInViewModel
-import com.nowiwr01.stop_smoking.ui.main.login.sign_up.SignUpViewModel
+import com.nowiwr01.stop_smoking.ui.main.login.AuthViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val scopedFragments = listOf(
     fragmentMain,
-    fragmentLogin,
+    fragmentAuth,
     fragmentSignIn,
     fragmentSignUp
 )
@@ -38,8 +37,7 @@ val interactors = module {
 }
 
 val viewModels = module {
-    viewModel { SignInViewModel(get(), get()) }
-    viewModel { SignUpViewModel(get(), get()) }
+    viewModel { AuthViewModel(get(), get()) }
 }
 
 val koinModules = listOf(

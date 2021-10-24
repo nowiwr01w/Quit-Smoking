@@ -1,6 +1,6 @@
 package com.nowiwr01.stop_smoking.domain
 
 data class UserDataSignIn(
-    val email: String,
-    val password: String
-)
+    override val email: String,
+    override val password: String
+): UserData

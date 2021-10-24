@@ -79,6 +79,28 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
+    <!--- Какой-то баг в MotionLayout -->
+    <!--- Без контейнера будет зацикливаться при смене isVisible -->
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/signUp"
+        app:layout_constraintEnd_toEndOf="@id/signUp"
+        app:layout_constraintStart_toStartOf="@id/signUp"
+        app:layout_constraintTop_toTopOf="@id/signUp">
+
+        <ProgressBar
+            android:id="@+id/sign_up_progress"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:indeterminateTint="#FF0000"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/vk_sign_up"
         android:layout_width="wrap_content"

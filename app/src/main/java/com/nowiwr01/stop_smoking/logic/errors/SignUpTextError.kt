@@ -4,10 +4,15 @@ import com.nowiwr01.stop_smoking.ui.main.login.data.UserHighlightType
 import com.nowiwr01.stop_smoking.ui.main.login.data.UserHighlightType.*
 
 data class SignUpTextError(
-    val list: List<UserHighlightType>,
-    val message: String,
-) {
+    override val list: List<UserHighlightType>,
+    override val message: String,
+): AuthError {
     companion object {
+        fun createServerError() = SignUpTextError(
+            listOf(),
+            "Произошла ошибка, попробуйте снова"
+        )
+
         fun createWeakPasswordMessage() = SignUpTextError(
             listOf(PASSWORD_FIELD_ERROR, PASSWORD_AGAIN_FIELD_ERROR),
             "Пароль должен содежрать хотя бы одну заглавную букву",

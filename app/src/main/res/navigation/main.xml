@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.nowiwr01.stop_smoking.ui.main.login.LoginFragment"
+        android:name="com.nowiwr01.stop_smoking.ui.main.login.AuthFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/fragment_login">
+        tools:layout="@layout/fragment_auth">
         <action
             android:id="@+id/action_login_to_main"
             app:destination="@id/mainFragment" />

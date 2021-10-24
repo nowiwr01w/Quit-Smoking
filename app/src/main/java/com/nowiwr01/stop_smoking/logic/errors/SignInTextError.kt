@@ -4,9 +4,9 @@ import com.nowiwr01.stop_smoking.ui.main.login.data.UserHighlightType
 import com.nowiwr01.stop_smoking.ui.main.login.data.UserHighlightType.*
 
 data class SignInTextError(
-    val list: List<UserHighlightType>,
-    val message: String
-) {
+    override val list: List<UserHighlightType>,
+    override val message: String
+): AuthError {
     companion object {
         fun createServerError() = SignInTextError(
             listOf(),

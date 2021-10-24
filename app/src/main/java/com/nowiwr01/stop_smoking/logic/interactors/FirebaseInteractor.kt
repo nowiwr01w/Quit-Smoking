@@ -2,7 +2,7 @@ package com.nowiwr01.stop_smoking.logic.interactors
 
 import com.google.firebase.auth.FirebaseUser
 import com.nowiwr01.stop_smoking.logic.errors.SignInTextError
-import com.nowiwr01.stop_smoking.logic.errors.SignUpError
+import com.nowiwr01.stop_smoking.logic.errors.SignUpTextError
 import com.nowiwr01.stop_smoking.logic.repositories.FirebaseRepository
 import com.nowiwr01.stop_smoking.ui.base.ResultRemote
 import com.nowiwr01.stop_smoking.ui.base.Result
@@ -20,12 +20,12 @@ class FirebaseInteractor(
         }
     }
 
-    suspend fun signUp(email: String, password: String): Result<FirebaseUser, SignUpError> {
+    suspend fun signUp(email: String, password: String): Result<FirebaseUser, SignUpTextError> {
         val user = firebaseRepository.createUser(email, password)
         return if (user.status == ResultRemote.Status.SUCCESS && user.data != null) {
             Result.Success(user.data)
         } else {
-            Result.Fail(SignUpError.CreateUserError)
+            Result.Fail(SignUpTextError.createServerError())
         }
     }
 }

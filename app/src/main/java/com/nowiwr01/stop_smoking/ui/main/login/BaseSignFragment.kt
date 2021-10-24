@@ -4,16 +4,26 @@ import android.widget.EditText
 import androidx.viewbinding.ViewBinding
 import com.nowiwr01.stop_smoking.databinding.FragmentSignInBinding
 import com.nowiwr01.stop_smoking.databinding.FragmentSignUpBinding
+import com.nowiwr01.stop_smoking.domain.User
 import com.nowiwr01.stop_smoking.ui.base.BaseFragment
 import com.nowiwr01.stop_smoking.utils.extensions.hideKeyboard
 import com.nowiwr01.stop_smoking.utils.extensions.setAllFocusListener
 import com.nowiwr01.stop_smoking.utils.extensions.setKeyboardListener
+import com.nowiwr01.stop_smoking.utils.extensions.showSnackbar
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 abstract class BaseSignFragment(layoutResId: Int): BaseFragment(layoutResId) {
 
     abstract val vb: ViewBinding
-
     abstract val inputFields: List<EditText>
+    abstract val controller: BaseSignViewsController
+
+    protected val viewModel by viewModel<AuthViewModel>()
+
+    override fun setViews() {
+        controller.setTextChangedCallback()
+    }
 
     override fun setListeners() {
         inputFields.setAllFocusListener {
@@ -24,9 +34,35 @@ abstract class BaseSignFragment(layoutResId: Int): BaseFragment(layoutResId) {
         }
     }
 
+    override fun setObservers() {
+        viewModel.user.observe(viewLifecycleOwner) {
+            success(it)
+        }
+        viewModel.progress.observe(viewLifecycleOwner) {
+            controller.manageProgressBar(it)
+        }
+        viewModel.authError.observe(viewLifecycleOwner) {
+            controller.setErrorByType(it.list)
+            showSnackbar(it.message)
+        }
+    }
+
+    private fun success(user: User) {
+        showSnackbar(
+            message = String.format("%s, добро пожаловать!", user.name),
+            customColor = true,
+            showCallback = {
+                Timber.tag("Auth").d("Load data")
+            },
+            hideCallback = {
+                Timber.tag("Auth").d("Navigate to main")
+            }
+        )
+    }
+
     private fun toggleMotionLayout(expand: Boolean) {
         val parent = parentFragmentManager.fragments[0]
-        if (parent != null && parent is LoginFragment) {
+        if (parent != null && parent is AuthFragment) {
             parent.expandOrCollapse(expand)
         }
         toggleAuthMotionLayout(expand)
@@ -37,15 +73,15 @@ abstract class BaseSignFragment(layoutResId: Int): BaseFragment(layoutResId) {
         if (expand) layout.transitionToEnd() else layout.transitionToStart()
     }
 
-    protected fun setDefaultMotionMode() {
-        requireView().hideKeyboard()
-        getSpecificMotionLayout().transitionToStart()
-        toggleMotionLayout(false)
-    }
-
     private fun getSpecificMotionLayout() = when (vb) {
         is FragmentSignInBinding -> (vb as FragmentSignInBinding).motionSignIn
         is FragmentSignUpBinding -> (vb as FragmentSignUpBinding).motionSignUp
         else -> throw IllegalStateException("Not an auth layout")
+    }
+
+    protected fun setDefaultMotionMode() {
+        requireView().hideKeyboard()
+        getSpecificMotionLayout().transitionToStart()
+        toggleMotionLayout(false)
     }
 }

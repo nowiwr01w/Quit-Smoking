@@ -3,14 +3,13 @@ package com.nowiwr01.stop_smoking.ui.main.login
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import com.nowiwr01.stop_smoking.R
-import com.nowiwr01.stop_smoking.databinding.FragmentDesireBinding
-import com.nowiwr01.stop_smoking.databinding.FragmentLoginBinding
+import com.nowiwr01.stop_smoking.databinding.FragmentAuthBinding
 import com.nowiwr01.stop_smoking.ui.base.BaseFragment
 import com.nowiwr01.stop_smoking.ui.main.login.data.VPAdapter
 
-class LoginFragment : BaseFragment(R.layout.fragment_login) {
+class AuthFragment : BaseFragment(R.layout.fragment_auth) {
 
-    private val vb by viewBinding<FragmentLoginBinding>()
+    private val vb by viewBinding<FragmentAuthBinding>()
 
     override fun setViews() {
         hideBottomBar()
