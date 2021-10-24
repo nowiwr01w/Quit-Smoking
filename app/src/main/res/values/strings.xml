@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Stop smoking</string>
 
+    <!-- VK API -->
+    <integer name="com_vk_sdk_AppId">7983610</integer>
+
     <!-- BottomNavigation titles-->
     <string name="title_home">Home</string>
     <string name="title_desire">Desire</string>

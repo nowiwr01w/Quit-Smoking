@@ -2,7 +2,7 @@ package com.nowiwr01.stop_smoking.ui.main.login.sign_in
 
 import androidx.core.view.isVisible
 import com.nowiwr01.stop_smoking.databinding.FragmentSignInBinding
-import com.nowiwr01.stop_smoking.domain.UserDataSignIn
+import com.nowiwr01.stop_smoking.domain.user.UserDataSignIn
 import com.nowiwr01.stop_smoking.ui.main.login.BaseSignViewsController
 import com.nowiwr01.stop_smoking.ui.main.login.data.UserHighlightType
 import com.nowiwr01.stop_smoking.ui.main.login.data.UserHighlightType.*

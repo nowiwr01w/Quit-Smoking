@@ -71,6 +71,7 @@ dependencies {
     implementation 'androidx.room:room-ktx:2.3.0'
     implementation 'androidx.room:room-runtime:2.3.0'
     implementation "android.arch.persistence.room:runtime:1.1.1"
+    implementation 'com.google.firebase:firebase-firestore-ktx:23.0.4'
     annotationProcessor "androidx.room:room-compiler:2.3.0"
     kapt 'androidx.room:room-compiler:2.3.0'
     kapt "android.arch.persistence.room:compiler:1.1.1"
@@ -80,6 +81,14 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:28.4.1')
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.2'
+
+    // VK
+    implementation 'com.vk:android-sdk-core:3.3.0'
+    implementation 'com.vk:android-sdk-api:3.3.0'
+
+    // Time, that easy to use
+    implementation 'net.danlew:android.joda:2.10.6.1'
 
     // Timber
     implementation 'com.jakewharton.timber:timber:5.0.1'

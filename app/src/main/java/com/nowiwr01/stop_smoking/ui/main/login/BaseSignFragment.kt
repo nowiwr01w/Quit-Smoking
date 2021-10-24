@@ -4,12 +4,14 @@ import android.widget.EditText
 import androidx.viewbinding.ViewBinding
 import com.nowiwr01.stop_smoking.databinding.FragmentSignInBinding
 import com.nowiwr01.stop_smoking.databinding.FragmentSignUpBinding
-import com.nowiwr01.stop_smoking.domain.User
+import com.nowiwr01.stop_smoking.domain.user.User
 import com.nowiwr01.stop_smoking.ui.base.BaseFragment
 import com.nowiwr01.stop_smoking.utils.extensions.hideKeyboard
 import com.nowiwr01.stop_smoking.utils.extensions.setAllFocusListener
 import com.nowiwr01.stop_smoking.utils.extensions.setKeyboardListener
 import com.nowiwr01.stop_smoking.utils.extensions.showSnackbar
+import com.vk.api.sdk.VK
+import com.vk.api.sdk.auth.VKScope
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
@@ -49,7 +51,7 @@ abstract class BaseSignFragment(layoutResId: Int): BaseFragment(layoutResId) {
 
     private fun success(user: User) {
         showSnackbar(
-            message = String.format("%s, добро пожаловать!", user.name),
+            message = String.format("%s, добро пожаловать!", user.username),
             customColor = true,
             showCallback = {
                 Timber.tag("Auth").d("Load data")
@@ -58,6 +60,10 @@ abstract class BaseSignFragment(layoutResId: Int): BaseFragment(layoutResId) {
                 Timber.tag("Auth").d("Navigate to main")
             }
         )
+    }
+
+    protected fun authVk() {
+        VK.login(requireActivity(), arrayListOf(VKScope.EMAIL))
     }
 
     private fun toggleMotionLayout(expand: Boolean) {

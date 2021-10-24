@@ -26,5 +26,8 @@ class SignInFragment : BaseSignFragment(R.layout.fragment_sign_in) {
             setDefaultMotionMode()
             viewModel.checkAndAuth(controller.getUserData())
         }
+        vb.vkLogin.setOnClickListener {
+            authVk()
+        }
     }
 }

@@ -1,6 +1,6 @@
 package com.nowiwr01.stop_smoking.ui.main.login
 
-import com.nowiwr01.stop_smoking.domain.UserData
+import com.nowiwr01.stop_smoking.domain.user.UserData
 import com.nowiwr01.stop_smoking.ui.main.login.data.UserHighlightType
 
 abstract class BaseSignViewsController {

@@ -1,4 +1,4 @@
-package com.nowiwr01.stop_smoking.domain
+package com.nowiwr01.stop_smoking.domain.user
 
 data class UserDataSignUp(
     override val email: String,
