@@ -10,9 +10,10 @@ import com.nowiwr01.stop_smoking.utils.extensions.hideKeyboard
 import com.nowiwr01.stop_smoking.utils.extensions.setAllFocusListener
 import com.nowiwr01.stop_smoking.utils.extensions.setKeyboardListener
 import com.nowiwr01.stop_smoking.utils.extensions.showSnackbar
+import com.nowiwr01.stop_smoking.utils.observeEvent
 import com.vk.api.sdk.VK
 import com.vk.api.sdk.auth.VKScope
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import timber.log.Timber
 
 abstract class BaseSignFragment(layoutResId: Int): BaseFragment(layoutResId) {
@@ -21,7 +22,7 @@ abstract class BaseSignFragment(layoutResId: Int): BaseFragment(layoutResId) {
     abstract val inputFields: List<EditText>
     abstract val controller: BaseSignViewsController
 
-    protected val viewModel by viewModel<AuthViewModel>()
+    protected val viewModel by sharedViewModel<AuthViewModel>()
 
     override fun setViews() {
         controller.setTextChangedCallback()
@@ -37,20 +38,21 @@ abstract class BaseSignFragment(layoutResId: Int): BaseFragment(layoutResId) {
     }
 
     override fun setObservers() {
-        viewModel.user.observe(viewLifecycleOwner) {
+        viewModel.user.observeEvent(this) {
             success(it)
         }
         viewModel.progress.observe(viewLifecycleOwner) {
             controller.manageProgressBar(it)
         }
-        viewModel.authError.observe(viewLifecycleOwner) {
+        viewModel.authError.observeEvent(viewLifecycleOwner) {
             controller.setErrorByType(it.list)
-            showSnackbar(it.message)
+            showSnackbar(rootView = getParent().getRoot(), message = it.message)
         }
     }
 
     private fun success(user: User) {
         showSnackbar(
+            rootView = getParent().getRoot(),
             message = String.format("%s, добро пожаловать!", user.username),
             customColor = true,
             showCallback = {
@@ -63,15 +65,17 @@ abstract class BaseSignFragment(layoutResId: Int): BaseFragment(layoutResId) {
     }
 
     protected fun authVk() {
-        VK.login(requireActivity(), arrayListOf(VKScope.EMAIL))
+        VK.login(baseActivity, arrayListOf(VKScope.EMAIL))
     }
 
     private fun toggleMotionLayout(expand: Boolean) {
-        val parent = parentFragmentManager.fragments[0]
-        if (parent != null && parent is AuthFragment) {
-            parent.expandOrCollapse(expand)
-        }
+        getParent().expandOrCollapse(expand)
         toggleAuthMotionLayout(expand)
+    }
+
+    private fun getParent(): AuthFragment {
+        val fragment = parentFragment
+        return if (fragment is AuthFragment) fragment else throw IllegalStateException("Liar")
     }
 
     private fun toggleAuthMotionLayout(expand: Boolean) {

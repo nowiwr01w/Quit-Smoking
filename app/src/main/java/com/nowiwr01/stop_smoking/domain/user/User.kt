@@ -4,9 +4,12 @@ import com.nowiwr01.stop_smoking.domain.smoke_info.Subscription
 import com.nowiwr01.stop_smoking.domain.smoke_info.SmokeInfo
 
 data class User(
-    val id: String,
-    val email: String,
-    val username: String,
-    val subscription: Subscription,
-    val smokeInfo: SmokeInfo
+    var id: String = "",
+    var email: String = "",
+    var username: String = "",
+    var subscription: Subscription = Subscription(),
+    var smokeInfo: SmokeInfo = SmokeInfo(),
+    var vkId: Int = -1,
+    var googleToken: String = "",
+    var firebaseToken: String = ""
 )

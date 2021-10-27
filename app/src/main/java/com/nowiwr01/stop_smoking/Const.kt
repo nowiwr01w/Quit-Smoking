@@ -6,6 +6,11 @@ object Const {
      */
     const val DEFAULT_EMAIL = "kotik_email@nowiwr.com"
     /***
+     * Auth type
+     */
+    const val TYPE_VK = "TYPE_VK"
+    const val TYPE_GOOGLE = "TYPE_GOOGLE"
+    /***
      * Database
      */
     const val USER_TABLE_NAME = "user"
@@ -18,6 +23,7 @@ object Const {
      * Smoke info
      */
     const val DEFAULT_CURRENCY = "RUB"
+    const val DEFAULT_BREAK_DATE = -1
     const val DEFAULT_CIGARETTES_PER_DAY = 15
     const val DEFAULT_CIGARETTES_PER_PACK = 20
     const val DEFAULT_CIGARETTES_PACK_COST = 170

@@ -1,4 +1,4 @@
-package com.nowiwr01.stop_smoking.logic
+package com.nowiwr01.stop_smoking.utils
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver

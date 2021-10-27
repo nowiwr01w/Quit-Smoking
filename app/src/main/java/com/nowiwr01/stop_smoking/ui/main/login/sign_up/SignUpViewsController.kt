@@ -22,7 +22,7 @@ class SignUpViewsController(
     )
 
     override fun manageProgressBar(isVisible: Boolean) {
-        binding.signUp.text = if (isVisible) "" else "Sign In"
+        binding.signUp.text = if (isVisible) "" else "Sign Up"
         binding.signUpProgress.isVisible = isVisible
     }
 

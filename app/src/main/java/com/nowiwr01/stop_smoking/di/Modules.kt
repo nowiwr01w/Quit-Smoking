@@ -1,6 +1,7 @@
 package com.nowiwr01.stop_smoking.di
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.nowiwr01.stop_smoking.logic.ApplicationDispatchers
 import com.nowiwr01.stop_smoking.logic.DispatchersProvider
@@ -35,7 +36,7 @@ val dispatchers = module {
 
 val firebaseData = module {
     factory { FirebaseAuth.getInstance() }
-    factory { FirebaseFirestore.getInstance() }
+    factory { FirebaseDatabase.getInstance() }
 }
 
 val repositories = module {

@@ -1,21 +1,37 @@
 package com.nowiwr01.stop_smoking.logic.repositories.impl
 
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.database.FirebaseDatabase
+import com.nowiwr01.stop_smoking.Const.TYPE_VK
 import com.nowiwr01.stop_smoking.Const.USERS_REFERENCE
 import com.nowiwr01.stop_smoking.domain.user.User
 import com.nowiwr01.stop_smoking.logic.DispatchersProvider
 import com.nowiwr01.stop_smoking.logic.repositories.FirebaseRepository
 import com.nowiwr01.stop_smoking.ui.base.ResultRemote
+import com.nowiwr01.stop_smoking.utils.extensions.getUser
+import com.nowiwr01.stop_smoking.utils.extensions.hasAccount
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
 class FirebaseRepositoryImpl(
     private val auth: FirebaseAuth,
-    private val database: FirebaseFirestore,
+    private val database: FirebaseDatabase,
     private val dispatchers: DispatchersProvider,
 ) : FirebaseRepository {
+
+    override suspend fun authVk(user: User) = withContext(dispatchers.io) {
+        var resultUser: User? = null
+        database.getReference(USERS_REFERENCE).get().await().children.forEach {
+            if (it.hasAccount(TYPE_VK, user)) resultUser = it.getUser()
+        }
+        if (resultUser == null) {
+            database.getReference(USERS_REFERENCE).child(user.id).setValue(user).await()
+            user
+        } else {
+            resultUser!!
+        }
+    }
 
     override suspend fun loginUser(email: String, password: String) = withContext(Dispatchers.IO) {
         try {
@@ -33,14 +49,5 @@ class FirebaseRepositoryImpl(
         } catch (throwable: Throwable) {
             ResultRemote.error("Хуйня, а не регистрация")
         }
-    }
-
-    override suspend fun logout() = withContext(dispatchers.default) {
-        auth.signOut()
-    }
-
-    override suspend fun addUser(user: User) = withContext(dispatchers.io) {
-        database.collection(USERS_REFERENCE).document(user.id).set(user).await()
-        true
     }
 }

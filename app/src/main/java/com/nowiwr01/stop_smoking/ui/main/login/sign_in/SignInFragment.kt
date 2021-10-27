@@ -6,14 +6,9 @@ import com.nowiwr01.stop_smoking.databinding.FragmentSignInBinding
 import com.nowiwr01.stop_smoking.ui.main.login.BaseSignFragment
 import org.koin.core.parameter.parametersOf
 
-/***
- * Вся общая логика для @see[SignInFragment] и SignUpFragment находится в @see[BaseSignFragment]
- */
 class SignInFragment : BaseSignFragment(R.layout.fragment_sign_in) {
 
-    override val inputFields by lazy {
-        listOf(vb.email, vb.password0)
-    }
+    override val inputFields by lazy { listOf(vb.email, vb.password0) }
 
     override val vb by viewBinding<FragmentSignInBinding>()
     override val controller by inject<SignInViewsController> {

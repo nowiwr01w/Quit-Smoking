@@ -30,6 +30,7 @@ abstract class BaseFragment(layoutResId: Int): ScopeFragment(layoutResId) {
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initialize()
         setViews()
         setObservers()
         setListeners()
@@ -39,7 +40,7 @@ abstract class BaseFragment(layoutResId: Int): ScopeFragment(layoutResId) {
     /**
      * Some functions helpers that are executed in a specific order in Fragment.
      */
-    protected open fun initializeBinding() {}
+    protected open fun initialize() {}
     protected open fun setViews() {}
     protected open fun setObservers() {}
     protected open fun setListeners() {}

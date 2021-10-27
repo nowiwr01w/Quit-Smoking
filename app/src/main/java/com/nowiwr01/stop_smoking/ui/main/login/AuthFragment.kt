@@ -5,7 +5,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.nowiwr01.stop_smoking.R
 import com.nowiwr01.stop_smoking.databinding.FragmentAuthBinding
 import com.nowiwr01.stop_smoking.ui.base.BaseFragment
-import com.nowiwr01.stop_smoking.ui.main.login.data.VPAdapter
+import com.nowiwr01.stop_smoking.ui.main.login.data.ViewPagerAdapter
 
 class AuthFragment : BaseFragment(R.layout.fragment_auth) {
 
@@ -17,7 +17,7 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
     }
 
     private fun setupViewPager() {
-        vb.viewPager.adapter = VPAdapter(parentFragmentManager, lifecycle)
+        vb.viewPager.adapter = ViewPagerAdapter(this)
         TabLayoutMediator(vb.tabLayout, vb.viewPager) { tab, position ->
             tab.text = if (position == 0) SIGN_IN_TITLE else SIGN_UP_TITLE
         }.attach()
@@ -31,7 +31,9 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
         }
     }
 
-    private companion object {
+    fun getRoot() = vb.constraintLayout
+
+    companion object {
         const val SIGN_UP_TITLE = "Sign Up"
         const val SIGN_IN_TITLE = "Sign In"
     }

@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                 viewModel.authVk(token)
             }
             override fun onLoginFailed(authException: VKAuthException) {
-                Timber.tag("VK").d("VK auth failed: message = ${authException.message}")
+                Timber.tag("VK").e("VK auth failed: message = ${authException.message}")
             }
         }
         if (data == null || !VK.onActivityResult(requestCode, resultCode, data, callback)) {

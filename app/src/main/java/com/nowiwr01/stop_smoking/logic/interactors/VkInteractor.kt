@@ -1,5 +1,6 @@
 package com.nowiwr01.stop_smoking.logic.interactors
 
+import com.nowiwr01.stop_smoking.domain.user.User
 import com.nowiwr01.stop_smoking.logic.errors.VKError
 import com.nowiwr01.stop_smoking.logic.repositories.FirebaseRepository
 import com.nowiwr01.stop_smoking.logic.repositories.VKRepository
@@ -12,10 +13,10 @@ class VkInteractor(
     private val firebaseRepository: FirebaseRepository
 ) {
 
-    suspend fun getInfo(token: VKAccessToken): Result<Boolean, VKError> {
+    suspend fun authVk(token: VKAccessToken): Result<User, VKError> {
         return try {
             val user = vkRepository.getInfo(token).mapUser(token)
-           Result.Success(firebaseRepository.addUser(user))
+            Result.Success(firebaseRepository.authVk(user))
         } catch (throwable: Throwable) {
             Result.Fail(VKError())
         }

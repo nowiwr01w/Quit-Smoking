@@ -12,11 +12,12 @@ import com.nowiwr01.stop_smoking.ui.base.BaseFragment
 
 fun BaseFragment.showSnackbar(
     message: String,
+    rootView: View = requireView(),
     customColor: Boolean = false,
     showCallback: () -> Unit = {},
     hideCallback: () -> Unit = {}
 ) {
-    context.showSnackbar(requireView(), message, customColor, showCallback, hideCallback)
+    context.showSnackbar(rootView, message, customColor, showCallback, hideCallback)
 }
 
 fun Context.showSnackbar(
@@ -36,7 +37,7 @@ fun Context.showSnackbar(
         text = message
         setTextColor(this@showSnackbar.getColor(R.color.snackBar_color))
     }
-    val snackBar = Snackbar.make(view, "", 4000).apply {
+    val snackBar = Snackbar.make(view, "", 2500).apply {
         getView().setPadding(0, 0, 0, 0)
         (getView() as Snackbar.SnackbarLayout).removeAllViews()
         (getView() as Snackbar.SnackbarLayout).addView(custom)
