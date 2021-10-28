@@ -1,7 +1,7 @@
 package com.nowiwr01.stop_smoking.utils.extensions
 
-import com.nowiwr01.stop_smoking.ui.main.login.data.UserHighlightType
-import com.nowiwr01.stop_smoking.ui.main.login.data.UserHighlightType.*
+import com.nowiwr01.stop_smoking.ui.main.auth.data.UserHighlightType
+import com.nowiwr01.stop_smoking.ui.main.auth.data.UserHighlightType.*
 
 fun String.hasUpperChar(): Boolean {
     var cur = 0

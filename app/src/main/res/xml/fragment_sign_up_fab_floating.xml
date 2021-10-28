@@ -10,19 +10,19 @@
         motion:duration="250">
         <KeyFrameSet>
             <KeyAttribute
-                motion:motionTarget="@id/vk_sign_up"
+                motion:motionTarget="@id/vk_auth"
                 motion:framePosition="0"
                 android:elevation="8dp"/>
             <KeyAttribute
-                motion:motionTarget="@id/google_sign_up"
+                motion:motionTarget="@id/google_auth"
                 motion:framePosition="0"
                 android:elevation="8dp"/>
             <KeyAttribute
-                motion:motionTarget="@id/vk_sign_up"
+                motion:motionTarget="@id/vk_auth"
                 motion:framePosition="100"
                 android:elevation="8dp"/>
             <KeyAttribute
-                motion:motionTarget="@id/google_sign_up"
+                motion:motionTarget="@id/google_auth"
                 motion:framePosition="100"
                 android:elevation="8dp"/>
         </KeyFrameSet>

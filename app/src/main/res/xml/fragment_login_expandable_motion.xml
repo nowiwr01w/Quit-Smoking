@@ -5,7 +5,7 @@
 
     <Transition
         android:id="@+id/swipe_bidirectional"
-        motion:constraintSetEnd="@layout/fragment_login_end"
+        motion:constraintSetEnd="@layout/fragment_auth_end"
         motion:constraintSetStart="@layout/fragment_auth"
         motion:duration="250">
     </Transition>

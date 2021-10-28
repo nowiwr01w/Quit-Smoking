@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/motion_sign_up"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layoutDescription="@xml/fragment_sign_up_fab_floating">
+    android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/email"
@@ -55,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@id/password0" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/signUp"
+        android:id="@+id/auth_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -86,13 +85,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="16dp"
-        app:layout_constraintBottom_toBottomOf="@id/signUp"
-        app:layout_constraintEnd_toEndOf="@id/signUp"
-        app:layout_constraintStart_toStartOf="@id/signUp"
-        app:layout_constraintTop_toTopOf="@id/signUp">
+        app:layout_constraintBottom_toBottomOf="@id/auth_btn"
+        app:layout_constraintEnd_toEndOf="@id/auth_btn"
+        app:layout_constraintStart_toStartOf="@id/auth_btn"
+        app:layout_constraintTop_toTopOf="@id/auth_btn">
 
         <ProgressBar
-            android:id="@+id/sign_up_progress"
+            android:id="@+id/auth_btn_progress"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center"
@@ -102,7 +101,7 @@
     </FrameLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/vk_sign_up"
+        android:id="@+id/vk_auth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -110,12 +109,12 @@
         android:scaleType="center"
         app:backgroundTint="@color/white"
         app:layout_constraintEnd_toStartOf="@id/guideline50"
-        app:layout_constraintTop_toBottomOf="@+id/signUp"
+        app:layout_constraintTop_toBottomOf="@+id/auth_btn"
         app:srcCompat="@drawable/ic_vk"
         app:tint="@null" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/google_sign_up"
+        android:id="@+id/google_auth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -123,8 +122,23 @@
         android:scaleType="center"
         app:backgroundTint="@color/white"
         app:layout_constraintStart_toEndOf="@id/guideline50"
-        app:layout_constraintTop_toBottomOf="@+id/signUp"
+        app:layout_constraintTop_toBottomOf="@+id/auth_btn"
         app:srcCompat="@drawable/ic_google"
         app:tint="@null" />
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+    <TextView
+        android:id="@+id/have_account_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="8dp"
+        android:text="@string/title_already_have_an_account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/google_auth"
+        app:layout_constraintStart_toStartOf="@id/vk_auth"
+        app:layout_constraintTop_toBottomOf="@id/vk_auth" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,8 +9,8 @@ import com.nowiwr01.stop_smoking.logic.errors.SignInError.SignInInvalidEmailErro
 import com.nowiwr01.stop_smoking.logic.errors.SignUpError
 import com.nowiwr01.stop_smoking.logic.errors.SignUpError.*
 import com.nowiwr01.stop_smoking.logic.repositories.UserDataRepository
-import com.nowiwr01.stop_smoking.ui.main.login.data.UserHighlightType
-import com.nowiwr01.stop_smoking.ui.main.login.data.UserHighlightType.*
+import com.nowiwr01.stop_smoking.ui.main.auth.data.UserHighlightType
+import com.nowiwr01.stop_smoking.ui.main.auth.data.UserHighlightType.*
 import com.nowiwr01.stop_smoking.utils.extensions.hasUpperChar
 import com.nowiwr01.stop_smoking.utils.extensions.isLongPassword
 import com.nowiwr01.stop_smoking.utils.extensions.isValidEmail

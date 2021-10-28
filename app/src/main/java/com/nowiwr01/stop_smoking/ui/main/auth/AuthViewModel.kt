@@ -1,4 +1,4 @@
-package com.nowiwr01.stop_smoking.ui.main.login
+package com.nowiwr01.stop_smoking.ui.main.auth
 
 import androidx.lifecycle.MutableLiveData
 import com.nowiwr01.stop_smoking.domain.user.User
@@ -13,6 +13,7 @@ import com.nowiwr01.stop_smoking.logic.interactors.VkInteractor
 import com.nowiwr01.stop_smoking.utils.toEvent
 import com.nowiwr01.stop_smoking.ui.base.BaseViewModel
 import com.nowiwr01.stop_smoking.ui.base.mapBoth
+import com.nowiwr01.stop_smoking.ui.main.auth.AuthFragment.Companion.SIGN_UP
 import com.vk.api.sdk.auth.VKAccessToken
 import kotlinx.coroutines.launch
 
@@ -25,6 +26,8 @@ class AuthViewModel(
     val progress: MutableLiveData<Boolean> = MutableLiveData(),
     val authError: MutableLiveData<Event<AuthError>> = MutableLiveData()
 ): BaseViewModel() {
+
+    var currentMode = SIGN_UP
 
     fun checkAndAuth(userData: UserData) {
         progress.postValue(true)

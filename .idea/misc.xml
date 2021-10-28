@@ -33,7 +33,8 @@
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/font/roboto_medium.xml" value="0.396875" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/activity_main.xml" value="0.22871376811594202" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/bottom_sheet_info.xml" value="0.24282786885245902" />
-        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_auth.xml" value="0.13465952563121653" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_auth.xml" value="0.2" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_auth_end.xml" value="0.15390625" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_chat.xml" value="0.32518115942028986" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_desire.xml" value="0.32518115942028986" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_login.xml" value="0.22780054644808742" />

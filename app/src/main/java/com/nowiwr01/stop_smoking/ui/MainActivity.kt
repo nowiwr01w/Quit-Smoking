@@ -8,10 +8,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.nowiwr01.stop_smoking.R
 import com.nowiwr01.stop_smoking.databinding.ActivityMainBinding
-import com.nowiwr01.stop_smoking.ui.main.login.AuthViewModel
+import com.nowiwr01.stop_smoking.ui.main.auth.AuthViewModel
 import com.nowiwr01.stop_smoking.utils.extensions.setGone
 import com.nowiwr01.stop_smoking.utils.extensions.setVisible
 import com.vk.api.sdk.VK
