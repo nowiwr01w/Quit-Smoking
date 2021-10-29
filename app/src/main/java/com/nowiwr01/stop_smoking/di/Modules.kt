@@ -4,9 +4,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.nowiwr01.stop_smoking.logic.ApplicationDispatchers
 import com.nowiwr01.stop_smoking.logic.DispatchersProvider
-import com.nowiwr01.stop_smoking.logic.interactors.FirebaseInteractor
+import com.nowiwr01.stop_smoking.logic.interactors.AuthInteractor
 import com.nowiwr01.stop_smoking.logic.interactors.UserDataInteractor
-import com.nowiwr01.stop_smoking.logic.interactors.VkInteractor
 import com.nowiwr01.stop_smoking.logic.repositories.FirebaseRepository
 import com.nowiwr01.stop_smoking.logic.repositories.UserDataRepository
 import com.nowiwr01.stop_smoking.logic.repositories.VKRepository
@@ -41,13 +40,12 @@ val repositories = module {
 }
 
 val interactors = module {
-    factory { FirebaseInteractor(get()) }
     factory { UserDataInteractor(get()) }
-    factory { VkInteractor(get(), get()) }
+    factory { AuthInteractor(get(), get()) }
 }
 
 val viewModels = module {
-    viewModel { AuthViewModel(get(), get(), get()) }
+    viewModel { AuthViewModel(get(), get()) }
 }
 
 val koinModules = listOf(

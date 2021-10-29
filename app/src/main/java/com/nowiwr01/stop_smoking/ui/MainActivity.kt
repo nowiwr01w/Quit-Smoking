@@ -8,15 +8,18 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
+import com.nowiwr01.stop_smoking.Const.GOOGLE_MARK
 import com.nowiwr01.stop_smoking.R
 import com.nowiwr01.stop_smoking.databinding.ActivityMainBinding
 import com.nowiwr01.stop_smoking.ui.main.auth.AuthViewModel
+import com.nowiwr01.stop_smoking.utils.extensions.createVKAuthCallback
 import com.nowiwr01.stop_smoking.utils.extensions.setGone
 import com.nowiwr01.stop_smoking.utils.extensions.setVisible
 import com.vk.api.sdk.VK
-import com.vk.api.sdk.auth.VKAccessToken
-import com.vk.api.sdk.auth.VKAuthCallback
-import com.vk.api.sdk.exceptions.VKAuthException
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
@@ -47,16 +50,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        val callback = object: VKAuthCallback {
-            override fun onLogin(token: VKAccessToken) {
-                viewModel.authVk(token)
-            }
-            override fun onLoginFailed(authException: VKAuthException) {
-                Timber.tag("VK").e("VK auth failed: message = ${authException.message}")
-            }
+        val callback = createVKAuthCallback {
+            viewModel.authVk(it)
         }
-        if (data == null || !VK.onActivityResult(requestCode, resultCode, data, callback)) {
+        if (!VK.onActivityResult(requestCode, resultCode, data, callback)) {
             super.onActivityResult(requestCode, resultCode, data)
+        }
+        if (requestCode == GOOGLE_MARK) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            handleSignInResult(task)
+        }
+    }
+
+    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
+        try {
+            val account = completedTask.getResult(ApiException::class.java)!!
+            viewModel.googleAuth(account)
+        } catch (e: ApiException) {
+            Timber.tag(this::class.java.simpleName).e("signInResult:failed code=${e.statusCode}, message=${e.message}")
         }
     }
 

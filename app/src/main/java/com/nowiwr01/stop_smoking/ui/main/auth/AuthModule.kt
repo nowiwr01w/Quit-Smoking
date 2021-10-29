@@ -7,7 +7,8 @@ val fragmentAuth = module {
     scope<AuthFragment> {
         scoped { params ->
             val binding: FragmentAuthBinding = params[0]
-            AuthViewsController(binding)
+            val viewModel: AuthViewModel = params[1]
+            AuthViewsController(binding, viewModel)
         }
     }
 }

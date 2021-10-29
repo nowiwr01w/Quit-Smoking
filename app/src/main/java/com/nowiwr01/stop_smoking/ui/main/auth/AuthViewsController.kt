@@ -1,6 +1,8 @@
 package com.nowiwr01.stop_smoking.ui.main.auth
 
+import android.content.res.Resources
 import androidx.core.view.isVisible
+import com.nowiwr01.stop_smoking.R
 import com.nowiwr01.stop_smoking.databinding.FragmentAuthBinding
 import com.nowiwr01.stop_smoking.domain.user.UserData
 import com.nowiwr01.stop_smoking.domain.user.UserDataSignIn
@@ -13,7 +15,8 @@ import com.nowiwr01.stop_smoking.utils.extensions.setDefault
 import com.nowiwr01.stop_smoking.utils.extensions.setError
 
 class AuthViewsController(
-    private val binding: FragmentAuthBinding
+    private val binding: FragmentAuthBinding,
+    private val viewModel: AuthViewModel
 ) {
 
     fun getUserData(type: String): UserData {
@@ -68,5 +71,24 @@ class AuthViewsController(
             text = "Sign Up"
         }
         binding.tabLayout.addTab(tab)
+    }
+
+    fun setAuthType(resources: Resources, type: String) {
+        binding.authBtn.text = type
+        binding.username.isVisible = type != SIGN_IN
+        binding.password1.isVisible = type != SIGN_IN
+        viewModel.currentMode = type
+        setTabTitle(type)
+        binding.haveAccountTitle.text = if (type == AuthFragment.SIGN_UP) {
+            resources.getString(R.string.title_already_have_an_account)
+        } else {
+            resources.getString(R.string.title_first_time_here)
+        }
+    }
+
+    private fun setTabTitle(type: String) {
+        binding.tabLayout.getTabAt(0)?.let {
+            it.text = type
+        }
     }
 }

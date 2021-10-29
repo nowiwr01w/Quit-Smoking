@@ -28,4 +28,9 @@ object Const {
     const val DEFAULT_CIGARETTES_PER_PACK = 20
     const val DEFAULT_CIGARETTES_PACK_COST = 170
     const val DEFAULT_CIGARETTES_MORNING_TIME = 5
+    /***
+     * Google auth
+     */
+    const val GOOGLE_MARK = 1337
+    const val GOOGLE_CLIENT_ID = "944538988015-pctqe6v432o6pln10js24t66pr019s32.apps.googleusercontent.com"
 }

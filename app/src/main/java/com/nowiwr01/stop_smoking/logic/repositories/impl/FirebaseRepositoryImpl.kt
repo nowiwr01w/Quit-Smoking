@@ -1,6 +1,8 @@
 package com.nowiwr01.stop_smoking.logic.repositories.impl
 
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.database.FirebaseDatabase
 import com.nowiwr01.stop_smoking.Const.TYPE_VK
 import com.nowiwr01.stop_smoking.Const.USERS_REFERENCE
@@ -33,12 +35,22 @@ class FirebaseRepositoryImpl(
         }
     }
 
+    override suspend fun authGoogle(account: GoogleSignInAccount) = withContext(dispatchers.io) {
+        try {
+            val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+            val response = auth.signInWithCredential(credential).await()
+            ResultRemote.success(response.user)
+        } catch (throwable: Throwable) {
+            ResultRemote.error("Google auth error.")
+        }
+    }
+
     override suspend fun loginUser(email: String, password: String) = withContext(Dispatchers.IO) {
         try {
             val response = auth.signInWithEmailAndPassword(email, password).await()
             ResultRemote.success(response.user)
         } catch (throwable: Throwable) {
-            ResultRemote.error("Хуйня, а не авторизация")
+            ResultRemote.error("Firebase log in error.")
         }
     }
 
@@ -47,7 +59,7 @@ class FirebaseRepositoryImpl(
             val response = auth.createUserWithEmailAndPassword(email, password).await()
             ResultRemote.success(response.user)
         } catch (throwable: Throwable) {
-            ResultRemote.error("Хуйня, а не регистрация")
+            ResultRemote.error("Firebase sign up error.")
         }
     }
 }
