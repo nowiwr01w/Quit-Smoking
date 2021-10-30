@@ -120,13 +120,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/password1" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline50"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.5" />
-
             <!--- Какой-то баг в MotionLayout -->
             <!--- Без контейнера будет зацикливаться при смене isVisible -->
             <FrameLayout
@@ -150,19 +143,6 @@
             </FrameLayout>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/vk_auth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="12dp"
-                android:scaleType="center"
-                app:backgroundTint="@color/white"
-                app:layout_constraintEnd_toStartOf="@id/guideline50"
-                app:layout_constraintTop_toBottomOf="@+id/auth_btn"
-                app:srcCompat="@drawable/ic_vk"
-                app:tint="@null" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/google_auth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -170,9 +150,36 @@
                 android:layout_marginTop="16dp"
                 android:scaleType="center"
                 app:backgroundTint="@color/white"
-                app:layout_constraintStart_toEndOf="@id/guideline50"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/auth_btn"
                 app:srcCompat="@drawable/ic_google"
+                app:tint="@null" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/vk_auth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="center"
+                app:backgroundTint="@color/white"
+                app:layout_constraintEnd_toStartOf="@id/google_auth"
+                app:layout_constraintTop_toBottomOf="@+id/auth_btn"
+                app:srcCompat="@drawable/ic_vk"
+                app:tint="@null" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/facebook_auth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:scaleType="center"
+                app:backgroundTint="@color/white"
+                app:layout_constraintStart_toEndOf="@id/google_auth"
+                app:layout_constraintTop_toBottomOf="@+id/auth_btn"
+                app:srcCompat="@drawable/ic_facebook"
                 app:tint="@null" />
 
             <TextView
@@ -186,7 +193,7 @@
                 android:padding="8dp"
                 android:text="@string/title_already_have_an_account"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/google_auth"
+                app:layout_constraintEnd_toEndOf="@id/facebook_auth"
                 app:layout_constraintStart_toStartOf="@id/vk_auth" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

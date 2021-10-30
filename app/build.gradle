@@ -109,15 +109,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-database-ktx:20.0.2'
     implementation 'com.google.firebase:firebase-analytics-ktx:19.0.2'
 
-    // VK
+    // APIs (VK, Google, AppMetric Facebook)
     implementation 'com.vk:android-sdk-core:3.3.0'
     implementation 'com.vk:android-sdk-api:3.3.0'
-
-    // Google
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
-
-    // Yandex AppMetric
     implementation 'com.yandex.android:mobmetricalib:3.21.0'
+    implementation 'com.facebook.android:facebook-android-sdk:11.1.0'
 
     // Time, that easy to use
     implementation 'net.danlew:android.joda:2.10.9.1'

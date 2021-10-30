@@ -4,14 +4,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.nowiwr01.stop_smoking.domain.user.User
 import com.nowiwr01.stop_smoking.domain.user.UserDataSignIn
 import com.nowiwr01.stop_smoking.domain.user.UserDataSignUp
-import com.nowiwr01.stop_smoking.logic.errors.GoogleAuthError
-import com.nowiwr01.stop_smoking.logic.errors.SignInError
-import com.nowiwr01.stop_smoking.logic.errors.SignUpError
-import com.nowiwr01.stop_smoking.logic.errors.VKAuthError
+import com.nowiwr01.stop_smoking.logic.errors.*
 import com.nowiwr01.stop_smoking.logic.repositories.AuthRepository
 import com.nowiwr01.stop_smoking.logic.repositories.VKRepository
 import com.nowiwr01.stop_smoking.ui.base.Result
-import com.nowiwr01.stop_smoking.utils.extensions.fromVK
+import com.nowiwr01.stop_smoking.utils.extensions.mapUser
 import com.vk.api.sdk.auth.VKAccessToken
 
 class AuthInteractor(
@@ -37,7 +34,7 @@ class AuthInteractor(
 
     suspend fun authVk(token: VKAccessToken): Result<User, VKAuthError> {
         return try {
-            val user = vkRepository.getInfo(token).fromVK(token)
+            val user = vkRepository.getInfo(token).mapUser(token)
             Result.Success(authRepository.authVk(user))
         } catch (throwable: Throwable) {
             Result.Fail(VKAuthError())
@@ -49,6 +46,14 @@ class AuthInteractor(
             Result.Success(authRepository.authGoogle(account))
         } catch (throwable: Throwable) {
             Result.Fail(GoogleAuthError())
+        }
+    }
+
+    suspend fun authFacebook(token: String): Result<User, FacebookAuthError> {
+        return try {
+            Result.Success(authRepository.authFacebook(token))
+        } catch (throwable: Throwable) {
+            Result.Fail(FacebookAuthError())
         }
     }
 }

@@ -10,6 +10,8 @@ interface AuthRepository {
 
     suspend fun authGoogle(account: GoogleSignInAccount): User
 
+    suspend fun authFacebook(token: String): User
+
     suspend fun loginUser(userData: UserDataSignIn): User
 
     suspend fun createUser(userData: UserDataSignUp): User

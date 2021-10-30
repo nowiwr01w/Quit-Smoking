@@ -5,7 +5,6 @@ import com.nowiwr01.stop_smoking.Const.YANDEX_METRIC_KEY
 import com.nowiwr01.stop_smoking.di.koinModules
 import com.yandex.metrica.YandexMetrica
 import com.yandex.metrica.YandexMetricaConfig
-import net.danlew.android.joda.JodaTimeAndroid
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -16,13 +15,8 @@ class App: Application() {
     override fun onCreate() {
         super.onCreate()
         setupKoin()
-        setupTime()
         setupTimber()
         setupYandexMetric()
-    }
-
-    private fun setupTime() {
-        JodaTimeAndroid.init(this)
     }
 
     private fun setupTimber() {

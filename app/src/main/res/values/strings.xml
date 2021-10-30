@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Stop smoking</string>
 
-    <!-- VK API -->
+    <!-- API -->
     <integer name="com_vk_sdk_AppId">7983610</integer>
+    <string name="facebook_app_id">587827365775449</string>
+    <string name="fb_login_protocol_scheme">fb587827365775449</string>
 
     <!-- BottomNavigation titles-->
     <string name="title_home">Home</string>

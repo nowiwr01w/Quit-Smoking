@@ -1,6 +1,9 @@
 package com.nowiwr01.stop_smoking.ui.main.auth
 
+import android.content.Intent
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.facebook.CallbackManager
+import com.facebook.login.LoginManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -10,10 +13,7 @@ import com.nowiwr01.stop_smoking.R
 import com.nowiwr01.stop_smoking.databinding.FragmentAuthBinding
 import com.nowiwr01.stop_smoking.domain.user.User
 import com.nowiwr01.stop_smoking.ui.base.BaseFragment
-import com.nowiwr01.stop_smoking.utils.extensions.hideKeyboard
-import com.nowiwr01.stop_smoking.utils.extensions.setAllFocusListener
-import com.nowiwr01.stop_smoking.utils.extensions.setKeyboardListener
-import com.nowiwr01.stop_smoking.utils.extensions.showSnackbar
+import com.nowiwr01.stop_smoking.utils.extensions.*
 import com.nowiwr01.stop_smoking.utils.observeEvent
 import com.vk.api.sdk.VK
 import com.vk.api.sdk.auth.VKScope
@@ -30,6 +30,7 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
     private val controller by inject<AuthViewsController> { parametersOf(vb, viewModel) }
 
     private lateinit var googleClient: GoogleSignInClient
+    private lateinit var fbCallbackManager: CallbackManager
 
     override fun setViews() {
         hideBottomBar()
@@ -38,6 +39,7 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
         controller.setAuthType(resources, viewModel.currentMode)
 
         setGoogleClient()
+        setFacebookClient()
     }
 
     override fun setListeners() {
@@ -56,6 +58,9 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
         }
         vb.googleAuth.setOnClickListener {
             baseActivity.startActivityForResult(googleClient.signInIntent, GOOGLE_MARK)
+        }
+        vb.facebookAuth.setOnClickListener {
+            LoginManager.getInstance().logInWithReadPermissions(this, listOf("email", "public_profile"))
         }
         vb.haveAccountTitle.setOnClickListener {
             val type = if (viewModel.currentMode == SIGN_UP) SIGN_IN else SIGN_UP
@@ -77,16 +82,6 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
         }
     }
 
-    private fun setGoogleClient() {
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestEmail()
-            .requestProfile()
-            .requestIdToken(GOOGLE_CLIENT_ID)
-            .build()
-
-        googleClient = GoogleSignIn.getClient(baseActivity, gso)
-    }
-
     private fun success(user: User) {
         showSnackbar(
             message = String.format("%s, добро пожаловать!", user.username),
@@ -98,6 +93,29 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
                 Timber.tag("Auth").d("Navigate to main")
             }
         )
+    }
+
+    private fun setGoogleClient() {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestEmail()
+            .requestProfile()
+            .requestIdToken(GOOGLE_CLIENT_ID)
+            .build()
+
+        googleClient = GoogleSignIn.getClient(baseActivity, gso)
+    }
+
+    private fun setFacebookClient() {
+        fbCallbackManager = CallbackManager.Factory.create()
+
+        LoginManager.getInstance().registerCallback(fbCallbackManager, getCallbackManager {
+            viewModel.facebookAuth(it)
+        })
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        fbCallbackManager.onActivityResult(requestCode, resultCode, data)
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     private fun setDefaultMotionMode() {

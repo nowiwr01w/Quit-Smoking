@@ -74,6 +74,13 @@ class AuthViewModel(
         }
     }
 
+    fun facebookAuth(token: String) {
+        showProgress(true)
+        launch {
+            interactor.authFacebook(token).mapBoth(::onSuccess, ::onError)
+        }
+    }
+
     private fun showProgress(show: Boolean) {
         progress.postValue(show)
     }
