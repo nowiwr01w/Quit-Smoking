@@ -14,14 +14,16 @@ import com.nowiwr01.stop_smoking.utils.toEvent
 import com.nowiwr01.stop_smoking.ui.base.BaseViewModel
 import com.nowiwr01.stop_smoking.ui.base.mapBoth
 import com.nowiwr01.stop_smoking.ui.main.auth.AuthFragment.Companion.SIGN_UP
+import com.nowiwr01.stop_smoking.utils.logger.Logger
 import com.vk.api.sdk.auth.VKAccessToken
 import kotlinx.coroutines.launch
 
 class AuthViewModel(
     private val interactor: AuthInteractor,
     private val userDataInteractor: UserDataInteractor,
+    private val logger: Logger,
 
-    val user: MutableLiveData<Event<User>> = MutableLiveData(),
+    val userData: MutableLiveData<Event<User>> = MutableLiveData(),
     val progress: MutableLiveData<Boolean> = MutableLiveData(),
     val authError: MutableLiveData<Event<AuthError>> = MutableLiveData()
 ): BaseViewModel() {
@@ -76,9 +78,10 @@ class AuthViewModel(
         progress.postValue(show)
     }
 
-    private fun onSuccess(firebaseUser: User) {
+    private fun onSuccess(user: User) {
+        logger.logAuth(user.authMethod)
         showProgress(false)
-        user.postValue(firebaseUser.toEvent())
+        userData.postValue(user.toEvent())
     }
 
     private fun onError(error: AuthError) {

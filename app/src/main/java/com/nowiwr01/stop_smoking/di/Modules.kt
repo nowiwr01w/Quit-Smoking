@@ -1,6 +1,7 @@
 package com.nowiwr01.stop_smoking.di
 
 import android.content.Context
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.nowiwr01.stop_smoking.Const.PREFS_NAME
@@ -18,6 +19,7 @@ import com.nowiwr01.stop_smoking.logic.repositories.impl.VKRepositoryImpl
 import com.nowiwr01.stop_smoking.ui.main.auth.fragmentAuth
 import com.nowiwr01.stop_smoking.ui.main.fragmentMain
 import com.nowiwr01.stop_smoking.ui.main.auth.AuthViewModel
+import com.nowiwr01.stop_smoking.utils.logger.*
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.bind
@@ -57,13 +59,14 @@ val interactors = module {
 }
 
 val viewModels = module {
-    viewModel { AuthViewModel(get(), get()) }
+    viewModel { AuthViewModel(get(), get(), get()) }
 }
 
 val koinModules = listOf(
     dispatchers,
     appData,
     firebaseData,
+    analytics,
     repositories,
     interactors,
     viewModels
