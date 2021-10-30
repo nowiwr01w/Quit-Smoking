@@ -7,9 +7,7 @@ data class User(
     var id: String = "",
     var email: String = "",
     var username: String = "",
+    var authMethod: String = "",
     var subscription: Subscription = Subscription(),
     var smokeInfo: SmokeInfo = SmokeInfo(),
-    var vkId: Int = -1,
-    var googleToken: String = "",
-    var firebaseToken: String = ""
 )

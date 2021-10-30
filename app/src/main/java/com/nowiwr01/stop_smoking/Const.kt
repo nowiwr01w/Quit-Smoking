@@ -6,15 +6,11 @@ object Const {
      */
     const val DEFAULT_EMAIL = "kotik_email@nowiwr.com"
     /***
-     * Auth type
-     */
-    const val TYPE_VK = "TYPE_VK"
-    const val TYPE_GOOGLE = "TYPE_GOOGLE"
-    /***
      * Database
      */
     const val USER_TABLE_NAME = "user"
     const val NEVER_SMOKE_DATABASE_NAME = "never_smoke_database"
+    const val PREFS_NAME = "prefs"
     /***
      * Firebase
      */

@@ -46,15 +46,15 @@ class AuthViewModel(
         }
     }
 
-    private fun signIn(userData: UserData) {
+    private fun signIn(userData: UserDataSignIn) {
         launch {
-            interactor.login(userData.email, userData.password).mapBoth(::onSuccess, ::onError)
+            interactor.login(userData).mapBoth(::onSuccess, ::onError)
         }
     }
 
-    private fun signUp(userData: UserData) {
+    private fun signUp(userData: UserDataSignUp) {
         launch {
-            interactor.signUp(userData.email, userData.password).mapBoth(::onSuccess, ::onError)
+            interactor.signUp(userData).mapBoth(::onSuccess, ::onError)
         }
     }
 
