@@ -1,4 +1,4 @@
-package com.nowiwr01.stop_smoking.utils.extensions
+package com.nowiwr01.domain.utils.extensions
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.nowiwr01.stop_smoking.R
-import com.nowiwr01.stop_smoking.ui.base.BaseFragment
+import com.nowiwr01.stop_smoking.presentation.base.BaseFragment
 
 fun BaseFragment.showSnackbar(
     message: String,

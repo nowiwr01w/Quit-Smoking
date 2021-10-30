@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
-import com.nowiwr01.stop_smoking.ui.base.BaseFragment
+import com.nowiwr01.stop_smoking.presentation.base.BaseFragment
 
 fun BaseFragment.navigate(
     resId: Int,

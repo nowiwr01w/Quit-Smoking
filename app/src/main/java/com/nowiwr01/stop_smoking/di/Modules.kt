@@ -1,24 +1,23 @@
 package com.nowiwr01.stop_smoking.di
 
 import android.content.Context
-import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.nowiwr01.stop_smoking.Const.PREFS_NAME
-import com.nowiwr01.stop_smoking.db.LocalStorageDao
+import com.nowiwr01.data.storage.LocalStorageDao
 import com.nowiwr01.stop_smoking.logic.ApplicationDispatchers
 import com.nowiwr01.stop_smoking.logic.DispatchersProvider
-import com.nowiwr01.stop_smoking.logic.interactors.AuthInteractor
-import com.nowiwr01.stop_smoking.logic.interactors.UserDataInteractor
-import com.nowiwr01.stop_smoking.logic.repositories.AuthRepository
-import com.nowiwr01.stop_smoking.logic.repositories.UserDataRepository
-import com.nowiwr01.stop_smoking.logic.repositories.VKRepository
-import com.nowiwr01.stop_smoking.logic.repositories.impl.AuthRepositoryImpl
-import com.nowiwr01.stop_smoking.logic.repositories.impl.UserDataRepositoryImpl
-import com.nowiwr01.stop_smoking.logic.repositories.impl.VKRepositoryImpl
-import com.nowiwr01.stop_smoking.ui.main.auth.fragmentAuth
-import com.nowiwr01.stop_smoking.ui.main.fragmentMain
-import com.nowiwr01.stop_smoking.ui.main.auth.AuthViewModel
+import com.nowiwr01.domain.usecase.AuthUseCase
+import com.nowiwr01.domain.usecase.UserDataUseCase
+import com.nowiwr01.domain.repository.AuthRepository
+import com.nowiwr01.domain.repository.UserDataRepository
+import com.nowiwr01.domain.repository.VKRepository
+import com.nowiwr01.data.repository.AuthRepositoryImpl
+import com.nowiwr01.data.repository.UserDataRepositoryImpl
+import com.nowiwr01.data.repository.VKRepositoryImpl
+import com.nowiwr01.domain.utils.Const.PREFS_NAME
+import com.nowiwr01.stop_smoking.presentation.main.auth.fragmentAuth
+import com.nowiwr01.stop_smoking.presentation.main.fragmentMain
+import com.nowiwr01.stop_smoking.presentation.main.auth.AuthViewModel
 import com.nowiwr01.stop_smoking.utils.logger.*
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -54,8 +53,8 @@ val repositories = module {
 }
 
 val interactors = module {
-    factory { UserDataInteractor(get()) }
-    factory { AuthInteractor(get(), get()) }
+    factory { UserDataUseCase(get()) }
+    factory { AuthUseCase(get(), get()) }
 }
 
 val viewModels = module {

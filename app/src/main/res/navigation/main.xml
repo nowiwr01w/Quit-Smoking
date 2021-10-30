@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.nowiwr01.stop_smoking.ui.main.auth.AuthFragment"
+        android:name="com.nowiwr01.stop_smoking.presentation.main.auth.AuthFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_auth">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.nowiwr01.stop_smoking.ui.main.MainFragment"
+        android:name="com.nowiwr01.stop_smoking.presentation.main.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main">
         <action
@@ -27,7 +27,7 @@
 
     <dialog
         android:id="@+id/infoBottomSheet"
-        android:name="com.nowiwr01.stop_smoking.ui.main.info.InfoBottomSheet"
+        android:name="com.nowiwr01.stop_smoking.presentation.main.info.InfoBottomSheet"
         android:label="InfoBottomSheet"
         tools:layout="@layout/bottom_sheet_info">
         <argument

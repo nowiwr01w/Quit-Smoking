@@ -65,6 +65,8 @@ android {
     }
 }
 dependencies {
+    implementation project(path: ':data')
+    implementation project(path: ':domain')
 
     // Base
     implementation 'androidx.core:core-ktx:1.6.0'

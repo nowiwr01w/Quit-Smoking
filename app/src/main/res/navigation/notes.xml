@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/notesFragment"
-        android:name="com.nowiwr01.stop_smoking.ui.notes.NotesFragment"
+        android:name="com.nowiwr01.stop_smoking.presentation.notes.NotesFragment"
         android:label="NotesFragment" />
 </navigation>
