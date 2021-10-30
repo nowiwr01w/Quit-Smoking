@@ -6,16 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.nowiwr01.stop_smoking.R
-import com.nowiwr01.domain.utils.extensions.dpToPx
 
-abstract class BaseBottomSheet: BottomSheetDialogFragment() {
+abstract class BaseBottomSheet(
+    private val layoutResId: Int
+): BottomSheetDialogFragment() {
 
     protected abstract val binding: ViewBinding
 
@@ -31,20 +29,7 @@ abstract class BaseBottomSheet: BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dialogContainer = LinearLayout(context).apply {
-            orientation = LinearLayout.VERTICAL
-        }
-        val headerImg = ImageView(context).apply {
-            setImageResource(R.drawable.ic_touch_dialog)
-            setPadding(0, 24.dpToPx(requireContext()), 0, 24.dpToPx(requireContext()))
-        }
-        val header = FrameLayout(requireContext()).apply {
-            addView(headerImg)
-        }
-        return dialogContainer.apply {
-            addView(header)
-            addView(binding.root)
-        }
+        return inflater.inflate(layoutResId, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

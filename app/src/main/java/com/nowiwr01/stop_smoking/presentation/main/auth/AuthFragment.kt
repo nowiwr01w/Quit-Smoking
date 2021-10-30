@@ -30,6 +30,7 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
     private val inputFields by lazy { listOf(vb.email, vb.username, vb.password0, vb.password1) }
 
     private val viewModel by sharedViewModel<AuthViewModel>()
+    private val navigator by inject<AuthNavigator> { parametersOf(this) }
     private val controller by inject<AuthViewsController> { parametersOf(vb, viewModel) }
 
     private lateinit var googleClient: GoogleSignInClient
@@ -94,7 +95,7 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
                 Timber.tag("Auth").d("Load data")
             },
             hideCallback = {
-                Timber.tag("Auth").d("Navigate to main")
+                navigator.toHomeScreen()
             }
         )
     }

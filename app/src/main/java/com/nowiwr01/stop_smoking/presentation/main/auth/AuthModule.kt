@@ -6,6 +6,10 @@ import org.koin.dsl.module
 val fragmentAuth = module {
     scope<AuthFragment> {
         scoped { params ->
+            val fragment: AuthFragment = params[0]
+            AuthNavigator(fragment)
+        }
+        scoped { params ->
             val binding: FragmentAuthBinding = params[0]
             val viewModel: AuthViewModel = params[1]
             AuthViewsController(binding, viewModel)

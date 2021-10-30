@@ -3,13 +3,14 @@ package com.nowiwr01.stop_smoking.presentation.main.info
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.nowiwr01.stop_smoking.R
 import com.nowiwr01.stop_smoking.databinding.BottomSheetInfoBinding
 import com.nowiwr01.stop_smoking.presentation.base.BaseBottomSheet
 
-class InfoBottomSheet: BaseBottomSheet() {
+class InfoBottomSheet: BaseBottomSheet(R.layout.bottom_sheet_info) {
 
     private val args by navArgs<InfoBottomSheetArgs>()
-    override val binding by viewBinding(BottomSheetInfoBinding::bind)
+    override val binding by viewBinding<BottomSheetInfoBinding>()
 
     override fun setBottomSheetViews() {
         when (args.type) {

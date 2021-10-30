@@ -6,17 +6,28 @@
     android:paddingStart="16dp"
     android:paddingEnd="16dp">
 
+    <ImageView
+        android:id="@+id/touch_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_touch_dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/info_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/info_what_does_it_mean_title"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/touch_view" />
 
     <TextView
         android:id="@+id/info_free_time_description"
