@@ -3,9 +3,9 @@ package com.nowiwr01.stop_smoking.di
 import android.content.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.nowiwr01.basecoroutines.ApplicationDispatchers
+import com.nowiwr01.basecoroutines.DispatchersProvider
 import com.nowiwr01.data.storage.LocalStorageDao
-import com.nowiwr01.stop_smoking.logic.ApplicationDispatchers
-import com.nowiwr01.stop_smoking.logic.DispatchersProvider
 import com.nowiwr01.domain.usecase.AuthUseCase
 import com.nowiwr01.domain.usecase.UserDataUseCase
 import com.nowiwr01.domain.repository.AuthRepository

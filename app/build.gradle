@@ -67,6 +67,8 @@ android {
 dependencies {
     implementation project(path: ':data')
     implementation project(path: ':domain')
+    implementation project(path: ':baseCoroutines')
+    testImplementation project(path: ':baseTest')
 
     // Base
     implementation deps.core_ktx
@@ -79,6 +81,7 @@ dependencies {
     implementation deps.viewbinding
     implementation deps.circularprogressbar
 
+    // Lifecycle
     implementation deps.lifecycle_viewmodel
     implementation deps.lifecycle_extensions
 
@@ -122,8 +125,11 @@ dependencies {
     implementation deps.facebook
     implementation deps.appmetric
 
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    // Testing
+    testImplementation deps.junit
+    testImplementation deps.mockito_core
+    testImplementation deps.mockito_inline
+    testImplementation deps.mockito_to_kotlin
+    testImplementation deps.google_truth
 }
 

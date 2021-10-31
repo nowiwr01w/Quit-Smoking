@@ -1,5 +1,6 @@
 package com.nowiwr01.domain.utils.extensions
 
+import androidx.core.util.PatternsCompat.EMAIL_ADDRESS
 import com.nowiwr01.domain.model.error.UserHighlightType
 import com.nowiwr01.domain.model.error.UserHighlightType.*
 
@@ -13,8 +14,7 @@ fun String.hasUpperChar(): Boolean {
 
 fun String.isLongPassword() = length >= 8
 
-fun String.isValidEmail() =
-    isNotEmpty() && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
+fun String.isValidEmail() = isNotEmpty() && EMAIL_ADDRESS.matcher(this).matches()
 
 fun List<UserHighlightType>.getFieldNames() = mutableListOf<String>().apply {
     this@getFieldNames.forEach {

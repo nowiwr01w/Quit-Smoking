@@ -33,6 +33,8 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':baseCoroutines')
+
     // Timber
     implementation deps.timber
 
@@ -63,7 +65,10 @@ dependencies {
     implementation deps.facebook
     implementation deps.appmetric
 
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    // Testing
+    testImplementation deps.junit
+    testImplementation deps.mockito_core
+    testImplementation deps.mockito_inline
+    testImplementation deps.mockito_to_kotlin
+    testImplementation deps.google_truth
 }

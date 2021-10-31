@@ -1,5 +1,6 @@
 package com.nowiwr01.data.repository
 
+import com.nowiwr01.basecoroutines.DispatchersProvider
 import com.nowiwr01.domain.model.error.UserHighlightType
 import com.nowiwr01.domain.model.error.UserHighlightType.*
 import com.nowiwr01.domain.model.error.SignInError
@@ -13,7 +14,6 @@ import com.nowiwr01.domain.repository.UserDataRepository
 import com.nowiwr01.domain.utils.extensions.hasUpperChar
 import com.nowiwr01.domain.utils.extensions.isLongPassword
 import com.nowiwr01.domain.utils.extensions.isValidEmail
-import com.nowiwr01.stop_smoking.logic.DispatchersProvider
 import kotlinx.coroutines.withContext
 
 class UserDataRepositoryImpl(

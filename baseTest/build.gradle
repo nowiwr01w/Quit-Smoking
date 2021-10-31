@@ -1,7 +1,6 @@
 plugins {
-    id 'com.android.library'
+    id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-kapt'
 }
 
 android {
@@ -33,37 +32,17 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':domain')
-    testImplementation project(path: ':baseTest')
     implementation project(path: ':baseCoroutines')
-
-    // Timber
-    implementation deps.timber
 
     // Coroutines
     implementation deps.coroutines
     implementation deps.coroutines_android
-    implementation deps.coroutines_play_service
 
-    // Room
-    implementation deps.room_ktx
-    implementation deps.room_runtime
+    // Testing
+    testImplementation deps.junit
+    testImplementation deps.mockito_core
+    testImplementation deps.mockito_inline
+    testImplementation deps.mockito_to_kotlin
+    testImplementation deps.google_truth
     implementation deps.room_testing
-    implementation deps.room_presistance_runtime
-    annotationProcessor deps.room_compiler
-    kapt deps.room_compiler
-    kapt deps.room_presistance_compiler
-
-    // Firebase
-    implementation deps.firebase_auth
-    implementation deps.firebase_auth_ktx
-    implementation deps.firebase_database
-    implementation deps.firebase_analytics
-
-    // APIs (VK, Google, AppMetric Facebook)
-    implementation deps.vk_api
-    implementation deps.vk_core
-    implementation deps.google
-    implementation deps.facebook
-    implementation deps.appmetric
 }

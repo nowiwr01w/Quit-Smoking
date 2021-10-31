@@ -5,6 +5,7 @@ import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.database.FirebaseDatabase
+import com.nowiwr01.basecoroutines.DispatchersProvider
 import com.nowiwr01.data.storage.LocalStorageDao
 import com.nowiwr01.domain.model.user.User
 import com.nowiwr01.domain.model.user.UserDataSignIn
@@ -16,7 +17,6 @@ import com.nowiwr01.domain.utils.Const.GOOGLE_AUTH_TYPE
 import com.nowiwr01.domain.utils.Const.USERS_REFERENCE
 import com.nowiwr01.domain.utils.extensions.hasAccount
 import com.nowiwr01.domain.utils.extensions.mapUser
-import com.nowiwr01.stop_smoking.logic.DispatchersProvider
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 

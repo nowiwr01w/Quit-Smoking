@@ -1,4 +1,4 @@
-package com.nowiwr01.stop_smoking.logic
+package com.nowiwr01.basecoroutines
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
