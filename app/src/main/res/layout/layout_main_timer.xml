@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/purple_700">
@@ -20,67 +21,67 @@
         app:layout_constraintGuide_percent="0.6" />
 
     <TextView
-        android:id="@+id/years_count"
-        style="@style/Text.Big.Bold"
-        android:text="12"
-        app:layout_constraintBottom_toTopOf="@id/guideline_70"
-        app:layout_constraintEnd_toEndOf="@id/years_title"
-        app:layout_constraintStart_toStartOf="@id/years_title" />
-
-    <TextView
-        android:id="@+id/years_title"
-        style="@style/Text.Small"
-        android:layout_marginEnd="16dp"
-        android:text="лет"
-        app:layout_constraintEnd_toStartOf="@+id/month_title"
-        app:layout_constraintTop_toBottomOf="@id/guideline_70" />
-
-    <TextView
-        android:id="@+id/month_count"
+        android:id="@+id/first_count"
         style="@style/Text.Big.Bold"
         android:text="05"
         app:layout_constraintBottom_toTopOf="@id/guideline_70"
-        app:layout_constraintEnd_toEndOf="@id/month_title"
-        app:layout_constraintStart_toStartOf="@id/month_title" />
+        app:layout_constraintEnd_toEndOf="@id/first_title"
+        app:layout_constraintStart_toStartOf="@id/first_title" />
 
     <TextView
-        android:id="@+id/month_title"
+        android:id="@+id/first_title"
         style="@style/Text.Small"
-        android:layout_marginEnd="6dp"
-        android:text="месяцев"
+        android:layout_marginEnd="16dp"
+        android:text="дней"
+        app:layout_constraintEnd_toStartOf="@+id/second_title"
+        app:layout_constraintTop_toBottomOf="@id/guideline_70" />
+
+    <TextView
+        android:id="@+id/second_count"
+        style="@style/Text.Big.Bold"
+        android:text="14"
+        app:layout_constraintBottom_toTopOf="@id/guideline_70"
+        app:layout_constraintEnd_toEndOf="@id/second_title"
+        app:layout_constraintStart_toStartOf="@id/second_title" />
+
+    <TextView
+        android:id="@+id/second_title"
+        style="@style/Text.Small"
+        android:layout_marginEnd="8dp"
+        android:text="часов"
         app:layout_constraintEnd_toStartOf="@+id/guideline_50"
         app:layout_constraintTop_toBottomOf="@id/guideline_70" />
 
     <TextView
-        android:id="@+id/days_count"
+        android:id="@+id/third_count"
         style="@style/Text.Big.Bold"
         android:text="13"
         app:layout_constraintBottom_toTopOf="@id/guideline_70"
-        app:layout_constraintEnd_toEndOf="@id/days_title"
-        app:layout_constraintStart_toStartOf="@id/days_title" />
+        app:layout_constraintEnd_toEndOf="@id/third_title"
+        app:layout_constraintStart_toStartOf="@id/third_title" />
 
     <TextView
-        android:id="@+id/days_title"
+        android:id="@+id/third_title"
         style="@style/Text.Small"
         android:layout_marginStart="8dp"
-        android:text="дней"
+        android:text="минут"
         app:layout_constraintStart_toEndOf="@+id/guideline_50"
         app:layout_constraintTop_toBottomOf="@id/guideline_70" />
 
     <TextView
-        android:id="@+id/hours_count"
+        android:id="@+id/fourth_count"
         style="@style/Text.Big.Bold"
         android:text="05"
         app:layout_constraintBottom_toTopOf="@id/guideline_70"
-        app:layout_constraintEnd_toEndOf="@id/hours_title"
-        app:layout_constraintStart_toStartOf="@id/hours_title" />
+        app:layout_constraintEnd_toEndOf="@id/fourth_title"
+        app:layout_constraintStart_toStartOf="@id/fourth_title" />
 
     <TextView
-        android:id="@+id/hours_title"
+        android:id="@+id/fourth_title"
         style="@style/Text.Small"
-        android:layout_marginStart="18dp"
-        android:text="часов"
-        app:layout_constraintStart_toEndOf="@+id/days_title"
+        android:layout_marginStart="16dp"
+        android:text="секунд"
+        app:layout_constraintStart_toEndOf="@+id/third_title"
         app:layout_constraintTop_toBottomOf="@id/guideline_70" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

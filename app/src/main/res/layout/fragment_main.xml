@@ -120,34 +120,8 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <include
-                android:id="@+id/timer_big"
-                layout="@layout/layout_timer_big"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/time_title" />
-
-            <include
-                android:id="@+id/timer_medium"
-                layout="@layout/layout_timer_medium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/time_title" />
-
-            <include
-                android:id="@+id/timer_small"
-                layout="@layout/layout_timer_small"
+                android:id="@+id/timer"
+                layout="@layout/layout_main_timer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

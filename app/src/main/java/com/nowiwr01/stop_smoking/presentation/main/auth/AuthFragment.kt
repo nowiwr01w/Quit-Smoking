@@ -74,7 +74,7 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
     }
 
     override fun setObservers() {
-        viewModel.userData.observeEvent(this) {
+        viewModel.userData.observe(viewLifecycleOwner) {
             controller.setDefaultAll()
             success(it)
         }

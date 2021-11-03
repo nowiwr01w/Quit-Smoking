@@ -23,7 +23,7 @@ class AuthViewModel(
     private val userDataInteractor: UserDataUseCase,
     private val logger: Logger,
 
-    val userData: MutableLiveData<Event<User>> = MutableLiveData(),
+    val userData: MutableLiveData<User> = MutableLiveData(),
     val progress: MutableLiveData<Boolean> = MutableLiveData(),
     val authError: MutableLiveData<Event<AuthError>> = MutableLiveData()
 ): BaseViewModel() {
@@ -88,7 +88,7 @@ class AuthViewModel(
     private fun onSuccess(user: User) {
         logger.logAuth(user.authMethod)
         showProgress(false)
-        userData.postValue(user.toEvent())
+        userData.postValue(user)
     }
 
     private fun onError(error: AuthError) {

@@ -26,7 +26,6 @@ object Const {
      * Smoke info
      */
     const val DEFAULT_CURRENCY = "RUB"
-    const val DEFAULT_BREAK_DATE = -1
     const val DEFAULT_CIGARETTES_PER_DAY = 15
     const val DEFAULT_CIGARETTES_PER_PACK = 20
     const val DEFAULT_CIGARETTES_PACK_COST = 170
