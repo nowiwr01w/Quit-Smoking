@@ -1,10 +1,11 @@
-package com.nowiwr01.stop_smoking.model
+package com.nowiwr01.stop_smoking.model.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.nowiwr01.stop_smoking.R
+import com.nowiwr01.stop_smoking.model.Star
 
 class StarAdapter(
     private val stars: List<Star>

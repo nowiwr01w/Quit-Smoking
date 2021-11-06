@@ -8,8 +8,8 @@ import com.nowiwr01.domain.model.user.UserData
 import com.nowiwr01.domain.model.user.UserDataSignIn
 import com.nowiwr01.domain.model.user.UserDataSignUp
 import com.nowiwr01.stop_smoking.presentation.main.auth.AuthFragment.Companion.SIGN_IN
-import com.nowiwr01.domain.model.error.UserHighlightType
-import com.nowiwr01.domain.model.error.UserHighlightType.*
+import com.nowiwr01.domain.model.error.auth.UserHighlightType
+import com.nowiwr01.domain.model.error.auth.UserHighlightType.*
 import com.nowiwr01.stop_smoking.utils.extensions.doOnTextChanged
 import com.nowiwr01.stop_smoking.utils.extensions.setDefault
 import com.nowiwr01.stop_smoking.utils.extensions.setError

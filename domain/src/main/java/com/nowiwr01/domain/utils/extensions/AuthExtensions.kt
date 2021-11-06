@@ -38,7 +38,8 @@ fun FirebaseUser.mapUser(authFrom: String, name: String = "Котик, брос�
 fun DataSnapshot.getUser() = getValue(User::class.java)!!
 
 fun DataSnapshot.hasAccount(user: User): User? {
-    return if (getUser().id == user.id) getUser() else null
+    val remote = getUser()
+    return if (remote.id == user.id) remote else null
 }
 
 fun getCallbackManager(

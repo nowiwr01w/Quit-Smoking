@@ -1,6 +1,6 @@
 package com.nowiwr01.domain.usecase
 
-import com.nowiwr01.domain.model.error.AuthError
+import com.nowiwr01.domain.model.error.auth.AuthError
 import com.nowiwr01.domain.model.user.UserData
 import com.nowiwr01.domain.model.user.UserDataSignIn
 import com.nowiwr01.domain.model.user.UserDataSignUp

@@ -1,13 +1,13 @@
 package com.nowiwr01.data.repository
 
 import com.nowiwr01.basecoroutines.DispatchersProvider
-import com.nowiwr01.domain.model.error.UserHighlightType
-import com.nowiwr01.domain.model.error.UserHighlightType.*
-import com.nowiwr01.domain.model.error.SignInError
-import com.nowiwr01.domain.model.error.SignInError.SignInEmptyFieldError
-import com.nowiwr01.domain.model.error.SignInError.SignInInvalidEmailError
-import com.nowiwr01.domain.model.error.SignUpError
-import com.nowiwr01.domain.model.error.SignUpError.*
+import com.nowiwr01.domain.model.error.auth.UserHighlightType
+import com.nowiwr01.domain.model.error.auth.UserHighlightType.*
+import com.nowiwr01.domain.model.error.auth.SignInError
+import com.nowiwr01.domain.model.error.auth.SignInError.SignInEmptyFieldError
+import com.nowiwr01.domain.model.error.auth.SignInError.SignInInvalidEmailError
+import com.nowiwr01.domain.model.error.auth.SignUpError
+import com.nowiwr01.domain.model.error.auth.SignUpError.*
 import com.nowiwr01.domain.model.user.UserDataSignIn
 import com.nowiwr01.domain.model.user.UserDataSignUp
 import com.nowiwr01.domain.repository.UserDataRepository

@@ -6,13 +6,13 @@ import com.nowiwr01.domain.model.user.UserDataSignIn
 import com.nowiwr01.domain.model.user.UserDataSignUp
 
 interface AuthRepository {
-    suspend fun authVk(user: User): User
+    suspend fun authVk(user: User): Pair<String, User>
 
-    suspend fun authGoogle(account: GoogleSignInAccount): User
+    suspend fun authGoogle(account: GoogleSignInAccount): Pair<String, User>
 
-    suspend fun authFacebook(token: String): User
+    suspend fun authFacebook(token: String): Pair<String, User>
 
-    suspend fun loginUser(userData: UserDataSignIn): User
+    suspend fun loginUser(userData: UserDataSignIn): Pair<String, User>
 
-    suspend fun createUser(userData: UserDataSignUp): User
+    suspend fun createUser(userData: UserDataSignUp): Pair<String, User>
 }

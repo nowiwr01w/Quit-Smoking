@@ -11,13 +11,16 @@
         android:label="LoginFragment"
         tools:layout="@layout/fragment_auth">
         <action
-            android:id="@+id/action_auth_to_main"
+            android:id="@+id/action_auth_to_smoke_info"
+            app:destination="@id/smokeInfoFragment" />
+        <action
+            android:id="@+id/action_auth_to_home"
             app:destination="@id/mainFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.nowiwr01.stop_smoking.presentation.main.MainFragment"
+        android:name="com.nowiwr01.stop_smoking.presentation.main.home.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main">
         <action
@@ -27,12 +30,31 @@
 
     <dialog
         android:id="@+id/infoBottomSheet"
-        android:name="com.nowiwr01.stop_smoking.presentation.main.info.InfoBottomSheet"
+        android:name="com.nowiwr01.stop_smoking.presentation.main.home.bottom_sheet.InfoBottomSheet"
         android:label="InfoBottomSheet"
         tools:layout="@layout/bottom_sheet_info">
         <argument
             android:name="type"
             app:argType="string" />
     </dialog>
+
+    <fragment
+        android:id="@+id/smokeInfoFragment"
+        android:name="com.nowiwr01.stop_smoking.presentation.main.smoke_info.SmokeInfoFragment"
+        android:label="SmokeInfoFragment"
+        tools:layout="@layout/fragment_smoking_info">
+        <action
+            android:id="@+id/action_info_to_home"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_to_currency"
+            app:destination="@id/currencyBottomSheet" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/currencyBottomSheet"
+        android:name="com.nowiwr01.stop_smoking.presentation.main.smoke_info.bottom_sheet.CurrencyBottomSheet"
+        android:label="CurrencyBottomSheet"
+        tools:layout="@layout/bottom_sheet_currencies"/>
 
 </navigation>

@@ -1,21 +1,25 @@
-package com.nowiwr01.stop_smoking.presentation.main
+package com.nowiwr01.stop_smoking.presentation.main.home
 
 import com.nowiwr01.domain.model.user.User
 import com.nowiwr01.domain.model.user.smoke_info.SmokeTime
 import com.nowiwr01.stop_smoking.databinding.FragmentMainBinding
 import com.nowiwr01.stop_smoking.utils.extensions.*
 
-class TimerViewController(
+class HomeViewsController(
     private val binding: FragmentMainBinding
 ) {
 
 
     fun showNotSmokedDays(user: User) {
-        binding.infoFreeTime.infoFreeTimeValue.text = user.getNotSmokedDays().toString()
+        binding.infoFreeTime.infoFreeTimeValue.text = user.getNotSmokedDays()
     }
 
     fun showNotSmokedCigarettes(user: User) {
         binding.infoNotSmoked.infoNotSmokedValue.text = user.getNotSmokedPacks().toString()
+    }
+
+    fun showSavedMoney(user: User) {
+        binding.infoMoney.infoMoneyValue.text = user.getSavedMoney()
     }
 
     fun showTimer(user: User) {

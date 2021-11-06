@@ -7,6 +7,10 @@ class AuthNavigator(
     private val fragment: AuthFragment
 ) {
     fun toHomeScreen() {
-        fragment.navigate(R.id.action_auth_to_main)
+        fragment.navigate(R.id.action_auth_to_home)
+    }
+
+    fun toSmokeInfoScreen() {
+        fragment.navigate(R.id.action_auth_to_smoke_info)
     }
 }

@@ -1,4 +1,4 @@
-package com.nowiwr01.stop_smoking.presentation.main
+package com.nowiwr01.stop_smoking.presentation.main.home
 
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -6,11 +6,11 @@ import com.nowiwr01.domain.model.user.User
 import com.nowiwr01.stop_smoking.R
 import com.nowiwr01.stop_smoking.databinding.FragmentMainBinding
 import com.nowiwr01.stop_smoking.model.Star
-import com.nowiwr01.stop_smoking.model.StarAdapter
+import com.nowiwr01.stop_smoking.model.adapters.StarAdapter
 import com.nowiwr01.stop_smoking.presentation.base.BaseFragment
 import com.nowiwr01.stop_smoking.presentation.main.auth.AuthViewModel
-import com.nowiwr01.stop_smoking.presentation.main.info.InfoBottomSheet.Companion.TYPE_FREE_TIME
-import com.nowiwr01.stop_smoking.presentation.main.info.InfoBottomSheet.Companion.TYPE_STRONG_DESIRE
+import com.nowiwr01.stop_smoking.presentation.main.home.bottom_sheet.InfoBottomSheet.Companion.TYPE_FREE_TIME
+import com.nowiwr01.stop_smoking.presentation.main.home.bottom_sheet.InfoBottomSheet.Companion.TYPE_STRONG_DESIRE
 import com.nowiwr01.stop_smoking.utils.extensions.setOnSingleClickListener
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -22,7 +22,7 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     private val vb by viewBinding<FragmentMainBinding>()
 
     private val viewModel by sharedViewModel<AuthViewModel>()
-    private val controller by inject<TimerViewController> { parametersOf(vb) }
+    private val controller by inject<HomeViewsController> { parametersOf(vb) }
     private val navigator by inject<MainNavigator> { parametersOf(this) }
 
     override fun setViews() {
@@ -41,7 +41,7 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
 
     override fun setObservers() {
         viewModel.userData.observe(viewLifecycleOwner) {
-            lifecycleScope.launch { repeatInfo(it) }
+            lifecycleScope.launch { repeatInfo(it.second) }
         }
     }
 
@@ -55,9 +55,12 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     }
 
     private fun proceedUser(user: User) {
-        controller.showTimer(user)
-        controller.showNotSmokedDays(user)
-        controller.showNotSmokedCigarettes(user)
+        with(controller) {
+            showTimer(user)
+            showSavedMoney(user)
+            showNotSmokedDays(user)
+            showNotSmokedCigarettes(user)
+        }
     }
 
     private fun showInfo(type: String) {

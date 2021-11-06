@@ -1,6 +1,8 @@
-package com.nowiwr01.domain.model.error
+package com.nowiwr01.domain.model.error.auth
 
-import com.nowiwr01.domain.model.error.UserHighlightType.*
+import com.nowiwr01.domain.model.error.auth.UserHighlightType.*
+import com.nowiwr01.domain.model.error.auth.AuthError
+import com.nowiwr01.domain.model.error.auth.UserHighlightType
 import com.nowiwr01.domain.utils.extensions.getFieldNames
 
 sealed class SignUpError: AuthError {

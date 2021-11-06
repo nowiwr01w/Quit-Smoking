@@ -50,7 +50,7 @@ class AuthRepositoryImpl(
         val user = auth.signInWithEmailAndPassword(userData.email, userData.password)
             .await()
             .user!!.mapUser(FIREBASE_AUTH_TYPE)
-        checkExistingAccount(user) ?: throw IllegalStateException("Always have an account.")
+        TYPE_OLD_USER to user
     }
 
     override suspend fun createUser(userData: UserDataSignUp) = withContext(dispatchers.io) {
@@ -64,18 +64,23 @@ class AuthRepositoryImpl(
         var resultUser: User? = null
         database.getReference(USERS_REFERENCE).get().await().children.forEach {
             resultUser = it.hasAccount(user)
-            if (resultUser != null) return@forEach
+            if (resultUser != null) return resultUser
         }
         return resultUser
     }
 
-    private suspend fun saveFirebaseUser(newUser: User, existingUser: User?): User {
+    private suspend fun saveFirebaseUser(newUser: User, existingUser: User?): Pair<String, User> {
         return if (existingUser == null) {
             prefs.setUserReference(newUser)
             database.getReference(USERS_REFERENCE).child(newUser.id).setValue(newUser).await()
-            newUser
+            TYPE_NEW_USER to newUser
         } else {
-            existingUser
+            TYPE_OLD_USER to existingUser
         }
+    }
+
+    companion object {
+        const val TYPE_OLD_USER = "login"
+        const val TYPE_NEW_USER = "registration"
     }
 }

@@ -1,8 +1,8 @@
 package com.nowiwr01.domain.utils.extensions
 
 import androidx.core.util.PatternsCompat.EMAIL_ADDRESS
-import com.nowiwr01.domain.model.error.UserHighlightType
-import com.nowiwr01.domain.model.error.UserHighlightType.*
+import com.nowiwr01.domain.model.error.auth.UserHighlightType
+import com.nowiwr01.domain.model.error.auth.UserHighlightType.*
 
 fun String.hasUpperChar(): Boolean {
     var cur = 0

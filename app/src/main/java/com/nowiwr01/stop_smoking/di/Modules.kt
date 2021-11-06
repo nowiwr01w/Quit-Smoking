@@ -13,11 +13,16 @@ import com.nowiwr01.domain.repository.UserDataRepository
 import com.nowiwr01.domain.repository.VKRepository
 import com.nowiwr01.data.repository.AuthRepositoryImpl
 import com.nowiwr01.data.repository.UserDataRepositoryImpl
+import com.nowiwr01.data.repository.UserRepositoryImpl
 import com.nowiwr01.data.repository.VKRepositoryImpl
+import com.nowiwr01.domain.repository.UserRepository
+import com.nowiwr01.domain.usecase.UserUseCase
 import com.nowiwr01.domain.utils.Const.PREFS_NAME
 import com.nowiwr01.stop_smoking.presentation.main.auth.fragmentAuth
 import com.nowiwr01.stop_smoking.presentation.main.fragmentMain
 import com.nowiwr01.stop_smoking.presentation.main.auth.AuthViewModel
+import com.nowiwr01.stop_smoking.presentation.main.smoke_info.SmokeInfoViewModel
+import com.nowiwr01.stop_smoking.presentation.main.smoke_info.fragmentSmokeInfo
 import com.nowiwr01.stop_smoking.utils.logger.*
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -25,8 +30,9 @@ import org.koin.dsl.bind
 import org.koin.dsl.module
 
 val scopedFragments = listOf(
-    fragmentMain,
     fragmentAuth,
+    fragmentSmokeInfo,
+    fragmentMain,
 )
 
 val dispatchers = module {
@@ -47,18 +53,29 @@ val firebaseData = module {
 }
 
 val repositories = module {
-    factory<VKRepository> { VKRepositoryImpl(get()) }
-    factory<UserDataRepository> { UserDataRepositoryImpl(get()) }
-    factory<AuthRepository> { AuthRepositoryImpl(get(), get(), get(), get()) }
+    factory<VKRepository> {
+        VKRepositoryImpl(get())
+    }
+    factory<UserDataRepository> {
+        UserDataRepositoryImpl(get())
+    }
+    factory<UserRepository> {
+        UserRepositoryImpl(get(), get(), get())
+    }
+    factory<AuthRepository> {
+        AuthRepositoryImpl(get(), get(), get(), get())
+    }
 }
 
 val interactors = module {
+    factory { UserUseCase(get()) }
     factory { UserDataUseCase(get()) }
     factory { AuthUseCase(get(), get()) }
 }
 
 val viewModels = module {
     viewModel { AuthViewModel(get(), get(), get()) }
+    viewModel { SmokeInfoViewModel(get()) }
 }
 
 val koinModules = listOf(

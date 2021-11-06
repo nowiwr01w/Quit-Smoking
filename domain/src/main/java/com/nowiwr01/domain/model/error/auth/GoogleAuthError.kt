@@ -1,4 +1,4 @@
-package com.nowiwr01.domain.model.error
+package com.nowiwr01.domain.model.error.auth
 
 data class GoogleAuthError(
     override val list: List<UserHighlightType> = listOf(),

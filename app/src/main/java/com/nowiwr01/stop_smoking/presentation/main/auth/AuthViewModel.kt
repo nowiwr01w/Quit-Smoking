@@ -8,7 +8,7 @@ import com.nowiwr01.domain.model.user.UserData
 import com.nowiwr01.domain.model.user.UserDataSignIn
 import com.nowiwr01.domain.model.user.UserDataSignUp
 import com.nowiwr01.stop_smoking.utils.Event
-import com.nowiwr01.domain.model.error.AuthError
+import com.nowiwr01.domain.model.error.auth.AuthError
 import com.nowiwr01.domain.usecase.AuthUseCase
 import com.nowiwr01.domain.usecase.UserDataUseCase
 import com.nowiwr01.stop_smoking.presentation.base.BaseViewModel
@@ -23,7 +23,7 @@ class AuthViewModel(
     private val userDataInteractor: UserDataUseCase,
     private val logger: Logger,
 
-    val userData: MutableLiveData<User> = MutableLiveData(),
+    val userData: MutableLiveData<Pair<String, User>> = MutableLiveData(),
     val progress: MutableLiveData<Boolean> = MutableLiveData(),
     val authError: MutableLiveData<Event<AuthError>> = MutableLiveData()
 ): BaseViewModel() {
@@ -85,10 +85,10 @@ class AuthViewModel(
         progress.postValue(show)
     }
 
-    private fun onSuccess(user: User) {
-        logger.logAuth(user.authMethod)
+    private fun onSuccess(authInfo: Pair<String, User>) {
         showProgress(false)
-        userData.postValue(user)
+        logger.logAuth(authInfo)
+        userData.postValue(authInfo)
     }
 
     private fun onError(error: AuthError) {

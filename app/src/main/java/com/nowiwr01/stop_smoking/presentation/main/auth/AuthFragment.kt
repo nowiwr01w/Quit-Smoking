@@ -7,27 +7,28 @@ import com.facebook.login.LoginManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.nowiwr01.data.repository.AuthRepositoryImpl.Companion.TYPE_NEW_USER
+import com.nowiwr01.data.repository.AuthRepositoryImpl.Companion.TYPE_OLD_USER
+import com.nowiwr01.domain.model.user.User
+import com.nowiwr01.domain.utils.extensions.getCallbackManager
+import com.nowiwr01.domain.utils.extensions.showSnackbar
 import com.nowiwr01.stop_smoking.Const.GOOGLE_CLIENT_ID
 import com.nowiwr01.stop_smoking.Const.GOOGLE_MARK
 import com.nowiwr01.stop_smoking.R
 import com.nowiwr01.stop_smoking.databinding.FragmentAuthBinding
-import com.nowiwr01.domain.model.user.User
-import com.nowiwr01.stop_smoking.presentation.base.BaseFragment
-import com.nowiwr01.domain.utils.extensions.*
+import com.nowiwr01.stop_smoking.presentation.base.BaseExpandableFragment
 import com.nowiwr01.stop_smoking.utils.extensions.hideKeyboard
-import com.nowiwr01.stop_smoking.utils.extensions.setAllFocusListener
-import com.nowiwr01.stop_smoking.utils.extensions.setKeyboardListener
 import com.nowiwr01.stop_smoking.utils.observeEvent
 import com.vk.api.sdk.VK
 import com.vk.api.sdk.auth.VKScope
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.core.parameter.parametersOf
-import timber.log.Timber
 
-class AuthFragment : BaseFragment(R.layout.fragment_auth) {
+class AuthFragment: BaseExpandableFragment(R.layout.fragment_auth) {
 
     private val vb by viewBinding<FragmentAuthBinding>()
-    private val inputFields by lazy { listOf(vb.email, vb.username, vb.password0, vb.password1) }
+    override val inputFields by lazy { listOf(vb.email, vb.username, vb.password0, vb.password1) }
+    override val expandableMotionLayout by lazy { vb.motionLayout }
 
     private val viewModel by sharedViewModel<AuthViewModel>()
     private val navigator by inject<AuthNavigator> { parametersOf(this) }
@@ -36,23 +37,19 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
     private lateinit var googleClient: GoogleSignInClient
     private lateinit var fbCallbackManager: CallbackManager
 
-    override fun setViews() {
-        hideBottomBar()
-        controller.setTabLayout()
-        controller.setTextChangedCallback()
-        controller.setAuthType(resources, viewModel.currentMode)
-
+    override fun initialize() {
         setGoogleClient()
         setFacebookClient()
     }
 
+    override fun setViews() {
+        super.setViews()
+        controller.setTabLayout()
+        controller.setTextChangedCallback()
+        controller.setAuthType(resources, viewModel.currentMode)
+    }
+
     override fun setListeners() {
-        inputFields.setAllFocusListener {
-            expandOrCollapse(true)
-        }
-        requireView().setKeyboardListener(inputFields) {
-            expandOrCollapse(false)
-        }
         vb.vkAuth.setOnClickListener {
             VK.login(baseActivity, arrayListOf(VKScope.EMAIL))
         }
@@ -75,8 +72,7 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
 
     override fun setObservers() {
         viewModel.userData.observe(viewLifecycleOwner) {
-            controller.setDefaultAll()
-            success(it)
+            onAuthSuccess(it)
         }
         viewModel.progress.observe(viewLifecycleOwner) {
             controller.manageProgressBar(viewModel.currentMode, it)
@@ -87,17 +83,12 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
         }
     }
 
-    private fun success(user: User) {
-        showSnackbar(
-            message = String.format("%s, добро пожаловать!", user.username),
-            customColor = true,
-            showCallback = {
-                Timber.tag("Auth").d("Load data")
-            },
-            hideCallback = {
-                navigator.toHomeScreen()
-            }
-        )
+    private fun onAuthSuccess(userData: Pair<String, User>) {
+        controller.setDefaultAll()
+        when (userData.first) {
+            TYPE_OLD_USER -> navigator.toHomeScreen()
+            TYPE_NEW_USER -> navigator.toSmokeInfoScreen()
+        }
     }
 
     private fun setGoogleClient() {
@@ -106,13 +97,11 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
             .requestProfile()
             .requestIdToken(GOOGLE_CLIENT_ID)
             .build()
-
         googleClient = GoogleSignIn.getClient(baseActivity, gso)
     }
 
     private fun setFacebookClient() {
         fbCallbackManager = CallbackManager.Factory.create()
-
         LoginManager.getInstance().registerCallback(fbCallbackManager, getCallbackManager {
             viewModel.facebookAuth(it)
         })
@@ -126,14 +115,6 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
     private fun setDefaultMotionMode() {
         requireView().hideKeyboard()
         expandOrCollapse(false)
-    }
-
-    private fun expandOrCollapse(expand: Boolean) {
-        if (expand) {
-            vb.motionLayout.transitionToEnd()
-        } else {
-            vb.motionLayout.transitionToStart()
-        }
     }
 
     companion object {

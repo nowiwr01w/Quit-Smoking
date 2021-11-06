@@ -1,4 +1,4 @@
-package com.nowiwr01.stop_smoking.presentation.main
+package com.nowiwr01.stop_smoking.presentation.main.home
 
 import androidx.core.os.bundleOf
 import com.nowiwr01.stop_smoking.R

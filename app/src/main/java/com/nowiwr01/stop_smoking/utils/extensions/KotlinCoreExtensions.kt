@@ -50,14 +50,22 @@ fun User.getNotSmokedPacks(): Double {
     return result.toBigDecimal().setScale(result.round(), RoundingMode.UP).toDouble()
 }
 
-fun User.getNotSmokedDays(): Double {
+fun User.getNotSmokedDays(): String {
     val days = (System.currentTimeMillis() - smokeInfo.breakDate) / MILLIS_IN_DAY.toDouble()
-    return days.toBigDecimal().setScale(days.round(), RoundingMode.UP).toDouble()
+    return days.toBigDecimal().setScale(days.round(), RoundingMode.UP).toDouble().toString()
+}
+
+fun User.getSavedMoney(): String {
+    return (getNotSmokedPacks() * smokeInfo.cigarettesPackCost).roundSavedMoney()
 }
 
 fun Long.round() = if (this >= 10) toString() else "0$this"
 
 fun Double.round() = if (this >= DAYS_AND_PACK_ROUND) 1 else 2
+
+fun Int.round() = if (this >= 10) toString() else "0$this"
+
+fun Double.roundSavedMoney() = if (this >= MONEY_ROUND) "${this / MONEY_ROUND}K" else toString()
 
 const val MILLIS_IN_SECOND = 1_000L
 const val MILLIS_IN_MINUTE = 60 * MILLIS_IN_SECOND
@@ -67,3 +75,4 @@ const val MILLIS_IN_MONTH = 31 * MILLIS_IN_DAY
 const val MILLIS_IN_YEAR = 12 * MILLIS_IN_MONTH
 
 const val DAYS_AND_PACK_ROUND = 10L
+const val MONEY_ROUND = 10000

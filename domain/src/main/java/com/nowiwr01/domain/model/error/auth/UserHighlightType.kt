@@ -1,4 +1,4 @@
-package com.nowiwr01.domain.model.error
+package com.nowiwr01.domain.model.error.auth
 
 enum class UserHighlightType(val type: Int) {
     EMAIL_FIELD_ERROR(1),

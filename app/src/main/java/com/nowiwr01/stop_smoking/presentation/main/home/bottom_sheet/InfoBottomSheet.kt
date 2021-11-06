@@ -1,4 +1,4 @@
-package com.nowiwr01.stop_smoking.presentation.main.info
+package com.nowiwr01.stop_smoking.presentation.main.home.bottom_sheet
 
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.navArgs

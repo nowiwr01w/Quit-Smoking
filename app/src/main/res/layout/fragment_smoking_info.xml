@@ -11,7 +11,7 @@
         android:id="@+id/ic_login"
         android:layout_width="96dp"
         android:layout_height="96dp"
-        android:src="@drawable/ic_login"
+        android:src="@drawable/no_smoke"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,58 +43,81 @@
             android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Smoke info" />
+
+        </com.google.android.material.tabs.TabLayout>
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/one_pack_cost"
             style="@style/EditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
+            android:hint="Стоимость одной пачки"
+            android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tab_layout" />
 
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/currency"
             style="@style/EditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="@string/username"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:hint="Ваша валюта"
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/email" />
+            app:layout_constraintTop_toBottomOf="@id/one_pack_cost" />
 
         <EditText
-            android:id="@+id/password0"
+            android:id="@+id/cigarettes_per_pack"
             style="@style/EditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="@string/password"
-            android:inputType="textPassword"
+            android:hint="Количество сигарет в пачке"
+            android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/username" />
+            app:layout_constraintTop_toBottomOf="@id/currency" />
 
         <EditText
-            android:id="@+id/password1"
+            android:id="@+id/cigarettes_per_day"
             style="@style/EditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="@string/password_again"
-            android:inputType="textPassword"
+            android:hint="Количество сигарет в день"
+            android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/password0" />
+            app:layout_constraintTop_toBottomOf="@id/cigarettes_per_pack" />
+
+        <EditText
+            android:id="@+id/break_date"
+            style="@style/EditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:hint="Дата, когда вы бросили курить"
+            android:inputType="datetime"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cigarettes_per_day" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/auth_btn"
+            android:id="@+id/continue_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -103,13 +126,13 @@
             android:fontFamily="@font/roboto"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
-            android:text="@string/sign_up"
+            android:text="Продолжить"
             android:textAllCaps="false"
             android:textSize="16sp"
             app:cornerRadius="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/password1" />
+            app:layout_constraintTop_toBottomOf="@id/break_date" />
 
         <!--- Какой-то баг в MotionLayout -->
         <!--- Без контейнера будет зацикливаться при смене isVisible -->
@@ -118,13 +141,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/auth_btn"
-            app:layout_constraintEnd_toEndOf="@id/auth_btn"
-            app:layout_constraintStart_toStartOf="@id/auth_btn"
-            app:layout_constraintTop_toTopOf="@id/auth_btn">
+            app:layout_constraintBottom_toBottomOf="@id/continue_btn"
+            app:layout_constraintEnd_toEndOf="@id/continue_btn"
+            app:layout_constraintStart_toStartOf="@id/continue_btn"
+            app:layout_constraintTop_toTopOf="@id/continue_btn">
 
             <ProgressBar
-                android:id="@+id/auth_btn_progress"
+                android:id="@+id/continue_btn_progress"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
@@ -132,60 +155,6 @@
                 android:visibility="gone" />
 
         </FrameLayout>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/google_auth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="16dp"
-            android:scaleType="center"
-            app:backgroundTint="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/auth_btn"
-            app:srcCompat="@drawable/ic_google"
-            app:tint="@null" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/vk_auth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:scaleType="center"
-            app:backgroundTint="@color/white"
-            app:layout_constraintEnd_toStartOf="@id/google_auth"
-            app:layout_constraintTop_toBottomOf="@+id/auth_btn"
-            app:srcCompat="@drawable/ic_vk"
-            app:tint="@null" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/facebook_auth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:scaleType="center"
-            app:backgroundTint="@color/white"
-            app:layout_constraintStart_toEndOf="@id/google_auth"
-            app:layout_constraintTop_toBottomOf="@+id/auth_btn"
-            app:srcCompat="@drawable/ic_facebook"
-            app:tint="@null" />
-
-        <TextView
-            android:id="@+id/have_account_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:background="?attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="8dp"
-            android:text="@string/title_already_have_an_account"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/facebook_auth"
-            app:layout_constraintStart_toStartOf="@id/vk_auth" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

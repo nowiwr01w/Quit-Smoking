@@ -1,7 +1,7 @@
 package com.nowiwr01.domain.repository
 
-import com.nowiwr01.domain.model.error.SignInError
-import com.nowiwr01.domain.model.error.SignUpError
+import com.nowiwr01.domain.model.error.auth.SignInError
+import com.nowiwr01.domain.model.error.auth.SignUpError
 import com.nowiwr01.domain.model.user.UserDataSignIn
 import com.nowiwr01.domain.model.user.UserDataSignUp
 

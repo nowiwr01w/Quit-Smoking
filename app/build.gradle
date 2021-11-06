@@ -77,6 +77,7 @@ dependencies {
     implementation deps.constraintlayout
     implementation deps.circleimageview
     implementation deps.joda
+    implementation deps.joda_money
     implementation deps.timber
     implementation deps.viewbinding
     implementation deps.circularprogressbar
