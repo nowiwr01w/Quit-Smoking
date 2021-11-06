@@ -1,5 +1,6 @@
 package com.nowiwr01.stop_smoking.presentation.main.home
 
+import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.nowiwr01.domain.model.user.User
@@ -83,4 +84,13 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     private fun getStars() = listOf(
         Star(), Star(), Star(), Star(), Star()
     )
+
+    override fun onBackPressed() {
+        val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                baseActivity.finish()
+            }
+        }
+        baseActivity.onBackPressedDispatcher.addCallback(this, callback)
+    }
 }

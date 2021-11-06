@@ -6,6 +6,8 @@ import com.nowiwr01.domain.model.user.UserDataSignIn
 import com.nowiwr01.domain.model.user.UserDataSignUp
 
 interface AuthRepository {
+    fun isUserAuthorized(): Boolean
+
     suspend fun authVk(user: User): Pair<String, User>
 
     suspend fun authGoogle(account: GoogleSignInAccount): Pair<String, User>

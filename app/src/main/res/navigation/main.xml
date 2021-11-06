@@ -12,10 +12,16 @@
         tools:layout="@layout/fragment_auth">
         <action
             android:id="@+id/action_auth_to_smoke_info"
-            app:destination="@id/smokeInfoFragment" />
+            app:destination="@id/smokeInfoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_auth_to_home"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/main"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -45,7 +51,9 @@
         tools:layout="@layout/fragment_smoking_info">
         <action
             android:id="@+id/action_info_to_home"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/main"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_to_currency"
             app:destination="@id/currencyBottomSheet" />
@@ -55,6 +63,6 @@
         android:id="@+id/currencyBottomSheet"
         android:name="com.nowiwr01.stop_smoking.presentation.main.smoke_info.bottom_sheet.CurrencyBottomSheet"
         android:label="CurrencyBottomSheet"
-        tools:layout="@layout/bottom_sheet_currencies"/>
+        tools:layout="@layout/bottom_sheet_currencies" />
 
 </navigation>

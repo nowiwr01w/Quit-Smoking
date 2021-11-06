@@ -19,8 +19,8 @@ import com.vk.api.sdk.auth.VKAccessToken
 import kotlinx.coroutines.launch
 
 class AuthViewModel(
-    private val interactor: AuthUseCase,
-    private val userDataInteractor: UserDataUseCase,
+    private val authUseCase: AuthUseCase,
+    private val userDataUseCase: UserDataUseCase,
     private val logger: Logger,
 
     val userData: MutableLiveData<Pair<String, User>> = MutableLiveData(),
@@ -30,6 +30,8 @@ class AuthViewModel(
 
     var currentMode = SIGN_UP
 
+    fun isUserAuthorized() = authUseCase.isUserAuthorized()
+
     fun checkAndAuth(userData: UserData) {
         showProgress(true)
         checkUserInput(userData)
@@ -37,7 +39,7 @@ class AuthViewModel(
 
     private fun checkUserInput(userData: UserData) {
         launch {
-            userDataInteractor.checkUserInput(userData).mapBoth(::onUserInputValid, ::onError)
+            userDataUseCase.checkUserInput(userData).mapBoth(::onUserInputValid, ::onError)
         }
     }
 
@@ -50,34 +52,34 @@ class AuthViewModel(
 
     private fun signIn(userData: UserDataSignIn) {
         launch {
-            interactor.login(userData).mapBoth(::onSuccess, ::onError)
+            authUseCase.login(userData).mapBoth(::onSuccess, ::onError)
         }
     }
 
     private fun signUp(userData: UserDataSignUp) {
         launch {
-            interactor.signUp(userData).mapBoth(::onSuccess, ::onError)
+            authUseCase.signUp(userData).mapBoth(::onSuccess, ::onError)
         }
     }
 
     fun authVk(token: VKAccessToken) {
         showProgress(true)
         launch {
-            interactor.authVk(token).mapBoth(::onSuccess, ::onError)
+            authUseCase.authVk(token).mapBoth(::onSuccess, ::onError)
         }
     }
 
     fun googleAuth(account: GoogleSignInAccount) {
         showProgress(true)
         launch {
-            interactor.authGoogle(account).mapBoth(::onSuccess, ::onError)
+            authUseCase.authGoogle(account).mapBoth(::onSuccess, ::onError)
         }
     }
 
     fun facebookAuth(token: String) {
         showProgress(true)
         launch {
-            interactor.authFacebook(token).mapBoth(::onSuccess, ::onError)
+            authUseCase.authFacebook(token).mapBoth(::onSuccess, ::onError)
         }
     }
 

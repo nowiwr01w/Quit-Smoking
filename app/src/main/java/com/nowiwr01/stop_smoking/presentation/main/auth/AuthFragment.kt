@@ -38,6 +38,7 @@ class AuthFragment: BaseExpandableFragment(R.layout.fragment_auth) {
     private lateinit var fbCallbackManager: CallbackManager
 
     override fun initialize() {
+        checkAuth()
         setGoogleClient()
         setFacebookClient()
     }
@@ -80,6 +81,12 @@ class AuthFragment: BaseExpandableFragment(R.layout.fragment_auth) {
         viewModel.authError.observeEvent(viewLifecycleOwner) {
             controller.setErrorByType(it.list)
             showSnackbar(it.message)
+        }
+    }
+
+    private fun checkAuth() {
+        if (viewModel.isUserAuthorized()) {
+            navigator.toHomeScreen()
         }
     }
 

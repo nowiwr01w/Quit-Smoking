@@ -13,8 +13,10 @@ import com.nowiwr01.domain.utils.extensions.mapUser
 
 class AuthUseCase(
     private val vkRepository: VKRepository,
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
 ) {
+
+    fun isUserAuthorized() = authRepository.isUserAuthorized()
 
     suspend fun login(userData: UserDataSignIn): Result<Pair<String, User>, SignInError> {
         return try {

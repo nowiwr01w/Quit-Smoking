@@ -38,7 +38,7 @@ deps.lifecycle_extensions = "androidx.lifecycle:lifecycle-extensions:$lifecycle.
 deps.lifecycle_viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle.lifecycle"
 
 def navigation = [:]
-navigation.navigation = "2.3.5"
+navigation.navigation = "2.4.0-beta02"
 deps.navigation = navigation
 
 deps.navigation_ui = "androidx.navigation:navigation-ui-ktx:$navigation.navigation"

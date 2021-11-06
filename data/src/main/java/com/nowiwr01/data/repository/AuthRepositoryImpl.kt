@@ -27,6 +27,8 @@ class AuthRepositoryImpl(
     private val dispatchers: DispatchersProvider,
 ) : AuthRepository {
 
+    override fun isUserAuthorized() = prefs.getUserReference().isNotEmpty()
+
     override suspend fun authVk(user: User) = withContext(dispatchers.io) {
         val existingUser = checkExistingAccount(user)
         saveFirebaseUser(user, existingUser)

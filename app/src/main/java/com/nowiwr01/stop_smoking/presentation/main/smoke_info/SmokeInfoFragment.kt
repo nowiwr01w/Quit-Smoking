@@ -60,7 +60,7 @@ class SmokeInfoFragment: BaseExpandableFragment(R.layout.fragment_smoking_info) 
         }
         viewModel.userData.observe(viewLifecycleOwner) {
             controller.showSuccessSnackBar(it)
-            navigate(R.id.action_info_to_home)
+            navigate(SmokeInfoFragmentDirections.actionInfoToHome(), setOptions = true)
         }
     }
 
