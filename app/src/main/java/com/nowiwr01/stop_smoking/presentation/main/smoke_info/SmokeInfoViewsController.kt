@@ -49,7 +49,7 @@ class SmokeInfoViewsController(
         currency = viewModel.currency.value!!.symbol,
         cigarettesPerDay = binding.cigarettesPerDay.text.toString().toInt(),
         cigarettesPerPack = binding.cigarettesPerPack.text.toString().toInt(),
-        cigarettesPackCost = binding.onePackCost.text.toString().toInt()
+        cigarettesPackCost = binding.onePackCost.text.toString().toDouble()
     )
 
     fun setTextChangedCallback(inputFields: List<EditText>) {

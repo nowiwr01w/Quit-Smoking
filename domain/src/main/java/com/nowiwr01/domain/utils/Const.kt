@@ -28,6 +28,5 @@ object Const {
     const val DEFAULT_CURRENCY = "RUB"
     const val DEFAULT_CIGARETTES_PER_DAY = 15
     const val DEFAULT_CIGARETTES_PER_PACK = 20
-    const val DEFAULT_CIGARETTES_PACK_COST = 170
-    const val DEFAULT_CIGARETTES_MORNING_TIME = 5
+    const val DEFAULT_CIGARETTES_PACK_COST = 170f.toDouble()
 }

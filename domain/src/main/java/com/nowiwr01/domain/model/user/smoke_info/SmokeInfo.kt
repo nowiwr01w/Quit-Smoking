@@ -11,5 +11,5 @@ data class SmokeInfo(
     val currency: String = DEFAULT_CURRENCY,
     val cigarettesPerDay: Int = DEFAULT_CIGARETTES_PER_DAY,
     val cigarettesPerPack: Int = DEFAULT_CIGARETTES_PER_PACK,
-    val cigarettesPackCost: Int = DEFAULT_CIGARETTES_PACK_COST
+    val cigarettesPackCost: Double = DEFAULT_CIGARETTES_PACK_COST
 )

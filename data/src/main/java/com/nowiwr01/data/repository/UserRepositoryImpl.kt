@@ -22,7 +22,7 @@ class UserRepositoryImpl(
         .getReference(USERS_REFERENCE)
         .child(localStorageDao.getUserReference())
 
-    override suspend fun getUser() = withContext(dispatchers.io) {
+    override suspend fun loadUser() = withContext(dispatchers.io) {
         val userReference = getCurrentUser().get().await()
         userReference.getUser()
     }
@@ -33,9 +33,10 @@ class UserRepositoryImpl(
     }
 
     override suspend fun updateSmokeInfo(info: SmokeInfo) = withContext(dispatchers.io) {
-        val user = getUser().apply {
+        val user = loadUser().apply {
             smokeInfo = info
         }
+        localStorageDao.setUserReference(user)
         setUser(user)
     }
 

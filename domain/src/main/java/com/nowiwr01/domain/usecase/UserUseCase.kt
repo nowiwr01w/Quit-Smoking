@@ -17,7 +17,7 @@ class UserUseCase(
 
     suspend fun loadUser(): Result<User, UserError> {
         return try {
-            Result.Success(userRepository.getUser())
+            Result.Success(userRepository.loadUser())
         } catch (throwable: Throwable) {
             Result.Fail(LoadUserError())
         }

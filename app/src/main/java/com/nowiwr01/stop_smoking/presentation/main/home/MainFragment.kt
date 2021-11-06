@@ -29,6 +29,14 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     override fun setViews() {
         showBottomBar()
         setRecyclerView()
+        setHealthSection()
+    }
+
+    private fun setHealthSection() {
+        binding.healthProgress.apply {
+            progress = 0f
+            setProgressWithAnimation(65f, 1000L)
+        }
     }
 
     override fun setListeners() {

@@ -95,44 +95,51 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/time_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_timer_rounded"
-            android:elevation="16dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="6dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/user_info_container">
 
-            <TextView
-                android:id="@+id/time_title"
-                style="@style/Text.Medium"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="16dp"
-                android:text="Я не курю уже"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <include
-                android:id="@+id/timer"
-                layout="@layout/layout_main_timer"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/time_title" />
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_timer_rounded"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/time_title"
+                    style="@style/Text.Medium"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Я не курю уже"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <include
+                    android:id="@+id/timer"
+                    layout="@layout/layout_main_timer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/time_title" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/info_container"
@@ -241,8 +248,8 @@
                 app:cpb_background_progressbar_color="#b6bbd8"
                 app:cpb_background_progressbar_width="5dp"
                 app:cpb_progress_direction="to_right"
-                app:cpb_progressbar_color="#3f51b5"
-                app:cpb_progressbar_width="10dp"
+                app:cpb_progressbar_color="#3F51B5"
+                app:cpb_progressbar_width="5dp"
                 app:cpb_round_border="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/health_title"

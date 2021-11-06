@@ -77,6 +77,7 @@ class AuthRepositoryImpl(
             database.getReference(USERS_REFERENCE).child(newUser.id).setValue(newUser).await()
             TYPE_NEW_USER to newUser
         } else {
+            prefs.setUserReference(existingUser)
             TYPE_OLD_USER to existingUser
         }
     }
