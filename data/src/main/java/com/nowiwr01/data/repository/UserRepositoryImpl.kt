@@ -7,6 +7,7 @@ import com.nowiwr01.domain.model.user.User
 import com.nowiwr01.domain.model.user.smoke_info.SmokeInfo
 import com.nowiwr01.domain.repository.UserRepository
 import com.nowiwr01.domain.utils.Const.USERS_REFERENCE
+import com.nowiwr01.domain.utils.extensions.createUserEventListener
 import com.nowiwr01.domain.utils.extensions.getUser
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
@@ -36,5 +37,12 @@ class UserRepositoryImpl(
             smokeInfo = info
         }
         setUser(user)
+    }
+
+    override suspend fun addValueEventListener(callback: (user: User) -> Unit) = withContext(dispatchers.io) {
+        val userListener = createUserEventListener(callback)
+        val reference = getCurrentUser()
+        reference.addValueEventListener(userListener)
+        reference to userListener
     }
 }

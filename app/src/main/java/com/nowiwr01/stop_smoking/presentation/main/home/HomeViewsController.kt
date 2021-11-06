@@ -9,9 +9,8 @@ class HomeViewsController(
     private val binding: FragmentMainBinding
 ) {
 
-
-    fun showNotSmokedDays(user: User) {
-        binding.infoFreeTime.infoFreeTimeValue.text = user.getNotSmokedDays()
+    fun showCravesCount(user: User) {
+        binding.infoDesire.infoDesireValue.text = user.smokeInfo.craves.size.toString()
     }
 
     fun showNotSmokedCigarettes(user: User) {
@@ -19,11 +18,17 @@ class HomeViewsController(
     }
 
     fun showSavedMoney(user: User) {
-        binding.infoMoney.infoMoneyValue.text = user.getSavedMoney()
+        binding.infoMoney.infoMoneyValue.text = user.getSavedMoney().first
+        binding.infoMoney.infoMoneyValueDescription.text = user.getSavedMoney().second
+    }
+
+    fun showNotSmokedDays(user: User) {
+        binding.infoFreeTime.infoFreeTimeValue.text = user.getSavedTime().first
+        binding.infoFreeTime.infoFreeTimeValueDescription.text = user.getSavedTime().second
     }
 
     fun showTimer(user: User) {
-        val time = user.getNotSmokedTime()
+        val time = user.getTimerNotSmoked()
         showTimerTime(time)
     }
 

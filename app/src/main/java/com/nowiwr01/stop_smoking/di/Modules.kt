@@ -21,6 +21,7 @@ import com.nowiwr01.domain.utils.Const.PREFS_NAME
 import com.nowiwr01.stop_smoking.presentation.main.auth.fragmentAuth
 import com.nowiwr01.stop_smoking.presentation.main.fragmentMain
 import com.nowiwr01.stop_smoking.presentation.main.auth.AuthViewModel
+import com.nowiwr01.stop_smoking.presentation.main.home.UserViewModel
 import com.nowiwr01.stop_smoking.presentation.main.smoke_info.SmokeInfoViewModel
 import com.nowiwr01.stop_smoking.presentation.main.smoke_info.fragmentSmokeInfo
 import com.nowiwr01.stop_smoking.utils.logger.*
@@ -74,8 +75,9 @@ val interactors = module {
 }
 
 val viewModels = module {
-    viewModel { AuthViewModel(get(), get(), get()) }
+    viewModel { UserViewModel(get()) }
     viewModel { SmokeInfoViewModel(get()) }
+    viewModel { AuthViewModel(get(), get(), get()) }
 }
 
 val koinModules = listOf(
