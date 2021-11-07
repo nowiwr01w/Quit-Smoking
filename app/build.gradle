@@ -80,6 +80,7 @@ dependencies {
     implementation deps.joda_money
     implementation deps.timber
     implementation deps.viewbinding
+    implementation deps.viewbinding_no_reflection
     implementation deps.circularprogressbar
     implementation deps.facebook_shimmer
 

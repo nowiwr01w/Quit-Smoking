@@ -29,6 +29,7 @@ deps.joda = "net.danlew:android.joda:$base_android.joda"
 deps.joda_money = "org.joda:joda-money:$base_android.joda_money"
 deps.timber = "com.jakewharton.timber:timber:$base_android.timber"
 deps.viewbinding = "com.github.kirich1409:viewbindingpropertydelegate:$base_android.viewbinding"
+deps.viewbinding_no_reflection = "com.github.kirich1409:viewbindingpropertydelegate-noreflection:$base_android.viewbinding"
 deps.circularprogressbar = "com.mikhaellopez:circularprogressbar:$base_android.circularprogressbar"
 deps.facebook_shimmer = "com.facebook.shimmer:shimmer:$base_android.facebook_shimmer"
 

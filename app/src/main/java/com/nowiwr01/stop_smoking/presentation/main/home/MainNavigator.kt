@@ -9,4 +9,8 @@ class MainNavigator(private val fragment: MainFragment) {
         val bundle = bundleOf("type" to type)
         fragment.navigate(R.id.action_home_to_info, bundle)
     }
+
+    fun toHealth() {
+        fragment.navigate(R.id.action_home_to_health)
+    }
 }

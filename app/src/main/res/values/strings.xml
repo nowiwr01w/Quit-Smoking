@@ -25,7 +25,29 @@
     <string name="sign_up">Sign Up</string>
     <string name="username">Username</string>
     <string name="password_again">Password again</string>
-    <string name="title_auth_separator">or you can use auth through</string>
     <string name="title_already_have_an_account">Already have an account?</string>
     <string name="title_first_time_here">First time here?</string>
+
+    <!-- Health monitoring -->
+    <string name="health_20_min_title">Пульс</string>
+    <string name="health_2_hours_title">Работа почек</string>
+    <string name="health_8_hours_title">Содержание кислорода</string>
+    <string name="health_12_hours_title">Уровень угарного газа</string>
+    <string name="health_1_day_title">Никотин выведен из организма</string>
+    <string name="health_2_days_title">Восстановление лёгких запущено</string>
+    <string name="health_4_days_title">Пик синдрома отмены</string>
+    <string name="health_5_days_title">Восстановление рецепторов запущено</string>
+    <string name="health_8_days_title">Восстановление рецепторов</string>
+
+
+    <string name="health_20_min">Частота сердечных сокращений снижается и приходит в норму, начинает нормализовываться артериальное давление. Повышается активность организма и увеличивается функция работы почек.</string>
+    <string name="health_2_hours">Почки начинают очищать кровь от никотина и выводить его из организма.</string>
+    <string name="health_8_hours">В крови увеличивается уровень кислорода, а уровень угарного газа уменьшается вдвое. Продолжается процесс вывода никотина из организма, начинается запуск синдромаа отмены.</string>
+    <string name="health_12_hours">Уменьшается одышка, дышать становится легче. Кровь полностью отчистилась от угарного газа. Уровень кислорода в крови начинает увеличивается.</string>
+    <string name="health_1_day">Начинает снижаться риск сердечного приступа. Начало абстинентного синдрома - твой организм начинает испытывать жар и ломку. Но ты с этим обязательно справишься!</string>
+    <string name="health_2_days">Бронхи начинают избавляться от слизи. Может появиться сильный кашель со слизью, это - естественный процесс восстановления легких.</string>
+    <string name="health_4_days">Достигнут пик абстинентного синдрома. Если ты добрался до сюда, ты - молодец! Нормализуется кровообращение. Слизистая желудка начинает восстанавливаться. Возможно усиление влажного кашля с отхождением мокроты.</string>
+    <string name="health_5_days">Улучшается работа вкусовых рецепторов, вкус пищи становится насыщеннее. Тонус кровеносных сосудов приближается к нормальному уровню.</string>
+    <string name="health_8_days">Оживают обонятельные и вкусовые рецепторы, поэтому пища приобретает нормальный вкус и запах, повышается аппетит.</string>
+
 </resources>

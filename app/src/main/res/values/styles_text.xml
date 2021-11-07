@@ -53,6 +53,10 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="Text.Width_Constrained.Black.Bold" parent="Text.Width_Constrained.Black">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
     <style name="Text.Constrained" parent="Text">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>

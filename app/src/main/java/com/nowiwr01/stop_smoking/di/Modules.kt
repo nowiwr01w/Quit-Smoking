@@ -22,6 +22,7 @@ import com.nowiwr01.stop_smoking.presentation.main.auth.fragmentAuth
 import com.nowiwr01.stop_smoking.presentation.main.home.fragmentMain
 import com.nowiwr01.stop_smoking.presentation.main.auth.AuthViewModel
 import com.nowiwr01.stop_smoking.presentation.main.home.UserViewModel
+import com.nowiwr01.stop_smoking.presentation.main.home.health.fragmentHealth
 import com.nowiwr01.stop_smoking.presentation.main.smoke_info.SmokeInfoViewModel
 import com.nowiwr01.stop_smoking.presentation.main.smoke_info.fragmentSmokeInfo
 import com.nowiwr01.stop_smoking.utils.logger.*
@@ -34,6 +35,7 @@ val scopedFragments = listOf(
     fragmentAuth,
     fragmentSmokeInfo,
     fragmentMain,
+    fragmentHealth
 )
 
 val dispatchers = module {

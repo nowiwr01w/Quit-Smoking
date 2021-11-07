@@ -34,6 +34,9 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     }
 
     override fun setListeners() {
+        binding.healthLayout.healthContainer.setOnClickListener {
+            navigator.toHealth()
+        }
         binding.infoFreeTime.infoFreeTimeInfoIcon.setOnSingleClickListener {
             showInfo(TYPE_FREE_TIME)
         }

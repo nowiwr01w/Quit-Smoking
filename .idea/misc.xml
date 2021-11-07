@@ -41,6 +41,7 @@
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_auth_end.xml" value="0.15390625" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_chat.xml" value="0.32518115942028986" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_desire.xml" value="0.32518115942028986" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_health.xml" value="0.2" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_login.xml" value="0.22780054644808742" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_login_end.xml" value="0.20969945355191258" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_main.xml" value="0.33" />
@@ -52,6 +53,7 @@
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_smoking_info.xml" value="0.2616120218579235" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_start_smoking_info.xml" value="0.2616120218579235" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_currency.xml" value="0.2616120218579235" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_health.xml" value="0.25341530054644806" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_info.xml" value="0.22" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_info_free_time.xml" value="0.2" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_info_money.xml" value="0.25" />

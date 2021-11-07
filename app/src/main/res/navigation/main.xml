@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_home_to_info"
             app:destination="@id/infoBottomSheet" />
+        <action
+            android:id="@+id/action_home_to_health"
+            app:destination="@id/healthFragment" />
     </fragment>
 
     <dialog
@@ -64,5 +67,11 @@
         android:name="com.nowiwr01.stop_smoking.presentation.main.smoke_info.bottom_sheet.CurrencyBottomSheet"
         android:label="CurrencyBottomSheet"
         tools:layout="@layout/bottom_sheet_currencies" />
+
+    <fragment
+        android:id="@+id/healthFragment"
+        android:name="com.nowiwr01.stop_smoking.presentation.main.home.health.HealthFragment"
+        android:label="HealthFragment"
+        tools:layout="@layout/fragment_health"/>
 
 </navigation>
