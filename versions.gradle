@@ -17,6 +17,7 @@ base_android.joda_money = "1.0.1"
 base_android.timber = "5.0.1"
 base_android.viewbinding = "1.5.0-beta01"
 base_android.circularprogressbar = "3.1.0"
+base_android.facebook_shimmer = "0.5.0"
 ext.base_android = base_android
 
 deps.core_ktx = "androidx.core:core-ktx:$base_android.core_ktx"
@@ -29,6 +30,7 @@ deps.joda_money = "org.joda:joda-money:$base_android.joda_money"
 deps.timber = "com.jakewharton.timber:timber:$base_android.timber"
 deps.viewbinding = "com.github.kirich1409:viewbindingpropertydelegate:$base_android.viewbinding"
 deps.circularprogressbar = "com.mikhaellopez:circularprogressbar:$base_android.circularprogressbar"
+deps.facebook_shimmer = "com.facebook.shimmer:shimmer:$base_android.facebook_shimmer"
 
 def lifecycle = [:]
 lifecycle.lifecycle = "2.2.0"

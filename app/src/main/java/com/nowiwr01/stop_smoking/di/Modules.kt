@@ -19,7 +19,7 @@ import com.nowiwr01.domain.repository.UserRepository
 import com.nowiwr01.domain.usecase.UserUseCase
 import com.nowiwr01.domain.utils.Const.PREFS_NAME
 import com.nowiwr01.stop_smoking.presentation.main.auth.fragmentAuth
-import com.nowiwr01.stop_smoking.presentation.main.fragmentMain
+import com.nowiwr01.stop_smoking.presentation.main.home.fragmentMain
 import com.nowiwr01.stop_smoking.presentation.main.auth.AuthViewModel
 import com.nowiwr01.stop_smoking.presentation.main.home.UserViewModel
 import com.nowiwr01.stop_smoking.presentation.main.smoke_info.SmokeInfoViewModel

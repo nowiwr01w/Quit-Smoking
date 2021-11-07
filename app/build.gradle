@@ -81,6 +81,7 @@ dependencies {
     implementation deps.timber
     implementation deps.viewbinding
     implementation deps.circularprogressbar
+    implementation deps.facebook_shimmer
 
     // Lifecycle
     implementation deps.lifecycle_viewmodel

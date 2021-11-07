@@ -47,6 +47,25 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/avatar_shimmer"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_marginTop="24dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shimmer_base_alpha="0.5">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_shimmer_circle"
+                    android:fontFamily="@font/roboto_medium" />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
             <TextView
                 android:id="@+id/name"
                 style="@style/Text.Big"
@@ -56,6 +75,25 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/avatar" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/name_shimmer"
+                android:layout_width="164dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="12dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/avatar_shimmer"
+                app:shimmer_base_alpha="0.5">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_shimmer"
+                    android:fontFamily="@font/roboto_medium" />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -78,6 +116,27 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
             </LinearLayout>
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/stars_shimmer"
+                android:layout_width="196dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guideline_85"
+                app:layout_constraintStart_toEndOf="@id/guideline_15"
+                app:layout_constraintTop_toBottomOf="@id/name_shimmer"
+                app:shimmer_base_alpha="0.5">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_shimmer"
+                    android:fontFamily="@font/roboto_medium" />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_15"
@@ -214,61 +273,9 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/health_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_timer_rounded"
-            android:elevation="16dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/info_container">
-
-            <TextView
-                android:id="@+id/health_title"
-                style="@style/Text.Medium"
-                android:layout_width="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="16dp"
-                android:text="Здоровье"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.mikhaellopez.circularprogressbar.CircularProgressBar
-                android:id="@+id/health_progress"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                app:cpb_background_progressbar_color="#b6bbd8"
-                app:cpb_background_progressbar_width="5dp"
-                app:cpb_progress_direction="to_right"
-                app:cpb_progressbar_color="#3F51B5"
-                app:cpb_progressbar_width="5dp"
-                app:cpb_round_border="false"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@id/health_title"
-                app:layout_constraintTop_toBottomOf="@id/health_title" />
-
-            <TextView
-                style="@style/Text.Small.Constrained"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="8dp"
-                android:ellipsize="end"
-                android:letterSpacing="0.03"
-                android:maxLines="3"
-                android:text="Содержание никотина в крови снизилось до менее чем половины от среднего дненвого пикового уровня"
-                app:layout_constraintBottom_toBottomOf="@id/health_progress"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/health_progress"
-                app:layout_constraintTop_toTopOf="@id/health_progress" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <include
+            android:id="@+id/health_layout"
+            layout="@layout/layout_health_item"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
@@ -278,9 +285,9 @@
             android:background="@drawable/bg_subscribe_banner"
             android:elevation="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/health_container"
-            app:layout_constraintStart_toStartOf="@id/health_container"
-            app:layout_constraintTop_toBottomOf="@id/health_container">
+            app:layout_constraintEnd_toEndOf="@id/health_layout"
+            app:layout_constraintStart_toStartOf="@id/health_layout"
+            app:layout_constraintTop_toBottomOf="@id/health_layout">
 
             <TextView
                 android:id="@+id/subscribe_title"

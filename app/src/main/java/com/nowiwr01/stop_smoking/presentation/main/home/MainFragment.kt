@@ -21,22 +21,16 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     private val binding by viewBinding<FragmentMainBinding>()
 
     private val viewModel by sharedViewModel<UserViewModel>()
-    private val controller by inject<HomeViewsController> { parametersOf(binding) }
     private val navigator by inject<MainNavigator> { parametersOf(this) }
+    private val controller by inject<HomeViewsController> { parametersOf(binding, viewModel) }
 
     private var repeatJob: Job? = null
 
     override fun setViews() {
         showBottomBar()
         setRecyclerView()
-        setHealthSection()
-    }
 
-    private fun setHealthSection() {
-        binding.healthProgress.apply {
-            progress = 0f
-            setProgressWithAnimation(65f, 1000L)
-        }
+        controller.manageProgressBar(true)
     }
 
     override fun setListeners() {
@@ -77,6 +71,7 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
                 showCravesCount(user)
                 showNotSmokedDays(user)
                 showNotSmokedCigarettes(user)
+                manageProgressBar(false)
             }
         }
     }

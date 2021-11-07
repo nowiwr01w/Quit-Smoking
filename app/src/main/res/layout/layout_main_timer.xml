@@ -28,6 +28,25 @@
         app:layout_constraintEnd_toEndOf="@id/first_title"
         app:layout_constraintStart_toStartOf="@id/first_title" />
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/first_count_shimmer"
+        android:layout_width="36dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/guideline_70"
+        app:layout_constraintEnd_toEndOf="@id/first_title_shimmer"
+        app:layout_constraintStart_toStartOf="@id/first_title_shimmer"
+        app:shimmer_base_alpha="0.5">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_shimmer"
+            android:fontFamily="@font/roboto_medium" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <TextView
         android:id="@+id/first_title"
         style="@style/Text.Small"
@@ -35,6 +54,24 @@
         android:text="дней"
         app:layout_constraintEnd_toStartOf="@+id/second_title"
         app:layout_constraintTop_toBottomOf="@id/guideline_70" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/first_title_shimmer"
+        android:layout_width="64dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/second_title_shimmer"
+        app:layout_constraintTop_toBottomOf="@id/guideline_70"
+        app:shimmer_base_alpha="0.5">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_shimmer"
+            android:fontFamily="@font/roboto_medium" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
     <TextView
         android:id="@+id/second_count"
@@ -44,6 +81,25 @@
         app:layout_constraintEnd_toEndOf="@id/second_title"
         app:layout_constraintStart_toStartOf="@id/second_title" />
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/second_count_shimmer"
+        android:layout_width="36dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/guideline_70"
+        app:layout_constraintEnd_toEndOf="@id/second_title_shimmer"
+        app:layout_constraintStart_toStartOf="@id/second_title_shimmer"
+        app:shimmer_base_alpha="0.5">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_shimmer"
+            android:fontFamily="@font/roboto_medium" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <TextView
         android:id="@+id/second_title"
         style="@style/Text.Small"
@@ -51,6 +107,24 @@
         android:text="часов"
         app:layout_constraintEnd_toStartOf="@+id/guideline_50"
         app:layout_constraintTop_toBottomOf="@id/guideline_70" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/second_title_shimmer"
+        android:layout_width="64dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_50"
+        app:layout_constraintTop_toBottomOf="@id/guideline_70"
+        app:shimmer_base_alpha="0.5">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_shimmer"
+            android:fontFamily="@font/roboto_medium" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
     <TextView
         android:id="@+id/third_count"
@@ -60,6 +134,25 @@
         app:layout_constraintEnd_toEndOf="@id/third_title"
         app:layout_constraintStart_toStartOf="@id/third_title" />
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/third_count_shimmer"
+        android:layout_width="36dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/guideline_70"
+        app:layout_constraintEnd_toEndOf="@id/third_title_shimmer"
+        app:layout_constraintStart_toStartOf="@id/third_title_shimmer"
+        app:shimmer_base_alpha="0.5">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_shimmer"
+            android:fontFamily="@font/roboto_medium" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <TextView
         android:id="@+id/third_title"
         style="@style/Text.Small"
@@ -67,6 +160,24 @@
         android:text="минут"
         app:layout_constraintStart_toEndOf="@+id/guideline_50"
         app:layout_constraintTop_toBottomOf="@id/guideline_70" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/third_title_shimmer"
+        android:layout_width="64dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/guideline_50"
+        app:layout_constraintTop_toBottomOf="@id/guideline_70"
+        app:shimmer_base_alpha="0.5">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_shimmer"
+            android:fontFamily="@font/roboto_medium" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
     <TextView
         android:id="@+id/fourth_count"
@@ -76,6 +187,25 @@
         app:layout_constraintEnd_toEndOf="@id/fourth_title"
         app:layout_constraintStart_toStartOf="@id/fourth_title" />
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/fourth_count_shimmer"
+        android:layout_width="36dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/guideline_70"
+        app:layout_constraintEnd_toEndOf="@id/fourth_title_shimmer"
+        app:layout_constraintStart_toStartOf="@id/fourth_title_shimmer"
+        app:shimmer_base_alpha="0.5">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_shimmer"
+            android:fontFamily="@font/roboto_medium" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <TextView
         android:id="@+id/fourth_title"
         style="@style/Text.Small"
@@ -83,5 +213,23 @@
         android:text="секунд"
         app:layout_constraintStart_toEndOf="@+id/third_title"
         app:layout_constraintTop_toBottomOf="@id/guideline_70" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/fourth_title_shimmer"
+        android:layout_width="64dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/third_title_shimmer"
+        app:layout_constraintTop_toBottomOf="@id/guideline_70"
+        app:shimmer_base_alpha="0.5">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_shimmer"
+            android:fontFamily="@font/roboto_medium" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

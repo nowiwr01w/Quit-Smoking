@@ -13,6 +13,8 @@
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_ripple_clickable.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_rounded_login.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_shadow.xml" value="0.287109375" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_shimmer.xml" value="0.287109375" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_shimmer_circle.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_snackbar.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_snackbar_green.xml" value="0.287109375" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/drawable/bg_subscribe_banner.xml" value="0.287109375" />
@@ -41,7 +43,7 @@
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_desire.xml" value="0.32518115942028986" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_login.xml" value="0.22780054644808742" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_login_end.xml" value="0.20969945355191258" />
-        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_main.xml" value="0.21" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_main.xml" value="0.33" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_notes.xml" value="0.32518115942028986" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_sign_in.xml" value="0.22780054644808742" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_sign_in_end.xml" value="0.20969945355191258" />
@@ -62,6 +64,8 @@
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/kayout_notification_bell.xml" value="0.5" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/layout_bottom_sheet_free_time.xml" value="0.23975409836065573" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/layout_custom_snackbar.xml" value="0.22780054644808742" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/layout_health_item.xml" value="0.25614754098360654" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/layout_main_shimmer.xml" value="0.21345628415300547" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/layout_main_timer.xml" value="0.2616120218579235" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/layout_subscribe_banner.xml" value="0.25" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/layout_timer_big.xml" value="0.33" />

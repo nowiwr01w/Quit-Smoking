@@ -1,14 +1,14 @@
-package com.nowiwr01.stop_smoking.presentation.main
+package com.nowiwr01.stop_smoking.presentation.main.home
 
-import com.nowiwr01.stop_smoking.presentation.main.home.MainFragment
-import com.nowiwr01.stop_smoking.presentation.main.home.MainNavigator
-import com.nowiwr01.stop_smoking.presentation.main.home.HomeViewsController
+import com.nowiwr01.stop_smoking.databinding.FragmentMainBinding
 import org.koin.dsl.module
 
 val fragmentMain = module {
     scope<MainFragment> {
         scoped { params ->
-            HomeViewsController(params[0])
+            val binding: FragmentMainBinding = params[0]
+            val viewModel: UserViewModel = params[1]
+            HomeViewsController(binding, viewModel)
         }
         scoped { params ->
             MainNavigator(params[0])

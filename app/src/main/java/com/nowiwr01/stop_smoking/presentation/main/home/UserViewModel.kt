@@ -17,6 +17,8 @@ class UserViewModel(
     val userData: MutableLiveData<User> = MutableLiveData()
 ): BaseViewModel() {
 
+    var isUserDataInit = false
+
     fun loadUserData() {
         launch {
             userUseCase.loadUser().mapBoth(::onSuccess, ::onError)

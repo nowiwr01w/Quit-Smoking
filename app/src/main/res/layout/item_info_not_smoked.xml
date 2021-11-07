@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    app:cardElevation="6dp"
-    app:cardCornerRadius="24dp">
+    android:backgroundTint="@color/purple_700"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="6dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_timer_rounded">
+        android:layout_height="match_parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/info_not_smoked_icon"
@@ -35,6 +35,24 @@
             app:layout_constraintStart_toEndOf="@id/info_not_smoked_icon"
             app:layout_constraintTop_toBottomOf="@id/info_not_smoked_icon" />
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/info_not_smoked_value_shimmer"
+            android:layout_width="36dp"
+            android:layout_height="24dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/info_not_smoked_icon"
+            app:layout_constraintTop_toBottomOf="@id/info_not_smoked_icon"
+            app:shimmer_base_alpha="0.5">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_shimmer"
+                android:fontFamily="@font/roboto_medium" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
         <TextView
             android:id="@+id/info_not_smoked_value_description"
             style="@style/Text.Medium"
@@ -43,6 +61,24 @@
             app:layout_constraintBaseline_toBaselineOf="@id/info_not_smoked_value"
             app:layout_constraintBottom_toBottomOf="@id/info_not_smoked_value"
             app:layout_constraintStart_toEndOf="@id/info_not_smoked_value" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/info_not_smoked_value_description_shimmer"
+            android:layout_width="64dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/info_not_smoked_value_shimmer"
+            app:layout_constraintStart_toEndOf="@id/info_not_smoked_value_shimmer"
+            app:shimmer_base_alpha="0.5">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_shimmer"
+                android:fontFamily="@font/roboto_medium" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
