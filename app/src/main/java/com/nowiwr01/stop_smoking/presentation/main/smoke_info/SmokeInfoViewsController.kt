@@ -4,11 +4,11 @@ import android.widget.EditText
 import androidx.core.view.isVisible
 import com.nowiwr01.domain.model.user.User
 import com.nowiwr01.domain.model.user.smoke_info.SmokeInfo
+import com.nowiwr01.domain.utils.extensions.round
 import com.nowiwr01.domain.utils.extensions.showSnackbar
 import com.nowiwr01.stop_smoking.databinding.FragmentSmokingInfoBinding
 import com.nowiwr01.stop_smoking.presentation.base.BaseFragment
 import com.nowiwr01.stop_smoking.utils.extensions.doOnTextChanged
-import com.nowiwr01.stop_smoking.utils.extensions.round
 import com.nowiwr01.stop_smoking.utils.extensions.setDefault
 import com.nowiwr01.stop_smoking.utils.extensions.setError
 import org.joda.time.DateTime

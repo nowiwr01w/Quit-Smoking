@@ -1,10 +1,10 @@
 package com.nowiwr01.stop_smoking.model.health
 
 import android.content.Context
+import com.nowiwr01.domain.utils.extensions.MILLIS_IN_DAY
+import com.nowiwr01.domain.utils.extensions.MILLIS_IN_HOUR
+import com.nowiwr01.domain.utils.extensions.MILLIS_IN_MINUTE
 import com.nowiwr01.stop_smoking.R
-import com.nowiwr01.stop_smoking.utils.extensions.MILLIS_IN_DAY
-import com.nowiwr01.stop_smoking.utils.extensions.MILLIS_IN_HOUR
-import com.nowiwr01.stop_smoking.utils.extensions.MILLIS_IN_MINUTE
 
 object HealthBuilder {
     fun buildHealthList(context: Context) =  listOf(

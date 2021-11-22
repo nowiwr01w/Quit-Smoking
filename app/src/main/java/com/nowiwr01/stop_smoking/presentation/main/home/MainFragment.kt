@@ -29,7 +29,6 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     override fun setViews() {
         showBottomBar()
         setRecyclerView()
-
         controller.manageProgressBar(true)
     }
 
@@ -67,15 +66,13 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     }
 
     private suspend fun proceedUser(user: User) {
-        withContext(Dispatchers.Main) {
-            with(controller) {
-                showTimer(user)
-                showSavedMoney(user)
-                showCravesCount(user)
-                showNotSmokedDays(user)
-                showNotSmokedCigarettes(user)
-                manageProgressBar(false)
-            }
+        with(controller) {
+            showTimer(user)
+            showSavedMoney(user)
+            showCravesCount(user)
+            showNotSmokedDays(user)
+            showNotSmokedCigarettes(user)
+            manageProgressBar(false)
         }
     }
 
@@ -98,5 +95,10 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
             }
         }
         baseActivity.onBackPressedDispatcher.addCallback(this, callback)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        repeatJob?.cancel()
     }
 }

@@ -19,20 +19,28 @@ class UserViewModel(
 
     var isUserDataInit = false
 
+    suspend fun getSavedTime(user: User) = userUseCase.getSavedTime(user)
+
+    suspend fun getSavedMoney(user: User) = userUseCase.getSavedMoney(user)
+
+    suspend fun getTimerNotSmoked(user: User) = userUseCase.getTimerNotSmoked(user)
+
+    suspend fun getNotSmokedPacks(user: User) = userUseCase.getNotSmokedPacks(user)
+
     fun loadUserData() {
         launch {
             userUseCase.loadUser().mapBoth(::onSuccess, ::onError)
         }
     }
 
+    private fun onSuccess(user: User) {
+        userData.postValue(user)
+    }
+
     fun setUserListener() {
         launch {
             userUseCase.addUserListener(::onSuccess).mapBoth(::onListenerSetSuccess, ::onError)
         }
-    }
-
-    private fun onSuccess(user: User) {
-        userData.postValue(user)
     }
 
     private fun onListenerSetSuccess(event: Pair<DatabaseReference, ValueEventListener>) {

@@ -2,14 +2,18 @@ package com.nowiwr01.stop_smoking.presentation.base
 
 import android.content.Context
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import com.nowiwr01.stop_smoking.presentation.MainActivity
 import org.koin.androidx.scope.ScopeFragment
 
-abstract class BaseFragment(layoutResId: Int): ScopeFragment(layoutResId) {
+abstract class BaseFragment(private val layoutResId: Int): ScopeFragment(layoutResId) {
 
     protected val baseActivity: MainActivity
         get() = activity as MainActivity
+
+    private var curView: View? = null
 
     /**
      * We don't want to write context?. or requireContext() all the time.
@@ -22,6 +26,17 @@ abstract class BaseFragment(layoutResId: Int): ScopeFragment(layoutResId) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         onBackPressed()
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        if (curView == null) {
+            curView = inflater.inflate(layoutResId, container, false)
+        }
+        return curView!!
     }
 
     /**

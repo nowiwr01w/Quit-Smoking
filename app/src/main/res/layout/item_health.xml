@@ -63,10 +63,20 @@
             app:cpb_progress_max="1"
             app:cpb_progressbar_color="#5C6BC0"
             app:cpb_progressbar_width="10dp"
-            app:cpb_round_border="false"
+            app:cpb_round_border="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <TextView
+            android:id="@+id/health_progress_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="75%"
+            app:layout_constraintBottom_toBottomOf="@id/health_progress"
+            app:layout_constraintEnd_toEndOf="@id/health_progress"
+            app:layout_constraintStart_toStartOf="@id/health_progress"
+            app:layout_constraintTop_toTopOf="@id/health_progress" />
 
         <TextView
             android:id="@+id/description"

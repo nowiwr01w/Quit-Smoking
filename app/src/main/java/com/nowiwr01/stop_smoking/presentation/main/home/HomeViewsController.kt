@@ -4,7 +4,6 @@ import androidx.core.view.isVisible
 import com.nowiwr01.domain.model.user.User
 import com.nowiwr01.domain.model.user.smoke_info.SmokeTime
 import com.nowiwr01.stop_smoking.databinding.FragmentMainBinding
-import com.nowiwr01.stop_smoking.utils.extensions.*
 
 class HomeViewsController(
     private val binding: FragmentMainBinding,
@@ -15,87 +14,94 @@ class HomeViewsController(
         binding.infoDesire.infoDesireValue.text = user.smokeInfo.craves.size.toString()
     }
 
-    fun showNotSmokedCigarettes(user: User) {
-        binding.infoNotSmoked.infoNotSmokedValue.text = user.getNotSmokedPacks().toString()
+    suspend fun showNotSmokedCigarettes(user: User) {
+        val notSmokedPacks = viewModel.getNotSmokedPacks(user)
+        binding.infoNotSmoked.infoNotSmokedValue.text = notSmokedPacks.toString()
     }
 
-    fun showSavedMoney(user: User) {
-        binding.infoMoney.infoMoneyValue.text = user.getSavedMoney().first
-        binding.infoMoney.infoMoneyValueDescription.text = user.getSavedMoney().second
+    suspend fun showSavedMoney(user: User) {
+        val savedMoney = viewModel.getSavedMoney(user)
+        binding.infoMoney.infoMoneyValue.text = savedMoney.first
+        binding.infoMoney.infoMoneyValueDescription.text = savedMoney.second
     }
 
-    fun showNotSmokedDays(user: User) {
-        binding.infoFreeTime.infoFreeTimeValue.text = user.getSavedTime().first
-        binding.infoFreeTime.infoFreeTimeValueDescription.text = user.getSavedTime().second
+    suspend fun showNotSmokedDays(user: User) {
+        val savedTime = viewModel.getSavedTime(user)
+        binding.infoFreeTime.infoFreeTimeValue.text = savedTime.first
+        binding.infoFreeTime.infoFreeTimeValueDescription.text = savedTime.second
     }
 
-    fun showTimer(user: User) {
-        val time = user.getTimerNotSmoked()
+    suspend fun showTimer(user: User) {
+        val time = viewModel.getTimerNotSmoked(user)
         showTimerTime(time)
     }
 
     private fun showTimerTime(time: SmokeTime) {
-        binding.timer.firstTitle.text = time.first.first
-        binding.timer.secondTitle.text = time.second.first
-        binding.timer.thirdTitle.text = time.third.first
-        binding.timer.fourthTitle.text = time.fourth.first
+        with (binding) {
+            timer.firstTitle.text = time.first.first
+            timer.secondTitle.text = time.second.first
+            timer.thirdTitle.text = time.third.first
+            timer.fourthTitle.text = time.fourth.first
 
-        binding.timer.firstCount.text = time.first.second.round()
-        binding.timer.secondCount.text = time.second.second.round()
-        binding.timer.thirdCount.text = time.third.second.round()
-        binding.timer.fourthCount.text = time.fourth.second.round()
+            timer.firstCount.text = time.first.second
+            timer.secondCount.text = time.second.second
+            timer.thirdCount.text = time.third.second
+            timer.fourthCount.text = time.fourth.second
+        }
     }
 
     fun manageProgressBar(showShimmer: Boolean) {
         if (viewModel.isUserDataInit) return
 
-        binding.name.isVisible = !showShimmer
-        binding.starsRecycler.isVisible = !showShimmer
-        binding.avatar.isVisible = !showShimmer
+        with (binding) {
+            name.isVisible = !showShimmer
+            starsRecycler.isVisible = !showShimmer
+            avatar.isVisible = !showShimmer
 
-        binding.timer.firstCount.isVisible = !showShimmer
-        binding.timer.secondCount.isVisible = !showShimmer
-        binding.timer.thirdCount.isVisible = !showShimmer
-        binding.timer.fourthCount.isVisible = !showShimmer
-        binding.timer.firstTitle.isVisible = !showShimmer
-        binding.timer.secondTitle.isVisible = !showShimmer
-        binding.timer.thirdTitle.isVisible = !showShimmer
-        binding.timer.fourthTitle.isVisible = !showShimmer
+            timer.firstCount.isVisible = !showShimmer
+            timer.secondCount.isVisible = !showShimmer
+            timer.thirdCount.isVisible = !showShimmer
+            timer.fourthCount.isVisible = !showShimmer
+            timer.firstTitle.isVisible = !showShimmer
+            timer.secondTitle.isVisible = !showShimmer
+            timer.thirdTitle.isVisible = !showShimmer
+            timer.fourthTitle.isVisible = !showShimmer
 
-        binding.infoNotSmoked.infoNotSmokedValue.isVisible = !showShimmer
-        binding.infoNotSmoked.infoNotSmokedValueDescription.isVisible = !showShimmer
-        binding.infoMoney.infoMoneyValue.isVisible = !showShimmer
-        binding.infoMoney.infoMoneyValueDescription.isVisible = !showShimmer
-        binding.infoFreeTime.infoFreeTimeValue.isVisible = !showShimmer
-        binding.infoFreeTime.infoFreeTimeValueDescription.isVisible = !showShimmer
-        binding.infoDesire.infoDesireValue.isVisible = !showShimmer
-        binding.infoDesire.infoDesireValueDescription.isVisible = !showShimmer
+            infoNotSmoked.infoNotSmokedValue.isVisible = !showShimmer
+            infoNotSmoked.infoNotSmokedValueDescription.isVisible = !showShimmer
+            infoMoney.infoMoneyValue.isVisible = !showShimmer
+            infoMoney.infoMoneyValueDescription.isVisible = !showShimmer
+            infoFreeTime.infoFreeTimeValue.isVisible = !showShimmer
+            infoFreeTime.infoFreeTimeValueDescription.isVisible = !showShimmer
+            infoDesire.infoDesireValue.isVisible = !showShimmer
+            infoDesire.infoDesireValueDescription.isVisible = !showShimmer
 
-        binding.healthLayout.healthText.isVisible = !showShimmer
-        binding.healthLayout.healthProgress.isVisible = !showShimmer
+            healthLayout.healthText.isVisible = !showShimmer
+            healthLayout.healthProgress.isVisible = !showShimmer
 
-        binding.nameShimmer.isVisible = showShimmer
-        binding.starsShimmer.isVisible = showShimmer
-        binding.avatarShimmer.isVisible = showShimmer
-        binding.timer.firstCountShimmer.isVisible = showShimmer
-        binding.timer.secondCountShimmer.isVisible = showShimmer
-        binding.timer.thirdCountShimmer.isVisible = showShimmer
-        binding.timer.fourthCountShimmer.isVisible = showShimmer
-        binding.timer.firstTitleShimmer.isVisible = showShimmer
-        binding.timer.secondTitleShimmer.isVisible = showShimmer
-        binding.timer.thirdTitleShimmer.isVisible = showShimmer
-        binding.timer.fourthTitleShimmer.isVisible = showShimmer
+            nameShimmer.isVisible = showShimmer
+            starsShimmer.isVisible = showShimmer
+            avatarShimmer.isVisible = showShimmer
+            timer.firstCountShimmer.isVisible = showShimmer
+            timer.secondCountShimmer.isVisible = showShimmer
+            timer.thirdCountShimmer.isVisible = showShimmer
+            timer.fourthCountShimmer.isVisible = showShimmer
+            timer.firstTitleShimmer.isVisible = showShimmer
+            timer.secondTitleShimmer.isVisible = showShimmer
+            timer.thirdTitleShimmer.isVisible = showShimmer
+            timer.fourthTitleShimmer.isVisible = showShimmer
 
-        binding.infoNotSmoked.infoNotSmokedValueShimmer.isVisible = showShimmer
-        binding.infoNotSmoked.infoNotSmokedValueDescriptionShimmer.isVisible = showShimmer
-        binding.infoMoney.infoMoneyValueShimmer.isVisible = showShimmer
-        binding.infoMoney.infoMoneyValueDescriptionShimmer.isVisible = showShimmer
-        binding.infoFreeTime.infoFreeTimeValueShimmer.isVisible = showShimmer
-        binding.infoFreeTime.infoFreeTimeValueDescriptionShimmer.isVisible = showShimmer
-        binding.infoDesire.infoDesireValueShimmer.isVisible = showShimmer
-        binding.infoDesire.infoDesireValueDescriptionShimmer.isVisible = showShimmer
-        binding.healthLayout.healthTextShimmer.isVisible = showShimmer
-        binding.healthLayout.healthProgressShimmer.isVisible = showShimmer
+            infoNotSmoked.infoNotSmokedValueShimmer.isVisible = showShimmer
+            infoNotSmoked.infoNotSmokedValueDescriptionShimmer.isVisible = showShimmer
+            infoMoney.infoMoneyValueShimmer.isVisible = showShimmer
+            infoMoney.infoMoneyValueDescriptionShimmer.isVisible = showShimmer
+            infoFreeTime.infoFreeTimeValueShimmer.isVisible = showShimmer
+            infoFreeTime.infoFreeTimeValueDescriptionShimmer.isVisible = showShimmer
+            infoDesire.infoDesireValueShimmer.isVisible = showShimmer
+            infoDesire.infoDesireValueDescriptionShimmer.isVisible = showShimmer
+            healthLayout.healthTextShimmer.isVisible = showShimmer
+            healthLayout.healthProgressShimmer.isVisible = showShimmer
+        }
 
         viewModel.isUserDataInit = !showShimmer
     }

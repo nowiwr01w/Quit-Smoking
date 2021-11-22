@@ -15,6 +15,14 @@ class UserUseCase(
     private val userRepository: UserRepository
 ) {
 
+    suspend fun getSavedTime(user: User) = userRepository.getSavedTime(user)
+
+    suspend fun getSavedMoney(user: User) = userRepository.getSavedMoney(user)
+
+    suspend fun getTimerNotSmoked(user: User) = userRepository.getTimerNotSmoked(user)
+
+    suspend fun getNotSmokedPacks(user: User) = userRepository.getNotSmokedPacks(user)
+
     suspend fun loadUser(): Result<User, UserError> {
         return try {
             Result.Success(userRepository.loadUser())
