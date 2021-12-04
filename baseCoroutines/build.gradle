@@ -33,6 +33,6 @@ android {
 
 dependencies {
     // Coroutines
-    implementation deps.coroutines
-    implementation deps.coroutines_android
+    api deps.coroutines
+    api deps.coroutines_android
 }

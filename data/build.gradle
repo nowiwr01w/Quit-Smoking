@@ -34,15 +34,12 @@ android {
 
 dependencies {
     implementation project(path: ':domain')
-    testImplementation project(path: ':baseTest')
     implementation project(path: ':baseCoroutines')
 
     // Timber
     implementation deps.timber
 
     // Coroutines
-    implementation deps.coroutines
-    implementation deps.coroutines_android
     implementation deps.coroutines_play_service
 
     // Room
@@ -66,4 +63,6 @@ dependencies {
     implementation deps.google
     implementation deps.facebook
     implementation deps.appmetric
+
+    testImplementation project(path: ':baseTest')
 }

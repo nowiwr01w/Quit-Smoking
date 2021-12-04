@@ -15,9 +15,13 @@ import com.nowiwr01.data.repository.AuthRepositoryImpl
 import com.nowiwr01.data.repository.UserDataRepositoryImpl
 import com.nowiwr01.data.repository.UserRepositoryImpl
 import com.nowiwr01.data.repository.VKRepositoryImpl
+import com.nowiwr01.data.validators.RegexEmailValidator
+import com.nowiwr01.data.validators.RegexPasswordValidator
 import com.nowiwr01.domain.repository.UserRepository
 import com.nowiwr01.domain.usecase.UserUseCase
 import com.nowiwr01.domain.utils.Const.PREFS_NAME
+import com.nowiwr01.domain.validators.EmailValidator
+import com.nowiwr01.domain.validators.PasswordValidator
 import com.nowiwr01.stop_smoking.presentation.main.auth.fragmentAuth
 import com.nowiwr01.stop_smoking.presentation.main.home.fragmentMain
 import com.nowiwr01.stop_smoking.presentation.main.auth.AuthViewModel
@@ -28,6 +32,7 @@ import com.nowiwr01.stop_smoking.presentation.main.smoke_info.fragmentSmokeInfo
 import com.nowiwr01.stop_smoking.utils.logger.*
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.module.Module
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
@@ -55,12 +60,17 @@ val firebaseData = module {
     factory { FirebaseDatabase.getInstance() }
 }
 
+val validators = module {
+    factory<EmailValidator> { RegexEmailValidator() }
+    factory<PasswordValidator> { RegexPasswordValidator() }
+}
+
 val repositories = module {
     factory<VKRepository> {
         VKRepositoryImpl(get())
     }
     factory<UserDataRepository> {
-        UserDataRepositoryImpl(get())
+        UserDataRepositoryImpl(get(), get(), get())
     }
     factory<UserRepository> {
         UserRepositoryImpl(get(), get(), get())
@@ -86,6 +96,7 @@ val koinModules = listOf(
     dispatchers,
     appData,
     firebaseData,
+    validators,
     analytics,
     repositories,
     interactors,

@@ -32,17 +32,18 @@ android {
 }
 
 dependencies {
+
     implementation project(path: ':baseCoroutines')
 
-    // Coroutines
-    implementation deps.coroutines
-    implementation deps.coroutines_android
-
     // Testing
-    testImplementation deps.junit
-    testImplementation deps.mockito_core
-    testImplementation deps.mockito_inline
-    testImplementation deps.mockito_to_kotlin
-    testImplementation deps.google_truth
-    implementation deps.room_testing
+    api deps.junit_jupiter_api
+    api deps.junit_jupiter_parans
+    api deps.junit
+    api deps.mockito_core
+    api deps.mockito_inline
+    api deps.mockito_to_kotlin
+    api deps.google_truth
+    api deps.room_testing
+
+    runtimeOnly deps.jupiter_engine
 }

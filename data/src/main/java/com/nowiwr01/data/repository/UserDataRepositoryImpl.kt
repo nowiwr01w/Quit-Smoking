@@ -1,23 +1,23 @@
 package com.nowiwr01.data.repository
 
 import com.nowiwr01.basecoroutines.DispatchersProvider
-import com.nowiwr01.domain.model.error.auth.UserHighlightType
-import com.nowiwr01.domain.model.error.auth.UserHighlightType.*
 import com.nowiwr01.domain.model.error.auth.SignInError
-import com.nowiwr01.domain.model.error.auth.SignInError.SignInEmptyFieldError
-import com.nowiwr01.domain.model.error.auth.SignInError.SignInInvalidEmailError
+import com.nowiwr01.domain.model.error.auth.SignInError.*
 import com.nowiwr01.domain.model.error.auth.SignUpError
 import com.nowiwr01.domain.model.error.auth.SignUpError.*
+import com.nowiwr01.domain.model.error.auth.UserHighlightType
+import com.nowiwr01.domain.model.error.auth.UserHighlightType.*
 import com.nowiwr01.domain.model.user.UserDataSignIn
 import com.nowiwr01.domain.model.user.UserDataSignUp
 import com.nowiwr01.domain.repository.UserDataRepository
-import com.nowiwr01.domain.utils.extensions.hasUpperChar
-import com.nowiwr01.domain.utils.extensions.isLongPassword
-import com.nowiwr01.domain.utils.extensions.isValidEmail
+import com.nowiwr01.domain.validators.EmailValidator
+import com.nowiwr01.domain.validators.PasswordValidator
 import kotlinx.coroutines.withContext
 
 class UserDataRepositoryImpl(
-    private val dispatchers: DispatchersProvider
+    private val dispatchers: DispatchersProvider,
+    private val emailValidator: EmailValidator,
+    private val passwordValidator: PasswordValidator
 ): UserDataRepository {
 
     override suspend fun isSignInDataValid(userData: UserDataSignIn): SignInError? = withContext(dispatchers.io) {
@@ -29,8 +29,11 @@ class UserDataRepositoryImpl(
         if (emptyFieldsList.isNotEmpty()) {
             return@withContext SignInEmptyFieldError(emptyFieldsList)
         }
-        if (!userData.email.isValidEmail()) {
+        if (!emailValidator.validate(userData.email)) {
             return@withContext SignInInvalidEmailError()
+        }
+        if (!passwordValidator.validate(userData.password)) {
+            return@withContext SignInIncorrectPasswordError()
         }
 
         null
@@ -47,17 +50,15 @@ class UserDataRepositoryImpl(
         if (emptyFieldsList.isNotEmpty()) {
             return@withContext SignUpEmptyFieldError(emptyFieldsList)
         }
-        if (!userData.email.isValidEmail()) {
+        println("userData.email = ${userData.email}, emailValidator.validate(userData.email) = ${emailValidator.validate(userData.email)}")
+        if (!emailValidator.validate(userData.email)) {
             return@withContext SignUpInvalidEmailError()
+        }
+        if (!passwordValidator.validate(userData.password) || !passwordValidator.validate(userData.passwordRepeated)) {
+            return@withContext SignUpIncorrectPasswordError()
         }
         if (userData.password != userData.passwordRepeated) {
             return@withContext SignUpNotEqualPasswordError()
-        }
-        if (!userData.password.isLongPassword()) {
-            return@withContext SignUpShortPasswordError()
-        }
-        if (!userData.password.hasUpperChar()) {
-            return@withContext SignUpWeakPasswordError()
         }
 
         null

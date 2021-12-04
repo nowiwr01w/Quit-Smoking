@@ -20,12 +20,7 @@ sealed class SignUpError: AuthError {
         override val message = "Неверный формат электронной почты"
     }
 
-    class SignUpWeakPasswordError: SignUpError() {
-        override val list = listOf(PASSWORD_FIELD_ERROR,PASSWORD_AGAIN_FIELD_ERROR)
-        override val message = "Пароль должен содежрать хотя бы одну заглавную букву"
-    }
-
-    class SignUpShortPasswordError: SignUpError() {
+    class SignUpIncorrectPasswordError: SignUpError() {
         override val list = listOf(PASSWORD_FIELD_ERROR, PASSWORD_AGAIN_FIELD_ERROR)
         override val message = "Пароль должен содежрать не менее 8 символов"
     }

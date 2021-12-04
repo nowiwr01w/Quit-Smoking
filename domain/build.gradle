@@ -39,8 +39,6 @@ dependencies {
     implementation deps.timber
 
     // Coroutines
-    implementation deps.coroutines
-    implementation deps.coroutines_android
     implementation deps.coroutines_play_service
 
     // Room
@@ -65,10 +63,5 @@ dependencies {
     implementation deps.facebook
     implementation deps.appmetric
 
-    // Testing
-    testImplementation deps.junit
-    testImplementation deps.mockito_core
-    testImplementation deps.mockito_inline
-    testImplementation deps.mockito_to_kotlin
-    testImplementation deps.google_truth
+    testImplementation project(path: ':baseTest')
 }

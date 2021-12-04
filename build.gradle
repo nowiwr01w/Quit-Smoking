@@ -16,6 +16,26 @@ buildscript {
     }
 }
 
+allprojects {
+    subprojects {
+        afterEvaluate { project ->
+            if (project.hasProperty("android")) {
+                android {
+                    testOptions {
+                        unitTests {
+                            includeAndroidResources = true
+                            returnDefaultValues = true
+                        }
+                        unitTests.all {
+                            useJUnitPlatform()
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

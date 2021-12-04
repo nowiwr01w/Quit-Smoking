@@ -10,7 +10,7 @@ import org.koin.androidx.scope.ScopeFragment
 
 abstract class BaseFragment(private val layoutResId: Int): ScopeFragment(layoutResId) {
 
-    protected val baseActivity: MainActivity
+    val baseActivity: MainActivity
         get() = activity as MainActivity
 
     private var curView: View? = null

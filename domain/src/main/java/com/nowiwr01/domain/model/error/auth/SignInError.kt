@@ -1,8 +1,6 @@
 package com.nowiwr01.domain.model.error.auth
 
-import com.nowiwr01.domain.model.error.auth.UserHighlightType.EMAIL_FIELD_ERROR
-import com.nowiwr01.domain.model.error.auth.AuthError
-import com.nowiwr01.domain.model.error.auth.UserHighlightType
+import com.nowiwr01.domain.model.error.auth.UserHighlightType.*
 import com.nowiwr01.domain.utils.extensions.getFieldNames
 
 sealed class SignInError: AuthError {
@@ -18,6 +16,11 @@ sealed class SignInError: AuthError {
     class SignInInvalidEmailError: SignInError() {
         override val list = listOf(EMAIL_FIELD_ERROR)
         override val message = "Неверный формат электронной почты"
+    }
+
+    class SignInIncorrectPasswordError: SignInError() {
+        override val list = listOf(PASSWORD_FIELD_ERROR, PASSWORD_AGAIN_FIELD_ERROR)
+        override val message = "Пароль должен содежрать не менее 8 символов"
     }
 
     data class SignInEmptyFieldError(

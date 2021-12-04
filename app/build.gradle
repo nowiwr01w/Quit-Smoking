@@ -68,7 +68,6 @@ dependencies {
     implementation project(path: ':data')
     implementation project(path: ':domain')
     implementation project(path: ':baseCoroutines')
-    testImplementation project(path: ':baseTest')
 
     // Base
     implementation deps.core_ktx
@@ -102,8 +101,6 @@ dependencies {
     implementation deps.koin_android_ext
 
     // Coroutines
-    implementation deps.coroutines
-    implementation deps.coroutines_android
     implementation deps.coroutines_play_service
 
     // Room
@@ -128,11 +125,6 @@ dependencies {
     implementation deps.facebook
     implementation deps.appmetric
 
-    // Testing
-    testImplementation deps.junit
-    testImplementation deps.mockito_core
-    testImplementation deps.mockito_inline
-    testImplementation deps.mockito_to_kotlin
-    testImplementation deps.google_truth
+    testImplementation project(path: ':baseTest')
 }
 

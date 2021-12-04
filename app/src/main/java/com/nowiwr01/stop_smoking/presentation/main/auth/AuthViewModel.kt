@@ -83,7 +83,7 @@ class AuthViewModel(
         }
     }
 
-    private fun showProgress(show: Boolean) {
+    fun showProgress(show: Boolean) {
         progress.postValue(show)
     }
 
