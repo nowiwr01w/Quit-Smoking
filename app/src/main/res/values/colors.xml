@@ -13,9 +13,11 @@
     <color name="text_color">#ffffff</color>
     <color name="background_color">@color/purple_700</color>
 
-    <color name="star_small_color">#ffc107</color>
-    <color name="star_medium_color">#ff5e3a</color>
-    <color name="star_big_color">#d50000</color>
+    <color name="star_days_color">#ffc107</color>
+    <color name="star_weeks_color">#ff5e3a</color>
+    <color name="star_month_under_6_color">#d50000</color>
+    <color name="star_month_above_6_color">#1C8920</color>
+    <color name="star_years_color">#1565C0</color>
 
     <color name="snackBar_color">#EEEEEE</color>
 </resources>

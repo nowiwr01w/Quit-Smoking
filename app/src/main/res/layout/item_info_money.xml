@@ -21,7 +21,7 @@
         <TextView
             android:id="@+id/info_money_title"
             style="@style/Text.MainInfo.Medium"
-            android:text="Сэкономленно денег"
+            android:text="@string/saved_money"
             app:layout_constraintBottom_toBottomOf="@id/info_money_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/info_money_icon"
@@ -57,7 +57,7 @@
             android:id="@+id/info_money_value_description"
             style="@style/Text.Medium"
             android:layout_marginStart="8dp"
-            android:text="рублей"
+            android:text="rubs"
             app:layout_constraintBaseline_toBaselineOf="@id/info_money_value"
             app:layout_constraintBottom_toBottomOf="@id/info_money_value"
             app:layout_constraintStart_toEndOf="@id/info_money_value" />

@@ -6,7 +6,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.nowiwr01.domain.model.user.User
 import com.nowiwr01.stop_smoking.R
 import com.nowiwr01.stop_smoking.databinding.FragmentMainBinding
-import com.nowiwr01.stop_smoking.model.Star
+import com.nowiwr01.domain.model.user.smoke_info.Star
 import com.nowiwr01.stop_smoking.model.adapters.StarAdapter
 import com.nowiwr01.stop_smoking.presentation.base.BaseFragment
 import com.nowiwr01.stop_smoking.presentation.main.home.bottom_sheet.InfoBottomSheet.Companion.TYPE_FREE_TIME
@@ -28,7 +28,6 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
 
     override fun setViews() {
         showBottomBar()
-        setRecyclerView()
         controller.manageProgressBar(true)
     }
 
@@ -67,11 +66,13 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
 
     private suspend fun proceedUser(user: User) {
         with(controller) {
-            showTimer(user)
+            showTimer(context, user)
+            showStars(user)
             showSavedMoney(user)
             showCravesCount(user)
-            showNotSmokedDays(user)
+            showNotSmokedDays(context, user)
             showNotSmokedCigarettes(user)
+            showLastHealthItem(context, user)
             manageProgressBar(false)
         }
     }
@@ -79,14 +80,6 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     private fun showInfo(type: String) {
         navigator.toInfo(type)
     }
-
-    private fun setRecyclerView() {
-        binding.starsRecycler.adapter = StarAdapter(getStars())
-    }
-
-    private fun getStars() = listOf(
-        Star(), Star(), Star(), Star(), Star()
-    )
 
     override fun onBackPressed() {
         val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {

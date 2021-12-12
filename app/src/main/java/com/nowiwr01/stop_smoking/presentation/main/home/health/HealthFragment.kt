@@ -29,7 +29,7 @@ class HealthFragment: BaseFragment(R.layout.fragment_health) {
 
     private fun setRecyclerView(user: User) {
         binding.healthRecycler.adapter = HealthAdapter(
-            HealthBuilder.buildHealthList(context),
+            HealthBuilder.getHealthList(context),
             user.smokeInfo
         )
     }

@@ -53,7 +53,7 @@
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_smoking_info.xml" value="0.2616120218579235" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/fragment_start_smoking_info.xml" value="0.2616120218579235" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_currency.xml" value="0.2616120218579235" />
-        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_health.xml" value="0.5" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_health.xml" value="0.18" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_info.xml" value="0.22" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_info_free_time.xml" value="0.2" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_info_money.xml" value="0.25" />
@@ -62,7 +62,9 @@
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_star.xml" value="0.24521857923497267" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_star_big.xml" value="0.24521857923497267" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_star_medium.xml" value="0.24521857923497267" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_star_month_above_6.xml" value="0.22165300546448088" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_star_small.xml" value="0.2421448087431694" />
+        <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/item_star_years.xml" value="0.22165300546448088" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/kayout_notification_bell.xml" value="0.5" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/layout_bottom_sheet_free_time.xml" value="0.23975409836065573" />
         <entry key="..\:/Github/dont-smoke-anymore/app/src/main/res/layout/layout_custom_snackbar.xml" value="0.22780054644808742" />

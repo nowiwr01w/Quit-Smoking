@@ -19,6 +19,8 @@ class UserViewModel(
 
     var isUserDataInit = false
 
+    suspend fun getStars(user: User) = userUseCase.getStars(user)
+
     suspend fun getSavedTime(user: User) = userUseCase.getSavedTime(user)
 
     suspend fun getSavedMoney(user: User) = userUseCase.getSavedMoney(user)

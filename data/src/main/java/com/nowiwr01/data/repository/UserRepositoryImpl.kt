@@ -5,10 +5,10 @@ import com.nowiwr01.basecoroutines.DispatchersProvider
 import com.nowiwr01.data.storage.LocalStorageDao
 import com.nowiwr01.domain.model.user.User
 import com.nowiwr01.domain.model.user.smoke_info.SmokeInfo
-import com.nowiwr01.domain.model.user.smoke_info.SmokeTime
 import com.nowiwr01.domain.repository.UserRepository
 import com.nowiwr01.domain.utils.Const.USERS_REFERENCE
 import com.nowiwr01.domain.utils.extensions.*
+import com.nowiwr01.domain.utils.smoke_info.*
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
@@ -18,20 +18,24 @@ class UserRepositoryImpl(
     private val dispatchers: DispatchersProvider
 ): UserRepository {
 
+    override suspend fun getStars(user: User) = withContext(dispatchers.io) {
+        UserStars.getStars(user)
+    }
+
     override suspend fun getSavedTime(user: User) = withContext(dispatchers.io) {
-        user.getSavedTime()
+        UserSavedTime.getSavedTime(user)
     }
 
     override suspend fun getSavedMoney(user: User) = withContext(dispatchers.io) {
-        user.getSavedMoney()
+        UserSavedMoney.getSavedMoney(user)
     }
 
     override suspend fun getNotSmokedPacks(user: User) = withContext(dispatchers.io) {
-        user.getNotSmokedPacks()
+        UserNotSmokedPacks.getNotSmokedPacks(user)
     }
 
     override suspend fun getTimerNotSmoked(user: User) = withContext(dispatchers.io) {
-        user.getTimerNotSmoked()
+        UserNotSmokedTimer.getTimerNotSmoked(user)
     }
 
     private fun getCurrentUser() = database
@@ -58,8 +62,9 @@ class UserRepositoryImpl(
 
     override suspend fun addValueEventListener(callback: (user: User) -> Unit) = withContext(dispatchers.io) {
         val userListener = createUserEventListener(callback)
-        val reference = getCurrentUser()
-        reference.addValueEventListener(userListener)
+        val reference = getCurrentUser().apply {
+            addValueEventListener(userListener)
+        }
         reference to userListener
     }
 }

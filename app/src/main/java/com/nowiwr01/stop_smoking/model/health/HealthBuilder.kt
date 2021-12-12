@@ -7,7 +7,7 @@ import com.nowiwr01.domain.utils.extensions.MILLIS_IN_MINUTE
 import com.nowiwr01.stop_smoking.R
 
 object HealthBuilder {
-    fun buildHealthList(context: Context) =  listOf(
+    fun getHealthList(context: Context) =  listOf(
         HealthItem(
             context.getString(R.string.health_20_min_title),
             context.getString(R.string.health_20_min),

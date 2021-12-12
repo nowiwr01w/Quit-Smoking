@@ -101,6 +101,7 @@
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="16dp"
                 android:gravity="center"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/guideline_85"
                 app:layout_constraintStart_toEndOf="@id/guideline_15"
@@ -113,6 +114,7 @@
                     android:layout_gravity="center"
                     android:nestedScrollingEnabled="false"
                     android:orientation="horizontal"
+                    android:visibility="gone"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
             </LinearLayout>
@@ -179,7 +181,7 @@
                     style="@style/Text.Medium"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="16dp"
-                    android:text="Я не курю уже"
+                    android:text="@string/dont_smoke_timer_title"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -275,7 +277,7 @@
 
         <include
             android:id="@+id/health_layout"
-            layout="@layout/layout_health_item"/>
+            layout="@layout/layout_health_item" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
@@ -284,6 +286,7 @@
             android:layout_marginBottom="8dp"
             android:background="@drawable/bg_subscribe_banner"
             android:elevation="16dp"
+            android:paddingBottom="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/health_layout"
             app:layout_constraintStart_toStartOf="@id/health_layout"
@@ -294,7 +297,7 @@
                 style="@style/Text.MainInfo.Medium"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:text="Давай увеличим шансы бросить курить в несколько раз?"
+                android:text="@string/upgrade_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -308,7 +311,7 @@
                 android:fontFamily="@font/roboto"
                 android:lineSpacingExtra="4dp"
                 android:padding="16dp"
-                android:text="Зачем нужна платная подписка и что она даёт?"
+                android:text="@string/upgrade_title_why"
                 android:textAllCaps="false"
                 android:textSize="14sp"
                 app:cornerRadius="8dp"
@@ -318,41 +321,50 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/subscribe_week"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
                 android:layout_marginBottom="12dp"
                 android:backgroundTint="@color/background_color"
                 android:fontFamily="@font/roboto"
-                android:lineSpacingExtra="4dp"
                 android:padding="16dp"
-                android:text="199 рублей в неделю"
+                android:text="@string/subscribe_week"
                 android:textAllCaps="false"
                 android:textSize="14sp"
                 app:cornerRadius="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/guideline_sub_50"
-                app:layout_constraintStart_toStartOf="@id/subscribe_to_faq"
                 app:layout_constraintTop_toBottomOf="@id/subscribe_to_faq" />
-
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/subscribe_month"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:backgroundTint="@color/background_color"
                 android:fontFamily="@font/roboto"
-                android:lineSpacingExtra="4dp"
                 android:padding="16dp"
-                android:text="512 рублей в месяц"
+                android:text="@string/subscribe_month"
                 android:textAllCaps="false"
                 android:textSize="14sp"
                 app:cornerRadius="8dp"
                 app:layout_constraintBottom_toBottomOf="@id/subscribe_week"
-                app:layout_constraintEnd_toEndOf="@id/subscribe_to_faq"
                 app:layout_constraintStart_toEndOf="@id/guideline_sub_50"
                 app:layout_constraintTop_toTopOf="@id/subscribe_week" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/subscribe_once"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/background_color"
+                android:fontFamily="@font/roboto"
+                android:padding="16dp"
+                android:text="@string/subscribe_once"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:cornerRadius="8dp"
+                app:layout_constraintEnd_toEndOf="@id/subscribe_month"
+                app:layout_constraintStart_toStartOf="@id/subscribe_week"
+                app:layout_constraintTop_toBottomOf="@id/subscribe_week" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_sub_50"

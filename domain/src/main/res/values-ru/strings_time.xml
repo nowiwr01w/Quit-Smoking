@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="seconds">секунд</string>
+    <string name="minutes">минут</string>
+    <string name="hours">часов</string>
+    <string name="days">дней</string>
+    <string name="weeks">недель</string>
+    <string name="months">месяцев</string>
+    <string name="years">лет</string>
+
+    <string name="seconds_short">сек.</string>
+    <string name="minutes_short">мин.</string>
+    <string name="hours_short">ч.</string>
+    <string name="days_short">д.</string>
+    <string name="weeks_short">н.</string>
+    <string name="months_short">мес.</string>
+    <string name="years_short">г.</string>
+
+</resources>

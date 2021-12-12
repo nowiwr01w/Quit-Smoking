@@ -1,9 +1,13 @@
 package com.nowiwr01.stop_smoking.presentation.main.home
 
+import android.content.Context
 import androidx.core.view.isVisible
 import com.nowiwr01.domain.model.user.User
 import com.nowiwr01.domain.model.user.smoke_info.SmokeTime
+import com.nowiwr01.domain.model.user.smoke_info.Star
 import com.nowiwr01.stop_smoking.databinding.FragmentMainBinding
+import com.nowiwr01.stop_smoking.model.adapters.StarAdapter
+import com.nowiwr01.stop_smoking.model.health.HealthBuilder
 
 class HomeViewsController(
     private val binding: FragmentMainBinding,
@@ -25,23 +29,37 @@ class HomeViewsController(
         binding.infoMoney.infoMoneyValueDescription.text = savedMoney.second
     }
 
-    suspend fun showNotSmokedDays(user: User) {
+    suspend fun showNotSmokedDays(context: Context, user: User) {
         val savedTime = viewModel.getSavedTime(user)
         binding.infoFreeTime.infoFreeTimeValue.text = savedTime.first
-        binding.infoFreeTime.infoFreeTimeValueDescription.text = savedTime.second
+        binding.infoFreeTime.infoFreeTimeValueDescription.text = context.getString(savedTime.second)
     }
 
-    suspend fun showTimer(user: User) {
+    suspend fun showTimer(context: Context, user: User) {
         val time = viewModel.getTimerNotSmoked(user)
-        showTimerTime(time)
+        showTimerTime(context, time)
     }
 
-    private fun showTimerTime(time: SmokeTime) {
+    suspend fun showStars(user: User) {
+        val stars = viewModel.getStars(user)
+        setRecyclerStars(stars)
+    }
+
+    private fun setRecyclerStars(stars: List<Star>) {
+        with(binding) {
+            starsRecycler.apply {
+                isVisible = if (stars.isNotEmpty()) true else return
+                adapter = StarAdapter(stars)
+            }
+        }
+    }
+
+    private fun showTimerTime(context: Context, time: SmokeTime) {
         with (binding) {
-            timer.firstTitle.text = time.first.first
-            timer.secondTitle.text = time.second.first
-            timer.thirdTitle.text = time.third.first
-            timer.fourthTitle.text = time.fourth.first
+            timer.firstTitle.text = context.getString(time.first.first)
+            timer.secondTitle.text = context.getString(time.second.first)
+            timer.thirdTitle.text = context.getString(time.third.first)
+            timer.fourthTitle.text = context.getString(time.fourth.first)
 
             timer.firstCount.text = time.first.second
             timer.secondCount.text = time.second.second
@@ -104,5 +122,14 @@ class HomeViewsController(
         }
 
         viewModel.isUserDataInit = !showShimmer
+    }
+
+    fun showLastHealthItem(context: Context, user: User) {
+        val healthList = HealthBuilder.getHealthList(context)
+        val healthItem = healthList.find {
+            it.progress >= System.currentTimeMillis() - user.smokeInfo.breakDate
+        } ?: healthList.last()
+        binding.healthLayout.healthText.text = healthItem.title
+        binding.healthLayout.healthProgress.setProgressWithAnimation(healthItem.progress.toFloat(), 1000L)
     }
 }

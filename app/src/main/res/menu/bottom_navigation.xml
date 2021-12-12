@@ -7,7 +7,7 @@
     <item
         android:id="@+id/desire"
         android:icon="@drawable/ic_desire"
-        android:title="@string/title_desire" />
+        android:title="@string/title_crave" />
     <item
         android:id="@+id/notes"
         android:icon="@drawable/ic_notes"

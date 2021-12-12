@@ -15,6 +15,8 @@ class UserUseCase(
     private val userRepository: UserRepository
 ) {
 
+    suspend fun getStars(user: User) = userRepository.getStars(user)
+
     suspend fun getSavedTime(user: User) = userRepository.getSavedTime(user)
 
     suspend fun getSavedMoney(user: User) = userRepository.getSavedMoney(user)

@@ -51,7 +51,7 @@
         android:id="@+id/first_title"
         style="@style/Text.Small"
         android:layout_marginEnd="16dp"
-        android:text="дней"
+        android:text="@string/days"
         app:layout_constraintEnd_toStartOf="@+id/second_title"
         app:layout_constraintTop_toBottomOf="@id/guideline_70" />
 
@@ -104,7 +104,7 @@
         android:id="@+id/second_title"
         style="@style/Text.Small"
         android:layout_marginEnd="8dp"
-        android:text="часов"
+        android:text="@string/hours"
         app:layout_constraintEnd_toStartOf="@+id/guideline_50"
         app:layout_constraintTop_toBottomOf="@id/guideline_70" />
 
@@ -157,7 +157,7 @@
         android:id="@+id/third_title"
         style="@style/Text.Small"
         android:layout_marginStart="8dp"
-        android:text="минут"
+        android:text="@string/minutes"
         app:layout_constraintStart_toEndOf="@+id/guideline_50"
         app:layout_constraintTop_toBottomOf="@id/guideline_70" />
 
@@ -210,7 +210,7 @@
         android:id="@+id/fourth_title"
         style="@style/Text.Small"
         android:layout_marginStart="16dp"
-        android:text="секунд"
+        android:text="@string/seconds"
         app:layout_constraintStart_toEndOf="@+id/third_title"
         app:layout_constraintTop_toBottomOf="@id/guideline_70" />
 

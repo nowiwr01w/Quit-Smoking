@@ -21,7 +21,7 @@
         <TextView
             android:id="@+id/info_not_smoked_title"
             style="@style/Text.MainInfo.Medium"
-            android:text="Невыкуренных пачек"
+            android:text="@string/not_smoked_packs"
             app:layout_constraintBottom_toBottomOf="@id/info_not_smoked_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/info_not_smoked_icon"
@@ -57,7 +57,7 @@
             android:id="@+id/info_not_smoked_value_description"
             style="@style/Text.Medium"
             android:layout_marginStart="8dp"
-            android:text="пачек"
+            android:text="@string/packs"
             app:layout_constraintBaseline_toBaselineOf="@id/info_not_smoked_value"
             app:layout_constraintBottom_toBottomOf="@id/info_not_smoked_value"
             app:layout_constraintStart_toEndOf="@id/info_not_smoked_value" />

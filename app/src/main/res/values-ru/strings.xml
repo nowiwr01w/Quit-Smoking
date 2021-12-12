@@ -1,31 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Stop smoking</string>
-
-    <!-- API -->
-    <integer name="com_vk_sdk_AppId">7983610</integer>
-    <string name="facebook_app_id" translatable="false">587827365775449</string>
-    <string name="fb_login_protocol_scheme" translatable="false">fb587827365775449</string>
 
     <!-- BottomNavigation titles-->
-    <string name="title_home">Home</string>
-    <string name="title_crave">Crave</string>
-    <string name="title_notes">Notes</string>
-    <string name="title_chat">Chat</string>
+    <string name="title_home">Дом</string>
+    <string name="title_crave">Тяга</string>
+    <string name="title_notes">Дневник</string>
+    <string name="title_chat">Чат</string>
 
     <!-- Home info titles-->
-    <string name="health">Health</string>
-    <string name="saved_money">Saved money</string>
-    <string name="not_smoked_time">Time without smoking</string>
-    <string name="not_smoked_packs">Packs not smoked</string>
-    <string name="strong_desire">Craving resisted</string>
-    <string name="dont_smoke_timer_title">I have not smoked for</string>
-    <string name="packs">packs</string>
-    <string name="times">times</string>
-    <string name="upgrade_title">Upgrade to PRO and double your chances to quit</string>
-    <string name="upgrade_title_why">Why upgrade?</string>
-    <string name="subscribe_week">69 rub per week</string>
-    <string name="subscribe_month">169 rub per month</string>
-    <string name="subscribe_once">299 rub once</string>
+    <string name="health">Здоровье</string>
+    <string name="saved_money">Сэкономленно денег</string>
+    <string name="not_smoked_time">Времени без курения</string>
+    <string name="not_smoked_packs">Невыкуренных пачек</string>
+    <string name="dont_smoke_timer_title">Я не курю уже</string>
+    <string name="strong_desire">Не поддались зависимости</string>
+    <string name="packs">пачек</string>
+    <string name="times">раз</string>
+    <string name="upgrade_title">Обновись до PRO и увеличь свои шансы бросить курить в 2 раза</string>
+    <string name="upgrade_title_why">Зачем нужна подписка?</string>
+    <string name="subscribe_week">69 р. в неделю</string>
+    <string name="subscribe_month">169 р. в месяц</string>
+    <string name="subscribe_once">299 р. - навсегда</string>
 
     <!-- Info BottomSheet text-->
     <string name="info_what_does_it_mean_title">Что это значит?</string>
@@ -64,5 +59,6 @@
     <string name="health_4_days">Достигнут пик абстинентного синдрома. Если ты добрался до сюда, ты - молодец! Нормализуется кровообращение. Слизистая желудка начинает восстанавливаться. Возможно усиление влажного кашля с отхождением мокроты.</string>
     <string name="health_5_days">Улучшается работа вкусовых рецепторов, вкус пищи становится насыщеннее. Тонус кровеносных сосудов приближается к нормальному уровню.</string>
     <string name="health_8_days">Оживают обонятельные и вкусовые рецепторы, поэтому пища приобретает нормальный вкус и запах, повышается аппетит.</string>
+
 
 </resources>

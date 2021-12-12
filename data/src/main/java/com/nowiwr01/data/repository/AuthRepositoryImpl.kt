@@ -84,6 +84,6 @@ class AuthRepositoryImpl(
 
     companion object {
         const val TYPE_OLD_USER = "login"
-        const val TYPE_NEW_USER = "registration"
+        const val TYPE_NEW_USER = "registr"
     }
 }

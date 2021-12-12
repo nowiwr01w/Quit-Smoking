@@ -21,7 +21,7 @@
         <TextView
             android:id="@+id/info_free_time_title"
             style="@style/Text.MainInfo.Medium"
-            android:text="Времени без курения"
+            android:text="@string/not_smoked_time"
             app:layout_constraintBottom_toBottomOf="@id/info_free_time_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/info_free_time_icon"
@@ -57,7 +57,7 @@
             android:id="@+id/info_free_time_value_description"
             style="@style/Text.Medium"
             android:layout_marginStart="8dp"
-            android:text="дней"
+            android:text="d."
             app:layout_constraintBaseline_toBaselineOf="@id/info_free_time_value"
             app:layout_constraintBottom_toBottomOf="@id/info_free_time_value"
             app:layout_constraintStart_toEndOf="@id/info_free_time_value" />
